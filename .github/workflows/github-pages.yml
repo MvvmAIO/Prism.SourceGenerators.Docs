@@ -1,0 +1,80 @@
+# Publishes this Blazor WebAssembly project to GitHub Pages.
+# Settings -> Pages: Source = GitHub Actions
+
+name: GitHub Pages
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      base_path:
+        description: "Override base path (default: /<repository>/)."
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+      - name: Publish Blazor WebAssembly
+        run: >-
+          dotnet publish "Prism.SourceGenerators.Docs.csproj"
+          -c Release
+          -o "${{ github.workspace }}/gh-pages-publish"
+      - name: Patch base href and SPA fallback
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          WWWROOT="${GITHUB_WORKSPACE}/gh-pages-publish/wwwroot"
+          if [[ ! -f "${WWWROOT}/index.html" ]]; then
+            echo "Missing ${WWWROOT}/index.html"
+            exit 1
+          fi
+          INPUT_BASE="${{ inputs.base_path }}"
+          if [[ -n "${INPUT_BASE}" ]]; then
+            BASE="${INPUT_BASE}"
+            [[ "${BASE}" == */ ]] || BASE="${BASE}/"
+            [[ "${BASE}" == /* ]] || BASE="/${BASE}"
+          else
+            BASE="/${{ github.event.repository.name }}/"
+          fi
+          sed -i "s|<base href=\"/\" />|<base href=\"${BASE}\" />|g" "${WWWROOT}/index.html"
+          cp "${WWWROOT}/index.html" "${WWWROOT}/404.html"
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh-pages-publish/wwwroot
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

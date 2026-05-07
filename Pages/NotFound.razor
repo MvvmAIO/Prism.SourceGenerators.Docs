@@ -1,0 +1,10 @@
+@page "/not-found"
+@layout MainLayout
+@using Prism.SourceGenerators.Docs.Services
+@inject LocalizationService Loc
+
+<PageTitle>@Loc.T("notFound.title")</PageTitle>
+
+<h1 class="h3 mb-3">@Loc.T("notFound.title")</h1>
+<p class="text-muted">@Loc.T("notFound.body")</p>
+<a class="btn btn-primary" href="">@Loc.T("nav.home")</a>
