@@ -13,7 +13,8 @@
     "openDeepWiki": "DeepWiki（AI インデックス）",
     "openNuGet": "NuGet パッケージ",
     "language": "言語",
-    "navigationMenu": "ナビゲーションを開く"
+    "navigationMenu": "ナビゲーションを開く",
+    "toggleSidebar": "サイドバーを展開または折りたたむ"
   },
   "home": {
     "pageTitle": "概要 — Prism.SourceGenerators",

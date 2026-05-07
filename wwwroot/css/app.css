@@ -103,6 +103,12 @@ h1:focus {
 
 .docs-mud-drawer .mud-drawer-content {
     background: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .docs-drawer-header {

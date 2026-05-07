@@ -13,7 +13,8 @@
     "openDeepWiki": "DeepWiki（AI 索引文档）",
     "openNuGet": "NuGet 包",
     "language": "语言",
-    "navigationMenu": "打开导航菜单"
+    "navigationMenu": "打开导航菜单",
+    "toggleSidebar": "展开或收起左侧导航栏"
   },
   "home": {
     "pageTitle": "概览 — Prism.SourceGenerators",

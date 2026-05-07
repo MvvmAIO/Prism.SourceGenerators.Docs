@@ -13,7 +13,8 @@
     "openDeepWiki": "DeepWiki (AI-generated docs)",
     "openNuGet": "NuGet package",
     "language": "Language",
-    "navigationMenu": "Open navigation menu"
+    "navigationMenu": "Open navigation menu",
+    "toggleSidebar": "Expand or collapse the navigation sidebar"
   },
   "home": {
     "pageTitle": "Overview — Prism.SourceGenerators",
