@@ -2,62 +2,17 @@
 @using Prism.SourceGenerators.Docs.Services
 @inject LocalizationService Loc
 
-<div class="top-row ps-3 navbar navbar-dark border-bottom border-secondary border-opacity-25">
-    <div class="container-fluid flex-column align-items-stretch py-2">
-        <div class="d-flex align-items-center justify-content-between">
-            <a class="navbar-brand fw-semibold mb-0" href="">@Loc.T("common.siteTitle")</a>
-            <button title="Navigation menu" type="button" class="navbar-toggler" @onclick="ToggleNavMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="small text-white-50 mt-1">@Loc.T("common.siteSubtitle")</div>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="nav flex-column py-2">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="docs-nav-dot" aria-hidden="true"></span>@Loc.T("nav.home")
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="getting-started">
-                <span class="docs-nav-dot" aria-hidden="true"></span>@Loc.T("nav.gettingStarted")
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="generators">
-                <span class="docs-nav-dot" aria-hidden="true"></span>@Loc.T("nav.generators")
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="reference">
-                <span class="docs-nav-dot" aria-hidden="true"></span>@Loc.T("nav.reference")
-            </NavLink>
-        </div>
-    </nav>
-</div>
+<MudNavMenu Rounded="true" Margin="Margin.Dense" Class="pa-2">
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">@Loc.T("nav.home")</MudNavLink>
+    <MudNavLink Href="getting-started" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.RocketLaunch">@Loc.T("nav.gettingStarted")</MudNavLink>
+    <MudNavLink Href="generators" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AutoAwesome">@Loc.T("nav.generators")</MudNavLink>
+    <MudNavLink Href="reference" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.MenuBook">@Loc.T("nav.reference")</MudNavLink>
+</MudNavMenu>
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    protected override void OnInitialized()
-    {
-        Loc.CultureChanged += OnCultureChanged;
-    }
+    protected override void OnInitialized() => Loc.CultureChanged += OnCultureChanged;
 
     private void OnCultureChanged() => InvokeAsync(StateHasChanged);
 
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-
-    public void Dispose()
-    {
-        Loc.CultureChanged -= OnCultureChanged;
-    }
+    public void Dispose() => Loc.CultureChanged -= OnCultureChanged;
 }

@@ -5,6 +5,9 @@
 
 <PageTitle>@Loc.T("notFound.title")</PageTitle>
 
-<h1 class="h3 mb-3">@Loc.T("notFound.title")</h1>
-<p class="text-muted">@Loc.T("notFound.body")</p>
-<a class="btn btn-primary" href="">@Loc.T("nav.home")</a>
+<MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Class="mb-4">
+    <MudText Typo="Typo.h6" Class="mb-2">@Loc.T("notFound.title")</MudText>
+    <MudText Typo="Typo.body2">@Loc.T("notFound.body")</MudText>
+</MudAlert>
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" Href="">@Loc.T("nav.home")</MudButton>

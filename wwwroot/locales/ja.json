@@ -12,7 +12,8 @@
     "openSamples": "サンプルアプリ",
     "openDeepWiki": "DeepWiki（AI インデックス）",
     "openNuGet": "NuGet パッケージ",
-    "language": "言語"
+    "language": "言語",
+    "navigationMenu": "ナビゲーションを開く"
   },
   "home": {
     "pageTitle": "概要 — Prism.SourceGenerators",

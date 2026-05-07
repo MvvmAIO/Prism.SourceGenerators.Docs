@@ -12,7 +12,8 @@
     "openSamples": "Sample apps",
     "openDeepWiki": "DeepWiki (AI-generated docs)",
     "openNuGet": "NuGet package",
-    "language": "Language"
+    "language": "Language",
+    "navigationMenu": "Open navigation menu"
   },
   "home": {
     "pageTitle": "Overview — Prism.SourceGenerators",

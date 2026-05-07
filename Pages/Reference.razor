@@ -4,29 +4,35 @@
 
 <PageTitle>@Loc.T("reference.pageTitle")</PageTitle>
 
-<h1 class="mb-3">@Loc.T("reference.title")</h1>
-<p class="lead text-muted">@Loc.T("reference.lead")</p>
+<MudText Typo="Typo.h4" Class="mb-2">@Loc.T("reference.title")</MudText>
+<MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-6">@Loc.T("reference.lead")</MudText>
 
-<div class="row g-4 mt-2">
-    <div class="col-md-4">
-        <div class="docs-panel p-4 rounded-3 border h-100 d-flex flex-column">
-            <h2 class="h5 mb-3">@Loc.T("reference.cardWikiTitle")</h2>
-            <p class="flex-grow-1">@Loc.T("reference.cardWikiBody")</p>
-            <a class="btn btn-primary" href="https://deepwiki.com/MvvmAIO/Prism.SourceGenerators" target="_blank" rel="noopener noreferrer">DeepWiki</a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="docs-panel p-4 rounded-3 border h-100 d-flex flex-column">
-            <h2 class="h5 mb-3">@Loc.T("reference.cardGitHubTitle")</h2>
-            <p class="flex-grow-1">@Loc.T("reference.cardGitHubBody")</p>
-            <a class="btn btn-outline-primary" href="https://github.com/MvvmAIO/Prism.SourceGenerators" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="docs-panel p-4 rounded-3 border h-100 d-flex flex-column">
-            <h2 class="h5 mb-3">@Loc.T("reference.cardSamplesTitle")</h2>
-            <p class="flex-grow-1">@Loc.T("reference.cardSamplesBody")</p>
-            <a class="btn btn-outline-secondary" href="https://github.com/MvvmAIO/Prism.SourceGenerators.Samples" target="_blank" rel="noopener noreferrer">Samples</a>
-        </div>
-    </div>
-</div>
+<MudGrid Spacing="4">
+    <MudItem xs="12" md="4">
+        <MudCard Class="h-100" Elevation="0" Outlined="true">
+            <MudCardContent>
+                <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("reference.cardWikiTitle")</MudText>
+                <MudText Typo="Typo.body2" Class="mb-4">@Loc.T("reference.cardWikiBody")</MudText>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Href="https://deepwiki.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer">DeepWiki</MudButton>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" md="4">
+        <MudCard Class="h-100" Elevation="0" Outlined="true">
+            <MudCardContent>
+                <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("reference.cardGitHubTitle")</MudText>
+                <MudText Typo="Typo.body2" Class="mb-4">@Loc.T("reference.cardGitHubBody")</MudText>
+                <MudButton Variant="Variant.Outlined" Color="Color.Primary" FullWidth="true" Href="https://github.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer">GitHub</MudButton>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" md="4">
+        <MudCard Class="h-100" Elevation="0" Outlined="true">
+            <MudCardContent>
+                <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("reference.cardSamplesTitle")</MudText>
+                <MudText Typo="Typo.body2" Class="mb-4">@Loc.T("reference.cardSamplesBody")</MudText>
+                <MudButton Variant="Variant.Outlined" Color="Color.Default" FullWidth="true" Href="https://github.com/MvvmAIO/Prism.SourceGenerators.Samples" Target="_blank" rel="noopener noreferrer">Samples</MudButton>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
