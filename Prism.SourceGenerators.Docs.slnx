@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path=".github/workflows/github-pages.yml" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Prism.SourceGenerators.Docs.csproj" Id="a8f3c2d1-4e5b-6a7c-8d9e-0f1a2b3c4d5e" />
+</Solution>

@@ -4,61 +4,116 @@
 
 <PageTitle>@Loc.T("home.pageTitle")</PageTitle>
 
-<MudPaper Elevation="3" Class="docs-hero pa-6 pa-sm-8 mb-6">
-    <MudText Typo="Typo.h4">@Loc.T("home.heroTitle")</MudText>
-    <MudText Typo="Typo.subtitle1" Class="mt-2 mud-opacity-90" Style="max-width: 52rem;">
+<MudPaper Elevation="0" Class="docs-hero pa-6 pa-sm-8 mb-6">
+    <div class="docs-pill-row mb-4">
+        <span class="docs-pill"><span class="material-icons" aria-hidden="true">auto_awesome</span>@Loc.T("home.pillRoslyn")</span>
+        <span class="docs-pill"><span class="material-icons" aria-hidden="true">bolt</span>@Loc.T("home.pillPrismMvvm")</span>
+        <span class="docs-pill"><span class="material-icons" aria-hidden="true">terminal</span>@Loc.T("home.pillCompileTime")</span>
+    </div>
+    <MudText Typo="Typo.h3" Class="docs-hero-title">@Loc.T("home.heroTitle")</MudText>
+    <MudText Typo="Typo.subtitle1" Class="docs-hero-lead mt-3">
         @Loc.T("home.heroLead")
     </MudText>
+    <MudStack Row="true" Spacing="2" Class="mt-5" AlignItems="AlignItems.Center">
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="getting-started" StartIcon="@Icons.Material.Filled.RocketLaunch">@Loc.T("nav.gettingStarted")</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Inherit" Href="generators" StartIcon="@Icons.Material.Filled.AutoAwesome">@Loc.T("nav.generators")</MudButton>
+    </MudStack>
 </MudPaper>
 
-<MudText Typo="Typo.h5" Class="mb-3">@Loc.T("home.sectionWhat")</MudText>
+<MudText Typo="Typo.h5" Class="docs-section-title mb-3">@Loc.T("home.sectionWhat")</MudText>
 <MudGrid Class="mb-6" Spacing="4">
     <MudItem xs="12" sm="6" md="3">
-        <MudCard Class="h-100 docs-feature-card" Elevation="0" Outlined="true">
+        <MudCard Class="docs-feature-card" Elevation="0">
             <MudCardContent>
-                <MudText Typo="Typo.overline" Color="Color.Secondary">Observable</MudText>
+                <div class="docs-card-icon mb-3"><span class="material-icons" aria-hidden="true">sync_alt</span></div>
+                <MudText Typo="Typo.overline" Color="Color.Secondary">@Loc.T("home.cardObservableTitle")</MudText>
                 <MudText Typo="Typo.body2">@Loc.T("home.whatObservable")</MudText>
             </MudCardContent>
         </MudCard>
     </MudItem>
     <MudItem xs="12" sm="6" md="3">
-        <MudCard Class="h-100 docs-feature-card" Elevation="0" Outlined="true">
+        <MudCard Class="docs-feature-card" Elevation="0">
             <MudCardContent>
-                <MudText Typo="Typo.overline" Color="Color.Secondary">Commands</MudText>
+                <div class="docs-card-icon mb-3"><span class="material-icons" aria-hidden="true">play_circle</span></div>
+                <MudText Typo="Typo.overline" Color="Color.Secondary">@Loc.T("home.cardCommandsTitle")</MudText>
                 <MudText Typo="Typo.body2">@Loc.T("home.whatCommands")</MudText>
             </MudCardContent>
         </MudCard>
     </MudItem>
     <MudItem xs="12" sm="6" md="3">
-        <MudCard Class="h-100 docs-feature-card" Elevation="0" Outlined="true">
+        <MudCard Class="docs-feature-card" Elevation="0">
             <MudCardContent>
-                <MudText Typo="Typo.overline" Color="Color.Secondary">Registration</MudText>
+                <div class="docs-card-icon mb-3"><span class="material-icons" aria-hidden="true">hub</span></div>
+                <MudText Typo="Typo.overline" Color="Color.Secondary">@Loc.T("home.cardRegistrationTitle")</MudText>
                 <MudText Typo="Typo.body2">@Loc.T("home.whatRegistration")</MudText>
             </MudCardContent>
         </MudCard>
     </MudItem>
     <MudItem xs="12" sm="6" md="3">
-        <MudCard Class="h-100 docs-feature-card" Elevation="0" Outlined="true">
+        <MudCard Class="docs-feature-card" Elevation="0">
             <MudCardContent>
-                <MudText Typo="Typo.overline" Color="Color.Secondary">Diagnostics</MudText>
+                <div class="docs-card-icon mb-3"><span class="material-icons" aria-hidden="true">fact_check</span></div>
+                <MudText Typo="Typo.overline" Color="Color.Secondary">@Loc.T("home.cardDiagnosticsTitle")</MudText>
                 <MudText Typo="Typo.body2">@Loc.T("home.whatDiagnostics")</MudText>
             </MudCardContent>
         </MudCard>
     </MudItem>
 </MudGrid>
 
-<MudText Typo="Typo.h5" Class="mb-3">@Loc.T("home.sectionLayout")</MudText>
-<MudStack Class="mb-6" Spacing="1">
-    <MudText Typo="Typo.body1">@Loc.T("home.layoutShared")</MudText>
-    <MudText Typo="Typo.body1">@Loc.T("home.layoutCore")</MudText>
-    <MudText Typo="Typo.body1">@Loc.T("home.layoutRoslyn")</MudText>
-    <MudText Typo="Typo.body1">@Loc.T("home.layoutBcl")</MudText>
-    <MudText Typo="Typo.body1">@Loc.T("home.layoutSamples")</MudText>
-</MudStack>
+<MudPaper Class="docs-panel-card pa-5 mb-6" Elevation="0">
+    <MudText Typo="Typo.h5" Class="docs-section-title mb-3">@Loc.T("home.sectionLayout")</MudText>
+    <MudStack Spacing="1">
+        <MudText Typo="Typo.body1">@Loc.T("home.layoutShared")</MudText>
+        <MudText Typo="Typo.body1">@Loc.T("home.layoutCore")</MudText>
+        <MudText Typo="Typo.body1">@Loc.T("home.layoutRoslyn")</MudText>
+        <MudText Typo="Typo.body1">@Loc.T("home.layoutBcl")</MudText>
+        <MudText Typo="Typo.body1">@Loc.T("home.layoutSamples")</MudText>
+    </MudStack>
+</MudPaper>
+
+<MudText Typo="Typo.h5" Class="docs-section-title mb-3">@Loc.T("home.sectionNuGet")</MudText>
+<MudGrid Class="mb-6" Spacing="4">
+    <MudItem xs="12" md="6">
+        <MudCard Elevation="0" Class="docs-reference-card">
+            <MudCardContent>
+                <MudText Typo="Typo.h6">MvvmAIO.Prism.SourceGenerators</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">@Loc.T("home.nugetSourceGeneratorsDesc")</MudText>
+                <MudLink Href="https://www.nuget.org/packages/MvvmAIO.Prism.SourceGenerators"
+                         Target="_blank"
+                         rel="noopener noreferrer">
+                    https://www.nuget.org/packages/MvvmAIO.Prism.SourceGenerators
+                </MudLink>
+                <div class="mt-3">
+                    <img src="https://img.shields.io/nuget/dt/MvvmAIO.Prism.SourceGenerators?logo=nuget"
+                         alt="@Loc.T("home.nugetDownloadsAlt")"
+                         loading="lazy" />
+                </div>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" md="6">
+        <MudCard Elevation="0" Class="docs-reference-card">
+            <MudCardContent>
+                <MudText Typo="Typo.h6">MvvmAIO.Prism.Bcl.Commands</MudText>
+                <MudText Typo="Typo.body2" Class="mb-2">@Loc.T("home.nugetBclCommandsDesc")</MudText>
+                <MudLink Href="https://www.nuget.org/packages/MvvmAIO.Prism.Bcl.Commands"
+                         Target="_blank"
+                         rel="noopener noreferrer">
+                    https://www.nuget.org/packages/MvvmAIO.Prism.Bcl.Commands
+                </MudLink>
+                <div class="mt-3">
+                    <img src="https://img.shields.io/nuget/dt/MvvmAIO.Prism.Bcl.Commands?logo=nuget"
+                         alt="@Loc.T("home.nugetDownloadsAlt")"
+                         loading="lazy" />
+                </div>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
 
 <MudGrid Spacing="4">
     <MudItem xs="12" md="6">
-        <MudCard Elevation="0" Outlined="true" Class="h-100">
+        <MudCard Elevation="0" Class="docs-reference-card">
             <MudCardContent>
                 <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("home.sectionMore")</MudText>
                 <MudText Typo="Typo.body2" Class="mb-2">@Loc.T("home.moreDeepWiki")</MudText>
@@ -68,10 +123,10 @@
         </MudCard>
     </MudItem>
     <MudItem xs="12" md="6">
-        <MudCard Elevation="0" Outlined="true" Class="h-100">
+        <MudCard Elevation="0" Class="docs-reference-card">
             <MudCardContent>
                 <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("common.openGitHub")</MudText>
-                <MudText Typo="Typo.body2" Class="mb-3">README, CONTRIBUTING, CI workflows, and issue tracker.</MudText>
+                <MudText Typo="Typo.body2" Class="mb-3">@Loc.T("home.githubSummary")</MudText>
                 <MudButton Variant="Variant.Outlined" Color="Color.Primary" Href="https://github.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer">GitHub</MudButton>
             </MudCardContent>
         </MudCard>

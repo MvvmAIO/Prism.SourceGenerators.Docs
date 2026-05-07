@@ -10,7 +10,7 @@ Use **Settings -> Pages** with **GitHub Actions** as the publishing source if th
 
 ## Languages
 
-Strings in `wwwroot/locales/` (**en**, **zh-CN**, **ja**). Language choice is stored in `localStorage`.
+Strings in `wwwroot/locales/` (**en**, **zh-CN**, **ja**). The initial language follows the runtime / browser culture; the in-app selector only affects the current session.
 
 ## Local run
 

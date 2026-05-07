@@ -4,30 +4,111 @@
 
 <PageTitle>@Loc.T("generators.pageTitle")</PageTitle>
 
-<MudText Typo="Typo.h4" Class="mb-2">@Loc.T("generators.title")</MudText>
+<MudText Typo="Typo.h4" Class="docs-section-title mb-2">@Loc.T("generators.title")</MudText>
 <MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-2">@Loc.T("generators.lead")</MudText>
 
 <MudText Typo="Typo.caption" Color="Color.Secondary" Class="mb-6">
-    Topics align with the
+    @Loc.T("generators.topicsPrefix")
     <MudLink Href="https://deepwiki.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" Typo="Typo.caption" rel="noopener noreferrer">DeepWiki</MudLink>
-    outline (incremental generator pipeline, command generators, registration internals, PSG diagnostics, packaging).
+    @Loc.T("generators.topicsSuffix")
 </MudText>
 
 <MudStack Spacing="3">
-    <MudPaper Class="pa-4" Elevation="0" Outlined="true">
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
         <MudText Typo="Typo.h6" Class="mb-2">@Loc.T("generators.obsTitle")</MudText>
         <MudText Typo="Typo.body2">@Loc.T("generators.obsBody")</MudText>
     </MudPaper>
-    <MudPaper Class="pa-4" Elevation="0" Outlined="true">
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
         <MudText Typo="Typo.h6" Class="mb-2">@Loc.T("generators.cmdTitle")</MudText>
         <MudText Typo="Typo.body2">@Loc.T("generators.cmdBody")</MudText>
     </MudPaper>
-    <MudPaper Class="pa-4" Elevation="0" Outlined="true">
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
         <MudText Typo="Typo.h6" Class="mb-2">@Loc.T("generators.regTitle")</MudText>
         <MudText Typo="Typo.body2">@Loc.T("generators.regBody")</MudText>
     </MudPaper>
-    <MudPaper Class="pa-4" Elevation="0" Outlined="true">
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
         <MudText Typo="Typo.h6" Class="mb-2">@Loc.T("generators.diagTitle")</MudText>
         <MudText Typo="Typo.body2">@Loc.T("generators.diagBody")</MudText>
+    </MudPaper>
+
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
+        <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("generators.twoModesTitle")</MudText>
+        <MudText Typo="Typo.body2" Class="mb-2">
+            @Loc.T("generators.twoModesBody")
+        </MudText>
+        <pre class="docs-code mud-width-full"><code>// Field target
+[ObservableProperty]
+private string _title = "Hello";
+
+// Partial property target (C# 13+)
+[ObservableProperty]
+public partial string Title { get; set; } = "Hello";</code></pre>
+    </MudPaper>
+
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
+        <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("generators.dependentNotificationsTitle")</MudText>
+        <ul>
+            <li>@Loc.T("generators.dependentNotificationsItem1")</li>
+            <li>@Loc.T("generators.dependentNotificationsItem2")</li>
+            <li>@Loc.T("generators.dependentNotificationsItem3")</li>
+        </ul>
+        <pre class="docs-code mud-width-full"><code>[ObservableProperty]
+[NotifyPropertyChangedFor(nameof(FullName))]
+[NotifyCanExecuteChangedFor(nameof(SaveCommand))]
+private string _firstName = "";</code></pre>
+    </MudPaper>
+
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
+        <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("generators.commandGeneratorsTitle")</MudText>
+        <ul>
+            <li>@Loc.T("generators.commandGeneratorsItem1")</li>
+            <li>@Loc.T("generators.commandGeneratorsItem2")</li>
+            <li>@Loc.T("generators.commandGeneratorsItem3")</li>
+        </ul>
+        <pre class="docs-code mud-width-full"><code>[DelegateCommand(CanExecute = nameof(CanSubmit))]
+private void Submit() { }
+
+[AsyncDelegateCommand(EnableParallelExecution = true, Catch = nameof(HandleError))]
+private async Task FetchDataAsync() { }</code></pre>
+    </MudPaper>
+
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
+        <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("generators.observesBindableTitle")</MudText>
+        <MudText Typo="Typo.body2" Class="mb-2">
+            @Loc.T("generators.observesBindableBody")
+        </MudText>
+        <pre class="docs-code mud-width-full"><code>[BindableBase]
+public partial class SimpleVm
+{
+    private string _message = "Hello";
+    public string Message
+    {
+        get => _message;
+        set => SetProperty(ref _message, value);
+    }
+}</code></pre>
+    </MudPaper>
+
+    <MudPaper Class="docs-step-card pa-5" Elevation="0">
+        <MudText Typo="Typo.h6" Class="mb-3">@Loc.T("generators.diagnosticsMatrixTitle")</MudText>
+        <div class="docs-code">
+            <table style="width:100%;border-collapse:collapse;">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;padding:0.35rem 0.5rem;">@Loc.T("generators.diagnosticsHeaderId")</th>
+                        <th style="text-align:left;padding:0.35rem 0.5rem;">@Loc.T("generators.diagnosticsHeaderMeaning")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:0.25rem 0.5rem;">PSG0001-PSG0004</td><td style="padding:0.25rem 0.5rem;">@Loc.T("generators.diagnosticsRow000x")</td></tr>
+                    <tr><td style="padding:0.25rem 0.5rem;">PSG1001 / PSG1002</td><td style="padding:0.25rem 0.5rem;">@Loc.T("generators.diagnosticsRow100x")</td></tr>
+                    <tr><td style="padding:0.25rem 0.5rem;">PSG2001-PSG2006</td><td style="padding:0.25rem 0.5rem;">@Loc.T("generators.diagnosticsRow200x")</td></tr>
+                    <tr><td style="padding:0.25rem 0.5rem;">PSG3002</td><td style="padding:0.25rem 0.5rem;">@Loc.T("generators.diagnosticsRow3002")</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true" Class="mt-3">
+            @Loc.T("generators.diagnosticsQuickFix")
+        </MudAlert>
     </MudPaper>
 </MudStack>

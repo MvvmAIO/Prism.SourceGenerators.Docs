@@ -1,29 +1,22 @@
 @using Prism.SourceGenerators.Docs.Services
 @inject LocalizationService Loc
-@inject IJSRuntime JS
 
-<MudButtonGroup Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small" OverrideStyles="false" aria-label="@Loc.T("common.language")">
-    <MudButton Variant="@VariantFor("en")" OnClick="@(() => ApplyAsync("en"))">EN</MudButton>
-    <MudButton Variant="@VariantFor("zh-CN")" OnClick="@(() => ApplyAsync("zh-CN"))">中文</MudButton>
-    <MudButton Variant="@VariantFor("ja")" OnClick="@(() => ApplyAsync("ja"))">日本語</MudButton>
-</MudButtonGroup>
+<label class="docs-top-control" title="@Loc.T("common.language")">
+    <span class="material-icons" aria-hidden="true">translate</span>
+    <select class="docs-native-select"
+            value="@Loc.Culture"
+            @onchange="OnCultureChangedAsync"
+            aria-label="@Loc.T("common.language")">
+        <option value="en">@Loc.T("common.langEnglish")</option>
+        <option value="zh-CN">@Loc.T("common.langChinese")</option>
+        <option value="ja">@Loc.T("common.langJapanese")</option>
+    </select>
+</label>
 
 @code {
-    private Variant VariantFor(string culture) =>
-        string.Equals(Loc.Culture, culture, StringComparison.OrdinalIgnoreCase)
-            ? Variant.Filled
-            : Variant.Text;
-
-    private async Task ApplyAsync(string culture)
+    private async Task OnCultureChangedAsync(ChangeEventArgs e)
     {
-        await Loc.SetCultureAsync(culture);
-        try
-        {
-            await JS.InvokeVoidAsync("localStorage.setItem", "docsLocale", culture);
-        }
-        catch
-        {
-            // ignore storage failures (private mode, etc.)
-        }
+        if (e.Value is string culture)
+            await Loc.SetCultureAsync(culture);
     }
 }

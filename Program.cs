@@ -13,4 +13,7 @@ builder.Services.AddSingleton(_ => new LocalizationService(httpForLocales, build
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(sp.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress) });
 builder.Services.AddMudServices();
 
-await builder.Build().RunAsync();
+var host = builder.Build();
+var loc = host.Services.GetRequiredService<LocalizationService>();
+await loc.ApplyInitialCultureAsync();
+await host.RunAsync();

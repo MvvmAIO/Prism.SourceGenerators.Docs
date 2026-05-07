@@ -10,10 +10,13 @@ namespace Prism.SourceGenerators.Docs.Services;
 /// </summary>
 public sealed class LocalizationService
 {
+    public static readonly string[] SupportedCultures = ["en", "zh-CN", "ja"];
+
     private readonly HttpClient _http;
     private readonly string _baseUri;
     private readonly ConcurrentDictionary<string, Dictionary<string, string>> _cache = new(StringComparer.OrdinalIgnoreCase);
     private string _culture = "en";
+    private bool _initialCultureApplied;
 
     public LocalizationService(HttpClient http, IWebAssemblyHostEnvironment host)
     {
@@ -36,7 +39,7 @@ public sealed class LocalizationService
 
     public async Task SetCultureAsync(string culture, CancellationToken cancellationToken = default)
     {
-        culture = NormalizeCulture(culture);
+        culture = ResolveSupportedCulture(culture);
         await EnsureCultureLoadedAsync(culture, cancellationToken).ConfigureAwait(false);
         if (culture != "en")
             await EnsureCultureLoadedAsync("en", cancellationToken).ConfigureAwait(false);
@@ -44,26 +47,85 @@ public sealed class LocalizationService
         CultureChanged?.Invoke();
     }
 
-    /// <summary>Applies <paramref name="storedCulture"/> from localStorage, otherwise the browser language (normalized).</summary>
-    public async Task ApplyBrowserAndStorageAsync(string? storedCulture, string? browserLanguage, CancellationToken cancellationToken = default)
+    /// <summary>
+    /// Maps any culture name to <see cref="SupportedCultures"/>; unknown or invalid values become <c>en</c>.
+    /// </summary>
+    public static string ResolveSupportedCulture(string? cultureName)
     {
-        if (!string.IsNullOrWhiteSpace(storedCulture))
+        if (string.IsNullOrWhiteSpace(cultureName))
+            return "en";
+
+        var name = cultureName.Trim().Replace('_', '-');
+
+        foreach (var s in SupportedCultures)
         {
-            await SetCultureAsync(NormalizeCulture(storedCulture!), cancellationToken).ConfigureAwait(false);
-            return;
+            if (name.Equals(s, StringComparison.OrdinalIgnoreCase))
+                return s;
         }
 
-        await SetCultureAsync(NormalizeCulture(browserLanguage ?? "en"), cancellationToken).ConfigureAwait(false);
+        if (name.StartsWith("en-", StringComparison.OrdinalIgnoreCase))
+            return "en";
+
+        if (name.StartsWith("zh", StringComparison.OrdinalIgnoreCase))
+            return "zh-CN";
+
+        if (name.StartsWith("ja", StringComparison.OrdinalIgnoreCase))
+            return "ja";
+
+        try
+        {
+            var ci = CultureInfo.GetCultureInfo(name);
+            for (var c = ci; c != CultureInfo.InvariantCulture && !string.IsNullOrEmpty(c.Name); c = c.Parent)
+            {
+                if (c.TwoLetterISOLanguageName.Equals("ja", StringComparison.OrdinalIgnoreCase))
+                    return "ja";
+                if (c.TwoLetterISOLanguageName.Equals("zh", StringComparison.OrdinalIgnoreCase))
+                    return "zh-CN";
+                if (c.TwoLetterISOLanguageName.Equals("en", StringComparison.OrdinalIgnoreCase))
+                    return "en";
+            }
+        }
+        catch (CultureNotFoundException)
+        {
+            // fall through to en
+        }
+
+        return "en";
     }
 
-    public static string NormalizeCulture(string culture)
+    private static bool HasConcreteCulture(CultureInfo culture) =>
+        !ReferenceEquals(culture, CultureInfo.InvariantCulture) && !string.IsNullOrEmpty(culture.Name);
+
+    /// <summary>
+    /// Picks UI culture: <see cref="CultureInfo.CurrentUICulture"/>, then <see cref="CultureInfo.CurrentCulture"/>,
+    /// then optional <paramref name="navigatorLanguage"/> (e.g. from JS <c>navigator.language</c>), else English.
+    /// </summary>
+    public async Task ApplyInitialCultureAsync(string? navigatorLanguage = null, CancellationToken cancellationToken = default)
     {
-        culture = culture.Trim().Replace('_', '-');
-        if (culture.StartsWith("zh", StringComparison.OrdinalIgnoreCase))
-            return culture.Contains('-', StringComparison.Ordinal) ? "zh-CN" : "zh-CN";
-        if (culture.StartsWith("ja", StringComparison.OrdinalIgnoreCase))
-            return "ja";
-        return "en";
+        if (_initialCultureApplied)
+            return;
+
+        string chosen;
+
+        if (HasConcreteCulture(CultureInfo.CurrentUICulture))
+        {
+            chosen = ResolveSupportedCulture(CultureInfo.CurrentUICulture.Name);
+        }
+        else if (HasConcreteCulture(CultureInfo.CurrentCulture))
+        {
+            chosen = ResolveSupportedCulture(CultureInfo.CurrentCulture.Name);
+        }
+        else if (!string.IsNullOrWhiteSpace(navigatorLanguage))
+        {
+            chosen = ResolveSupportedCulture(navigatorLanguage);
+        }
+        else
+        {
+            chosen = "en";
+        }
+
+        await SetCultureAsync(chosen, cancellationToken).ConfigureAwait(false);
+        _initialCultureApplied = true;
     }
 
     private async Task EnsureCultureLoadedAsync(string culture, CancellationToken cancellationToken)

@@ -3,20 +3,37 @@
 @using Prism.SourceGenerators.Docs.Services
 @using Prism.SourceGenerators.Docs.Components
 @inject LocalizationService Loc
-@inject IJSRuntime JS
-@inject NavigationManager Nav
-@inject IBrowserViewportService Viewport
+
+<MudThemeProvider Theme="DocsMudTheme.Default"
+                  IsDarkMode="@_isDarkMode"
+                  ObserveSystemDarkModeChange="false" />
 
 <MudLayout>
-    <MudAppBar Elevation="1" Dense="true" Color="Color.Surface" Class="docs-appbar-border">
+    <MudAppBar Elevation="0" Dense="true" Color="Color.Surface" Class="docs-appbar">
         <MudIconButton Icon="@DrawerToggleIcon"
                        Color="Color.Inherit"
                        Edge="Edge.Start"
                        OnClick="@ToggleDrawer"
                        aria-label="@Loc.T("common.toggleSidebar")"
                        aria-expanded="@(_drawerOpen ? "true" : "false")" />
-        <MudText Typo="Typo.h6" Class="ml-2">@Loc.T("common.siteTitle")</MudText>
+        <MudStack Spacing="0" Class="ml-2 docs-app-title">
+            <MudText Typo="Typo.subtitle1" Class="docs-app-title-main">@Loc.T("common.siteTitle")</MudText>
+            <MudText Typo="Typo.caption" Class="docs-app-title-sub">@Loc.T("common.siteSubtitle")</MudText>
+        </MudStack>
         <MudSpacer />
+        <div class="docs-top-controls">
+            <label class="docs-top-control" title="@Loc.T("common.theme")">
+                <button type="button"
+                        class="docs-theme-toggle"
+                        @onclick="ToggleTheme"
+                        aria-label="@Loc.T("common.theme")"
+                        title="@Loc.T("common.theme")">
+                    <span class="material-icons" aria-hidden="true">@ThemeIcon</span>
+                    <span>@ThemeText</span>
+                </button>
+            </label>
+            <LanguageSwitcher />
+        </div>
     </MudAppBar>
 
     <MudDrawer @bind-Open="_drawerOpen"
@@ -25,7 +42,8 @@
                Breakpoint="Breakpoint.Md"
                Elevation="2"
                Variant="@DrawerVariant.Mini"
-               OpenMiniOnHover="true"
+               OpenMiniOnHover="false"
+               OverlayAutoClose="false"
                Width="280px"
                MiniWidth="72px"
                Class="docs-mud-drawer">
@@ -39,16 +57,13 @@
     </MudDrawer>
 
     <MudMainContent Class="docs-main">
-        <MudContainer MaxWidth="MaxWidth.Large" Class="py-4 pb-8">
-            <MudPaper Elevation="0" Class="pa-3 mb-4 rounded-lg docs-toolbar-paper">
-                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Wrap="Wrap.Wrap" Spacing="2">
-                    <MudStack Row="true" Wrap="Wrap.Wrap" Spacing="1">
-                        <MudLink Typo="Typo.body2" Href="https://deepwiki.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openDeepWiki")</MudLink>
-                        <MudLink Typo="Typo.body2" Href="https://github.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openGitHub")</MudLink>
-                        <MudLink Typo="Typo.body2" Href="https://github.com/MvvmAIO/Prism.SourceGenerators.Samples" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openSamples")</MudLink>
-                        <MudLink Typo="Typo.body2" Href="https://www.nuget.org/packages/MvvmAIO.Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openNuGet")</MudLink>
-                    </MudStack>
-                    <LanguageSwitcher />
+        <MudContainer MaxWidth="MaxWidth.Large" Class="py-6 pb-8">
+            <MudPaper Elevation="0" Class="pa-3 mb-5 docs-toolbar-paper">
+                <MudStack Row="true" Wrap="Wrap.Wrap" Spacing="1">
+                    <MudLink Typo="Typo.body2" Href="https://deepwiki.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openDeepWiki")</MudLink>
+                    <MudLink Typo="Typo.body2" Href="https://github.com/MvvmAIO/Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openGitHub")</MudLink>
+                    <MudLink Typo="Typo.body2" Href="https://github.com/MvvmAIO/Prism.SourceGenerators.Samples" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openSamples")</MudLink>
+                    <MudLink Typo="Typo.body2" Href="https://www.nuget.org/packages/MvvmAIO.Prism.SourceGenerators" Target="_blank" rel="noopener noreferrer" Color="Color.Primary">@Loc.T("common.openNuGet")</MudLink>
                 </MudStack>
             </MudPaper>
 
@@ -58,67 +73,32 @@
 </MudLayout>
 
 @code {
-    private bool _cultureBootstrapped;
     private bool _drawerOpen = true;
+    private bool _isDarkMode;
 
     private string DrawerToggleIcon =>
         _drawerOpen ? Icons.Material.Filled.MenuOpen : Icons.Material.Filled.Menu;
 
+    private string ThemeIcon => _isDarkMode ? "dark_mode" : "light_mode";
+    private string ThemeText => _isDarkMode ? Loc.T("common.themeDark") : Loc.T("common.themeLight");
+
     protected override void OnInitialized()
     {
         Loc.CultureChanged += OnCultureChanged;
-        Nav.LocationChanged += OnLocationChanged;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Loc.SetCultureAsync("en").ConfigureAwait(false);
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (!firstRender || _cultureBootstrapped)
-            return;
-        _cultureBootstrapped = true;
-        try
-        {
-            var stored = await JS.InvokeAsync<string?>("localStorage.getItem", "docsLocale").ConfigureAwait(false);
-            var browser = await JS.InvokeAsync<string?>("eval", "(function(){return navigator.language||'';})()").ConfigureAwait(false);
-            await Loc.ApplyBrowserAndStorageAsync(stored, browser).ConfigureAwait(false);
-        }
-        catch
-        {
-            await Loc.SetCultureAsync("en").ConfigureAwait(false);
-        }
-
-        StateHasChanged();
     }
 
     private void OnCultureChanged() => InvokeAsync(StateHasChanged);
 
-    private void OnLocationChanged(object? sender, LocationChangedEventArgs e) => _ = CloseDrawerIfNarrowAsync();
-
-    private async Task CloseDrawerIfNarrowAsync()
-    {
-        try
-        {
-            if (await Viewport.IsBreakpointWithinWindowSizeAsync(Breakpoint.SmAndDown).ConfigureAwait(false))
-            {
-                _drawerOpen = false;
-                await InvokeAsync(StateHasChanged).ConfigureAwait(false);
-            }
-        }
-        catch
-        {
-            // Viewport not ready (SSR/tests) — ignore
-        }
-    }
-
     private void ToggleDrawer() => _drawerOpen = !_drawerOpen;
+
+    private Task ToggleTheme()
+    {
+        _isDarkMode = !_isDarkMode;
+        return InvokeAsync(StateHasChanged);
+    }
 
     public void Dispose()
     {
         Loc.CultureChanged -= OnCultureChanged;
-        Nav.LocationChanged -= OnLocationChanged;
     }
 }
