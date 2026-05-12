@@ -16,6 +16,8 @@ Use **Settings → Pages** with **GitHub Actions** as the publishing source if t
 
 Navigation and copy live in Markdown; `mkdocs.yml` declares the sidebar structure consumed by `NuStreamDocs.Config.MkDocs`.
 
+Responsive tweaks for desktop and mobile live in **`styles/responsive.css`**, wired through NuStreamDocs **`DocBuilder.AddExtraCss`** (the same role as mkdocs-material **`extra_css`**), registered immediately after **`UseMaterial3Theme()`** so rules load after the Material 3 bundle.
+
 ## Local build
 
 ```bash

@@ -30,14 +30,26 @@ if (string.IsNullOrEmpty(siteUrl))
 
 var docsDir = ResolveContentPath("docs");
 var mkdocsFile = ResolveContentPath("mkdocs.yml");
+var responsiveCss = ResolveContentPath(Path.Combine("styles", "responsive.css"));
 
-var pages = await new DocBuilder()
+var configured = new DocBuilder()
     .WithInput(docsDir)
     .WithOutput(outDir)
     .WithSiteUrl(siteUrl)
     .UseDirectoryUrls()
     .UseMkDocsConfig(mkdocsFile)
-    .UseMaterial3Theme()
+    .UseMaterial3Theme();
+
+if (File.Exists(responsiveCss))
+{
+    configured = configured.AddExtraCss(responsiveCss);
+}
+else
+{
+    Console.WriteLine($"Warning: responsive stylesheet not found at '{responsiveCss}'.");
+}
+
+var pages = await configured
     .UseNav(opts => opts with { Prune = true })
     .UseToc()
     .UseHighlight()
