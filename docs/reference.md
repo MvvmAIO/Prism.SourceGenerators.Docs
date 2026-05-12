@@ -17,6 +17,7 @@ Use these resources together with the **[main navigation](index.md)**. For seman
 | Resource | Description |
 |----------|-------------|
 | **[GitHub — Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)** | Source, issues, pull requests, CI. |
+| **[GitHub Wiki](https://github.com/MvvmAIO/Prism.SourceGenerators/wiki)** ([`wiki/` tree](https://github.com/MvvmAIO/Prism.SourceGenerators/tree/master/wiki)) | Short topic notes; **not** canonical—use this site for depth. |
 | **[GitHub — Prism.SourceGenerators.Docs](https://github.com/MvvmAIO/Prism.SourceGenerators.Docs)** | This documentation site (Markdown, `mkdocs.yml`, publishing workflow). |
 | **[GitHub — Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | Runnable Avalonia samples (Prism 8 and 9). |
 | **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | AI-indexed mirror of the generator repo—handy for exploration, **not** a contract for behaviour or diagnostic text. |
@@ -71,6 +72,6 @@ dotnet run --project build/_build.csproj -- --target Publish --configuration Rel
 
 ---
 
-## README vs this site
+## README, Wiki, and this site
 
-The GitHub **README** stays a short onboarding surface. **Depth, tables, and cross-links** live here so they can be reviewed in **Prism.SourceGenerators.Docs** without coupling every doc change to a product release.
+The product **README** files (English / 简体中文 / 日本語) and the **[GitHub Wiki](https://github.com/MvvmAIO/Prism.SourceGenerators/wiki)** are **brief entry points**. **[About this site](about-this-site.md)** explains how they relate to **this site**, which remains the **canonical manual**.

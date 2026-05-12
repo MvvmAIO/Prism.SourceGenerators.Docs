@@ -8,7 +8,7 @@ description: Prism 向けコンパイル時 MVVM — MvvmAIO.Prism.SourceGenerat
 **MvvmAIO.Prism.SourceGenerators** は、**BindableBase** の意味論を保ちながら Observable・コマンド・コンテナ登録のボイラープレートを削減します。
 
 !!! success "正典ドキュメント"
-    **このサイト**がプロジェクトの**権威あるマニュアル**です。README や Wiki 系より構成が厚い内容はここを優先してください。**[サイトについて](about-this-site.md)** で他チャネルとの役割を説明しています。
+    **このサイト**がプロジェクトの**権威あるマニュアル**です。GitHub **README**、**GitHub Wiki**、DeepWiki より深い説明と構成はここを優先してください。**[サイトについて](about-this-site.md)** で各チャネルの役割を説明しています。
 
 !!! note "言語 / Languages"
     **[English](../)** · **[简体中文](../zh-cn/)** · **[日本語](.)**

@@ -17,6 +17,7 @@ description: 外部资源、本站内导航与生成器仓库常用命令。
 | 资源 | 说明 |
 |------|------|
 | **[Prism.SourceGenerators（GitHub）](https://github.com/MvvmAIO/Prism.SourceGenerators)** | 源码、议题、PR、CI。 |
+| **[GitHub Wiki](https://github.com/MvvmAIO/Prism.SourceGenerators/wiki)**（[`wiki/` 目录](https://github.com/MvvmAIO/Prism.SourceGenerators/tree/master/wiki)） | 简要中文笔记；**权威内容以本站为准**。 |
 | **[Prism.SourceGenerators.Docs](https://github.com/MvvmAIO/Prism.SourceGenerators.Docs)** | 本站仓库（Markdown、`mkdocs.yml`、发布工作流）。 |
 | **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | Avalonia 可运行示例（Prism 8 / 9）。 |
 | **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | 仓库的 AI 索引，便于浏览；**不作为行为或诊断文案的合同**。 |
@@ -67,6 +68,6 @@ dotnet run --project build/_build.csproj -- --target Ci --configuration Release
 
 ---
 
-## README 与本站
+## README、Wiki 与本站
 
-GitHub **README** 适合短平快入门；**表格、交叉链接与多语言长文**由本站维护，变更在 **Prism.SourceGenerators.Docs** 中审阅，无需与每次产品发布强绑定。
+主仓库 **README**（多语言）与 **GitHub Wiki** 为**简要入口**；**表格、交叉链接与多语言长文**由本站维护，角色说明见 **[关于本站](about-this-site.md)**。

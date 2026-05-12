@@ -8,7 +8,7 @@ description: Compile-time MVVM for Prism — MvvmAIO.Prism.SourceGenerators docu
 **MvvmAIO.Prism.SourceGenerators** removes boilerplate for observable properties, commands, and container registration while preserving **BindableBase** semantics.
 
 !!! success "Canonical documentation"
-    **This site** is the **authoritative manual** for the project—deeper and more structured than the GitHub README or wiki-style mirrors. Start with **[About this site](about-this-site.md)** for how it relates to README and DeepWiki.
+    **This site** is the **authoritative manual** for the project—deeper and more structured than the GitHub **README**, **GitHub Wiki**, or exploratory mirrors such as DeepWiki. Start with **[About this site](about-this-site.md)** for how those surfaces relate.
 
 !!! note "Languages / 语言 / 言語"
     This site is available in **[English](.)**, **[简体中文](zh-cn/)**, and **[日本語](ja/)**.

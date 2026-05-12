@@ -1,6 +1,6 @@
 ---
 title: このサイトについて
-description: README / DeepWiki / サンプルとの役割分担。
+description: README、GitHub Wiki、DeepWiki、サンプルとの役割分担。
 ---
 
 # このサイトについて
@@ -12,7 +12,8 @@ description: README / DeepWiki / サンプルとの役割分担。
 | 表面 | 役割 |
 |------|------|
 | **このサイト** | 構成・ジェネレータ意味論・診断・アーキテクチャ・ビルド・コントリビューション。**深い説明はここを優先**。 |
-| **[GitHub README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.md)** | 概要とコピペ例。ドキュメント PR と短時間ずれることがあります。 |
+| **[GitHub README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.md)**（[簡体字中国語 README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.zh-CN.md) / [日本語 README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.ja.md)） | リポジトリの**短い**概要とコピペ例。 |
+| **[GitHub Wiki](https://github.com/MvvmAIO/Prism.SourceGenerators/wiki)**（[`wiki/`](https://github.com/MvvmAIO/Prism.SourceGenerators/tree/master/wiki)） | **短い**トピック別メモ（中文中心）。**診断や API の契約ではない**。 |
 | **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | リポジトリの AI インデックス。**API や診断文言の契約にはしない**。 |
 | **サンプル** | 実行可能なアプリ。[Samples](samples.md)。 |
 

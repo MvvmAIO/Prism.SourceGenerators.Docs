@@ -1,6 +1,6 @@
 ---
 title: About this documentation
-description: How this site relates to the GitHub README, DeepWiki, and the product source.
+description: How this site relates to the GitHub README, Wiki, DeepWiki, and the product source.
 ---
 
 # About this documentation
@@ -12,7 +12,8 @@ This site is the **canonical, versioned product manual** for **MvvmAIO.Prism.Sou
 | Surface | Role |
 |--------|------|
 | **This site** | Curated structure, generator semantics, diagnostics, architecture, build, and contribution paths. Intended to stay **accurate and navigable** as the first stop for authors. |
-| **[GitHub README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.md)** | High-level overview and quick copy-paste; may lag brief moments behind doc PRs. Prefer **this site** for depth and cross-links. |
+| **[GitHub README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.md)** (and localized READMEs) | Short landing-page overview and copy-paste snippets. **Not** the full manual. |
+| **[GitHub Wiki](https://github.com/MvvmAIO/Prism.SourceGenerators/wiki)** ([`wiki/` in the product repo](https://github.com/MvvmAIO/Prism.SourceGenerators/tree/master/wiki)) | Short, topic-oriented notes (Chinese-first). Useful for onboarding threads; **not** a contract for diagnostic text or API guarantees. |
 | **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | AI-indexed mirror of the repo; useful for exploration, **not** a contract for API or diagnostic text. |
 | **Samples repo** | Runnable Avalonia apps; see [Samples](samples.md). |
 

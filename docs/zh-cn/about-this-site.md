@@ -1,6 +1,6 @@
 ---
 title: 关于本站
-description: 本站与 README、DeepWiki、示例仓库的关系。
+description: 本站与 README、GitHub Wiki、DeepWiki、示例仓库的关系。
 ---
 
 # 关于本站
@@ -12,7 +12,8 @@ description: 本站与 README、DeepWiki、示例仓库的关系。
 | 渠道 | 定位 |
 |------|------|
 | **本站** | 结构化目录、生成器语义、诊断、架构、构建与贡献说明；**深度内容以本站为准**。 |
-| **[GitHub README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.md)** | 概览与快速粘贴示例；可能与文档 PR 有短暂时差。 |
+| **[GitHub README](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.md)**（及 [README.zh-CN](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.zh-CN.md) / [README.ja](https://github.com/MvvmAIO/Prism.SourceGenerators/blob/master/README.ja.md)） | 仓库首屏**简要**介绍与常用代码片段。 |
+| **[GitHub Wiki](https://github.com/MvvmAIO/Prism.SourceGenerators/wiki)**（主仓库 [`wiki/`](https://github.com/MvvmAIO/Prism.SourceGenerators/tree/master/wiki)） | **简要**中文导读与条目化笔记；**不是**诊断或 API 的合同文本。 |
 | **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | 仓库的 AI 索引镜像，便于浏览，**不作为 API 或诊断文案的合同**。 |
 | **示例仓库** | 可运行应用；见 [Samples](samples.md)。 |
 
