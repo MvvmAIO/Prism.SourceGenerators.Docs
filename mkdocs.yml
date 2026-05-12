@@ -1,0 +1,23 @@
+site_name: Prism.SourceGenerators
+site_description: Roslyn source generators for Prism MVVM (MvvmAIO)
+site_author: MvvmAIO
+site_url: https://mvvmaio.github.io/Prism.SourceGenerators.Docs/
+repo_url: https://github.com/MvvmAIO/Prism.SourceGenerators
+repo_name: Source
+docs_dir: docs
+nav:
+  - English:
+      - Overview: index.md
+      - Getting started: getting-started.md
+      - Generators: generators.md
+      - Reference: reference.md
+  - 简体中文:
+      - 概览: zh-cn/index.md
+      - 快速开始: zh-cn/getting-started.md
+      - 源生成器: zh-cn/generators.md
+      - 参考与链接: zh-cn/reference.md
+  - 日本語:
+      - 概要: ja/index.md
+      - はじめに: ja/getting-started.md
+      - ソースジェネレータ: ja/generators.md
+      - 参考・リンク: ja/reference.md

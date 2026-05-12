@@ -1,14 +1,9 @@
 {
-  "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "http": {
+    "Prism.SourceGenerators.Docs": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "http://localhost:5059",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "DOCS_SITE_URL": "http://127.0.0.1:8080/"
       }
     }
   }

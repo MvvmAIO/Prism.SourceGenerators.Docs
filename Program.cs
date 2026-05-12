@@ -1,19 +1,50 @@
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using MudBlazor.Services;
-using Prism.SourceGenerators.Docs;
-using Prism.SourceGenerators.Docs.Services;
+using NuStreamDocs.Building;
+using NuStreamDocs.Config.MkDocs;
+using NuStreamDocs.Highlight;
+using NuStreamDocs.MarkdownExtensions;
+using NuStreamDocs.Nav;
+using NuStreamDocs.Search.Lunr;
+using NuStreamDocs.Sitemap;
+using NuStreamDocs.Theme.Material3;
+using NuStreamDocs.Toc;
 
-var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
+static string ResolveContentPath(string relative)
+{
+    var fromBase = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, relative));
+    if (File.Exists(fromBase) || Directory.Exists(fromBase))
+        return fromBase;
 
-var httpForLocales = new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };
-builder.Services.AddSingleton(_ => new LocalizationService(httpForLocales, builder.HostEnvironment));
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(sp.GetRequiredService<IWebAssemblyHostEnvironment>().BaseAddress) });
-builder.Services.AddMudServices();
+    var fromCwd = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), relative));
+    if (File.Exists(fromCwd) || Directory.Exists(fromCwd))
+        return fromCwd;
 
-var host = builder.Build();
-var loc = host.Services.GetRequiredService<LocalizationService>();
-await loc.ApplyInitialCultureAsync();
-await host.RunAsync();
+    return fromBase;
+}
+
+var outDir = Path.GetFullPath(args.Length > 0 ? args[0] : "site");
+var siteUrl = Environment.GetEnvironmentVariable("DOCS_SITE_URL")?.Trim();
+if (string.IsNullOrEmpty(siteUrl))
+{
+    siteUrl = "https://mvvmaio.github.io/Prism.SourceGenerators.Docs/";
+}
+
+var docsDir = ResolveContentPath("docs");
+var mkdocsFile = ResolveContentPath("mkdocs.yml");
+
+var pages = await new DocBuilder()
+    .WithInput(docsDir)
+    .WithOutput(outDir)
+    .WithSiteUrl(siteUrl)
+    .UseDirectoryUrls()
+    .UseMkDocsConfig(mkdocsFile)
+    .UseMaterial3Theme()
+    .UseNav(opts => opts with { Prune = true })
+    .UseToc()
+    .UseHighlight()
+    .UseLunrSearch()
+    .UseCommonMarkdownExtensions()
+    .UseSitemap()
+    .UseNotFoundPage()
+    .BuildAsync();
+
+Console.WriteLine($"Built {pages} page(s) into '{outDir}'.");

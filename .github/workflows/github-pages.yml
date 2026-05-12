@@ -1,4 +1,4 @@
-# Publishes this Blazor WebAssembly project to GitHub Pages.
+# Publishes NuStreamDocs static output to GitHub Pages.
 # Settings -> Pages: Source = GitHub Actions
 
 name: GitHub Pages
@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       base_path:
-        description: "Override base path (default: /<repository>/)."
+        description: "Path prefix for GitHub project Pages (default: /<repository>/)."
         required: false
         default: ""
 
@@ -33,19 +33,26 @@ jobs:
       - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.0.x
-      - name: Publish Blazor WebAssembly
+      - name: Verify Native AOT publish (linux-x64)
         run: >-
-          dotnet publish "Prism.SourceGenerators.Docs.csproj"
-          -c Release
-          -o "${{ github.workspace }}/gh-pages-publish"
-      - name: Patch base href and SPA fallback
+          dotnet publish -c Release -r linux-x64 --self-contained false
+          --project "Prism.SourceGenerators.Docs.csproj"
+      - name: Build static site (NuStreamDocs)
+        env:
+          DOCS_SITE_URL: https://mvvmaio.github.io/Prism.SourceGenerators.Docs/
+        run: >-
+          dotnet run -c Release
+          --project "Prism.SourceGenerators.Docs.csproj"
+          --
+          "${{ github.workspace }}/gh-pages-publish"
+      - name: Prefix root-absolute URLs for GitHub project Pages
         if: github.event_name != 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
-          WWWROOT="${GITHUB_WORKSPACE}/gh-pages-publish/wwwroot"
-          if [[ ! -f "${WWWROOT}/index.html" ]]; then
-            echo "Missing ${WWWROOT}/index.html"
+          ROOT="${{ github.workspace }}/gh-pages-publish"
+          if [[ ! -d "${ROOT}" ]]; then
+            echo "Missing output directory: ${ROOT}"
             exit 1
           fi
           INPUT_BASE="${{ inputs.base_path }}"
@@ -56,13 +63,20 @@ jobs:
           else
             BASE="/${{ github.event.repository.name }}/"
           fi
-          sed -i "s|<base href=\"/\" />|<base href=\"${BASE}\" />|g" "${WWWROOT}/index.html"
-          cp "${WWWROOT}/index.html" "${WWWROOT}/404.html"
+          echo "Rewriting href/src/content root paths with prefix: ${BASE}"
+          find "${ROOT}" -type f -name '*.html' -print0 | while IFS= read -r -d '' f; do
+            sed -i \
+              -e "s|href=\"/|href=\"${BASE}|g" \
+              -e "s|src=\"/|src=\"${BASE}|g" \
+              -e "s|content=\"/|content=\"${BASE}|g" \
+              "$f"
+          done
+          : > "${ROOT}/.nojekyll"
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: gh-pages-publish/wwwroot
+          path: gh-pages-publish
 
   deploy:
     needs: build

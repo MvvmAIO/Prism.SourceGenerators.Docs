@@ -1,16 +1,32 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
+    <RootNamespace>Prism.SourceGenerators.Docs</RootNamespace>
+    <AssemblyName>Prism.SourceGenerators.Docs</AssemblyName>
+    <!-- Native AOT: use `dotnet publish -c Release -r <rid>` (see README). -->
+    <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.5" PrivateAssets="all" />
-    <PackageReference Include="MudBlazor" Version="9.4.0" />
+    <PackageReference Include="NuStreamDocs" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.Config.MkDocs" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.Highlight" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.MarkdownExtensions" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.Nav" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.Search.Lunr" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.Sitemap" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.Theme.Material3" Version="1.5.1" />
+    <PackageReference Include="NuStreamDocs.Toc" Version="1.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="docs\**\*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="mkdocs.yml" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

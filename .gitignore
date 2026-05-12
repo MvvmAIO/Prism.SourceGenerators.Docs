@@ -6,3 +6,5 @@
 *.suo
 *.nupkg
 .Temp/
+site/
+_gh_test_out/
