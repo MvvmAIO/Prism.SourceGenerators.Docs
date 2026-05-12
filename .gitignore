@@ -7,4 +7,5 @@
 *.nupkg
 .Temp/
 site/
+site-langtest/
 _gh_test_out/

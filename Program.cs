@@ -38,7 +38,8 @@ var configured = new DocBuilder()
     .WithSiteUrl(siteUrl)
     .UseDirectoryUrls()
     .UseMkDocsConfig(mkdocsFile)
-    .UseMaterial3Theme();
+    .UseMaterial3Theme()
+    .UsePlugin(new HeaderLanguageSwitcherPlugin());
 
 if (File.Exists(responsiveCss))
 {
