@@ -79,12 +79,22 @@ internal sealed class HeaderLanguageSwitcherPlugin : IPlugin, IPagePostRenderPlu
         var zh = ToServedDirectoryPath("zh-cn/" + contentKey);
         var ja = ToServedDirectoryPath("ja/" + contentKey);
 
-        var enActive = IsLocale(relativeMarkdown, LocaleKind.English) ? " md-header__lang-link--active" : "";
-        var zhActive = IsLocale(relativeMarkdown, LocaleKind.ZhCn) ? " md-header__lang-link--active" : "";
-        var jaActive = IsLocale(relativeMarkdown, LocaleKind.Ja) ? " md-header__lang-link--active" : "";
+        var enActive = IsLocale(relativeMarkdown, LocaleKind.English);
+        var zhActive = IsLocale(relativeMarkdown, LocaleKind.ZhCn);
+        var jaActive = IsLocale(relativeMarkdown, LocaleKind.Ja);
+
+        var enAttr = enActive
+            ? " aria-current=\"page\" class=\"md-header__lang-link md-header__lang-link--active\""
+            : " class=\"md-header__lang-link\"";
+        var zhAttr = zhActive
+            ? " aria-current=\"page\" class=\"md-header__lang-link md-header__lang-link--active\""
+            : " class=\"md-header__lang-link\"";
+        var jaAttr = jaActive
+            ? " aria-current=\"page\" class=\"md-header__lang-link md-header__lang-link--active\""
+            : " class=\"md-header__lang-link\"";
 
         var s =
-            $"""<div class="md-header__lang" role="group" aria-label="Language"><a class="md-header__lang-link{enActive}" href="{en}">EN</a><a class="md-header__lang-link{zhActive}" href="{zh}">简体</a><a class="md-header__lang-link{jaActive}" href="{ja}">日本語</a></div>""";
+            $"<div class=\"md-header__lang\" role=\"group\" aria-label=\"Language\"><a{enAttr} href=\"{en}\" lang=\"en\">EN</a><a{zhAttr} href=\"{zh}\" lang=\"zh-Hans\">简体</a><a{jaAttr} href=\"{ja}\" lang=\"ja\">日本語</a></div>";
         return Encoding.UTF8.GetBytes(s);
     }
 
