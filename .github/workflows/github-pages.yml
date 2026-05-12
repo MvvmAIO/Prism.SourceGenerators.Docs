@@ -35,14 +35,13 @@ jobs:
           dotnet-version: 10.0.x
       - name: Verify Native AOT publish (linux-x64)
         run: >-
-          dotnet publish -c Release -r linux-x64 --self-contained false
-          --project "Prism.SourceGenerators.Docs.csproj"
+          dotnet publish "Prism.SourceGenerators.Docs.csproj"
+          -c Release -r linux-x64 --self-contained false
       - name: Build static site (NuStreamDocs)
         env:
           DOCS_SITE_URL: https://mvvmaio.github.io/Prism.SourceGenerators.Docs/
         run: >-
-          dotnet run -c Release
-          --project "Prism.SourceGenerators.Docs.csproj"
+          dotnet run --project "Prism.SourceGenerators.Docs.csproj" -c Release
           --
           "${{ github.workspace }}/gh-pages-publish"
       - name: Prefix root-absolute URLs for GitHub project Pages
