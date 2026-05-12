@@ -7,6 +7,9 @@ description: Prism 向けコンパイル時 MVVM — MvvmAIO.Prism.SourceGenerat
 
 **MvvmAIO.Prism.SourceGenerators** は、**BindableBase** の意味論を保ちながら Observable・コマンド・コンテナ登録のボイラープレートを削減します。
 
+!!! success "正典ドキュメント"
+    **このサイト**がプロジェクトの**権威あるマニュアル**です。README や Wiki 系より構成が厚い内容はここを優先してください。**[サイトについて](about-this-site.md)** で他チャネルとの役割を説明しています。
+
 !!! note "言語 / Languages"
     **[English](../)** · **[简体中文](../zh-cn/)** · **[日本語](.)**
 
@@ -19,14 +22,25 @@ description: Prism 向けコンパイル時 MVVM — MvvmAIO.Prism.SourceGenerat
 | **Registration** | `IContainerRegistry` 向け登録コードの生成。 |
 | **Diagnostics** | **PSG** とコードフィックス（**MakePartial** など）。 |
 
+## 次に読む
+
+| ページ | 内容 |
+|--------|------|
+| [はじめに](getting-started.md) | インストール、partial、Prism 8/9。 |
+| [ジェネレータ概要](generators/index.md) | トピック別リファレンス（日本語本文）。 |
+| [診断リファレンス](diagnostics/reference.md) | **PSG** 一覧。 |
+| [アーキテクチャ概要](architecture/overview.md) | レイアウトと Roslyn マルチターゲット。 |
+| [ビルドと CI](build-and-ci.md) | `slnx`、Nuke。 |
+| [サンプル](samples.md) | **Prism.SourceGenerators.Samples**。 |
+
 ## NuGet
 
 - [**MvvmAIO.Prism.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.Prism.SourceGenerators)
 - [**MvvmAIO.Prism.Bcl.Commands**](https://www.nuget.org/packages/MvvmAIO.Prism.Bcl.Commands)
 
-## さらに深く
+## その他（非正典）
 
-- [DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)
 - [GitHub](https://github.com/MvvmAIO/Prism.SourceGenerators)
+- [DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators) — 探索用。**詳細は本サイトを優先**。
 
 _このサイトは [.NET 10](https://dotnet.microsoft.com/) と **NuStreamDocs** でビルドしています。_

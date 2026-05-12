@@ -1,14 +1,14 @@
 ---
 title: Reference and links
-description: DeepWiki, GitHub, samples, repository layout, and build commands.
+description: External resources, repository layout, and build commands.
 ---
 
-# External documentation
+# Reference and links
 
-Use these alongside this site. Content on **DeepWiki** is community/AI indexed from the repository and may lag behind **main**.
+Use these resources together with the **[main navigation](index.md)**. For semantics, diagnostics, and architecture, **prefer the pages on this site** over third-party mirrors.
 
 !!! note "Languages"
-    [简体中文](../zh-cn/reference/) · [日本語](../ja/reference/)
+    [简体中文](zh-cn/reference.md) · [日本語](ja/reference.md)
 
 ---
 
@@ -16,13 +16,25 @@ Use these alongside this site. Content on **DeepWiki** is community/AI indexed f
 
 | Resource | Description |
 |----------|-------------|
-| **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | Structured topics: incremental generator pipeline, shared helpers, packaging, multi-Roslyn targeting, CI, and testing. |
-| **[GitHub](https://github.com/MvvmAIO/Prism.SourceGenerators)** | Source, issues, pull requests, and CI badges for **MvvmAIO/Prism.SourceGenerators**. |
-| **[Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | **Prism.SourceGenerators.Samples** — Avalonia projects consuming the package. |
+| **[GitHub — Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)** | Source, issues, pull requests, CI. |
+| **[GitHub — Prism.SourceGenerators.Docs](https://github.com/MvvmAIO/Prism.SourceGenerators.Docs)** | This documentation site (Markdown, `mkdocs.yml`, publishing workflow). |
+| **[GitHub — Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | Runnable Avalonia samples (Prism 8 and 9). |
+| **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | AI-indexed mirror of the generator repo—handy for exploration, **not** a contract for behaviour or diagnostic text. |
 
 ---
 
-## Repository structure
+## On this site
+
+| Topic | Page |
+|-------|------|
+| Generator topics | [Generators](generators/index.md) |
+| **PSG** diagnostics | [Diagnostics reference](diagnostics/reference.md) |
+| CI and local build | [Build & CI](build-and-ci.md) |
+| Product vs docs contributions | [Contributing](contributing.md) |
+
+---
+
+## Repository structure (generator repo)
 
 Core architecture uses a shared generator project plus multiple Roslyn-target projects for package compatibility.
 
@@ -40,7 +52,7 @@ Prism.Bcl.Commands/
 
 ## Build and Nuke commands
 
-Typical local workflow for build, test, pack, and publish from the **main source repository**:
+Typical local workflow from the **generator** repository root:
 
 ```bash
 dotnet build Prism.SourceGenerators.slnx
@@ -59,6 +71,6 @@ dotnet run --project build/_build.csproj -- --target Publish --configuration Rel
 
 ---
 
-## Coverage scope on this site
+## README vs this site
 
-This site summarizes README- and DeepWiki-oriented content: generator surfaces (`ObservableProperty`, command generators, notifications, observes, bindable-base), diagnostics (**PSG** series), compatibility expectations, project topology, build and release workflows, plus source links. For full canonical details and latest updates, always cross-check the **main README**.
+The GitHub **README** stays a short onboarding surface. **Depth, tables, and cross-links** live here so they can be reviewed in **Prism.SourceGenerators.Docs** without coupling every doc change to a product release.

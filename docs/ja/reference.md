@@ -1,18 +1,72 @@
 ---
 title: 参考・リンク
+description: 外部リソース、本サイト内の案内、ビルドコマンド。
 ---
 
-# 外部ドキュメント
+# 参考・リンク
+
+以下を本文とあわせて使ってください。**意味論・診断・アーキテクチャ**は本サイトのページを正とし、サードパーティのミラーは補助です。
 
 !!! note "言語"
-    [English](../reference/) · [简体中文](../zh-cn/reference/)
+    [English](../reference.md) · [简体中文](../zh-cn/reference.md)
 
-| リンク | 内容 |
-|--------|------|
-| [DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators) | パイプライン、パッケージング、CI など |
-| [GitHub](https://github.com/MvvmAIO/Prism.SourceGenerators) | ソースと Issue |
-| [Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples) | Avalonia サンプル |
+---
 
-## リポジトリ構成・Nuke
+## クイックリンク
 
-英語版 [Reference](../reference/) を参照してください。一次情報は GitHub **README** です。
+| リソース | 内容 |
+|----------|------|
+| **[Prism.SourceGenerators（GitHub）](https://github.com/MvvmAIO/Prism.SourceGenerators)** | ソース、Issue、PR、CI。 |
+| **[Prism.SourceGenerators.Docs](https://github.com/MvvmAIO/Prism.SourceGenerators.Docs)** | 本サイトのリポジトリ。 |
+| **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | Avalonia サンプル（Prism 8 / 9）。 |
+| **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | AI インデックス。**挙動や診断文言の契約にはしない**。 |
+
+---
+
+## 本サイト内
+
+| トピック | ページ |
+|----------|--------|
+| ジェネレータ | [概要](generators/index.md) |
+| **PSG** 診断 | [診断リファレンス](diagnostics/reference.md) |
+| ビルドと CI | [ビルドと CI](build-and-ci.md) |
+| 貢献 | [コントリビュート](contributing.md) |
+
+---
+
+## ジェネレータリポジトリのレイアウト
+
+```
+Prism.SourceGenerators/
+Prism.SourceGenerators.Roslyn4001/
+Prism.SourceGenerators.Roslyn4031/
+Prism.SourceGenerators.Roslyn4120/
+Prism.SourceGenerators.Roslyn5000/
+Prism.SourceGenerators.Core/
+Prism.Bcl.Commands/
+```
+
+---
+
+## Build と Nuke
+
+**Prism.SourceGenerators** のルートで：
+
+```bash
+dotnet build Prism.SourceGenerators.slnx
+dotnet run --project build/_build.csproj -- --target Ci --configuration Release
+```
+
+---
+
+## CI
+
+- **`.NET`** ワークフローバッジは **`master`** の健全性。
+- **`Tests`** バッジは直近の成功 / 失敗 / スキップ。
+- **`.trx`** 成果物がアップロードされます。
+
+---
+
+## README と本サイト
+
+GitHub **README** は短いオンボーディング向け。**表・相互リンク・多言語の長文**は本サイト（**Prism.SourceGenerators.Docs**）で管理します。

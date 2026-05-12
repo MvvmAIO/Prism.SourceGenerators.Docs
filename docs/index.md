@@ -7,6 +7,9 @@ description: Compile-time MVVM for Prism — MvvmAIO.Prism.SourceGenerators docu
 
 **MvvmAIO.Prism.SourceGenerators** removes boilerplate for observable properties, commands, and container registration while preserving **BindableBase** semantics.
 
+!!! success "Canonical documentation"
+    **This site** is the **authoritative manual** for the project—deeper and more structured than the GitHub README or wiki-style mirrors. Start with **[About this site](about-this-site.md)** for how it relates to README and DeepWiki.
+
 !!! note "Languages / 语言 / 言語"
     This site is available in **[English](.)**, **[简体中文](zh-cn/)**, and **[日本語](ja/)**.
 
@@ -20,6 +23,19 @@ description: Compile-time MVVM for Prism — MvvmAIO.Prism.SourceGenerators docu
 | **Commands** | `[DelegateCommand]` and `[AsyncDelegateCommand]` from methods, including `ValueTask` support. |
 | **Registration** | Attributes such as `[RegisterForNavigation]` and `[RegisterSingleton]` emit `IContainerRegistry` registration code. |
 | **Diagnostics** | **PSG** diagnostics with code fixes (for example **MakePartial**) where the generator can guide you. |
+
+---
+
+## Where to read next
+
+| Page | Purpose |
+|------|---------|
+| [Getting started](getting-started.md) | Install packages, partial types, Prism 8 vs 9. |
+| [Generators](generators/index.md) | Topic-by-topic generator reference. |
+| [Diagnostics reference](diagnostics/reference.md) | Every **PSG** ID in one table. |
+| [Architecture](architecture/overview.md) | Repos, layout, Roslyn multi-targeting. |
+| [Build & CI](build-and-ci.md) | `slnx`, Nuke, pipelines. |
+| [Samples](samples.md) | **Prism.SourceGenerators.Samples** (Avalonia, Prism 8/9). |
 
 ---
 
@@ -45,14 +61,11 @@ description: Compile-time MVVM for Prism — MvvmAIO.Prism.SourceGenerators docu
 
 ---
 
-## Go deeper
+## Also useful (non-canonical)
 
-!!! tip "DeepWiki & README"
-    **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** mirrors this repo with a navigable outline (architecture, pipeline, diagnostics, packaging). The GitHub **README** remains the authoritative feature list and API examples.
-
-- **[GitHub repository](https://github.com/MvvmAIO/Prism.SourceGenerators)**
-- **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)**
+- **[GitHub repository](https://github.com/MvvmAIO/Prism.SourceGenerators)** — issues, PRs, CI.
+- **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** — exploratory outline; may lag or diverge from this site.
 
 ---
 
-_This documentation site is built with [.NET 10](https://dotnet.microsoft.com/) and **[NuStreamDocs](https://github.com/glennawatson/NuStreamDocs)** (Material 3 theme, Lunr search, static HTML)._ 
+_This documentation site is built with [.NET 10](https://dotnet.microsoft.com/) and **[NuStreamDocs](https://github.com/glennawatson/NuStreamDocs)** (Material 3 theme, Lunr search, static HTML)._
