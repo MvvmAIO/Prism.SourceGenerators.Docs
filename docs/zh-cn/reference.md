@@ -32,6 +32,7 @@ description: 外部资源、本站内导航与生成器仓库常用命令。
 | **PSG** 诊断 | [诊断参考](diagnostics/reference.md) |
 | 本地构建与 CI | [构建与 CI](build-and-ci.md) |
 | 产品与文档贡献 | [贡献指南](contributing.md) |
+| Avalonia 可运行示例 | [示例](samples.md) |
 
 ---
 

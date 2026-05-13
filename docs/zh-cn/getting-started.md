@@ -37,7 +37,7 @@ dotnet add package MvvmAIO.Prism.Bcl.Commands
 
 ## 4. 运行示例
 
-克隆 **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)**。
+克隆 **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)**，然后构建 **`Prism.SourceGenerators.Samples.slnx`**。仓库布局、Validation 示例以及生成器 **本地引用与 NuGet** 的切换说明见 **[示例](samples.md)**。
 
 ## 环境要求
 

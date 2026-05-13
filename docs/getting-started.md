@@ -48,7 +48,7 @@ dotnet add package MvvmAIO.Prism.Bcl.Commands
 
 ## 4. Run the samples
 
-Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** for Avalonia demos targeting Prism 8 and Prism 9.
+Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** for Avalonia demos targeting Prism 8 and Prism 9, then build **`Prism.SourceGenerators.Samples.slnx`**. Layout, validation demo, and **local vs NuGet** generator wiring are covered on **[Samples](samples.md)**.
 
 ---
 

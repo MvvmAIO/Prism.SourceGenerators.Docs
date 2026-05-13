@@ -32,6 +32,7 @@ Use these resources together with the **[main navigation](index.md)**. For seman
 | **PSG** diagnostics | [Diagnostics reference](diagnostics/reference.md) |
 | CI and local build | [Build & CI](build-and-ci.md) |
 | Product vs docs contributions | [Contributing](contributing.md) |
+| Runnable Avalonia samples | [Samples](samples.md) |
 
 ---
 
