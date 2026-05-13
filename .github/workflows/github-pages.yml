@@ -36,7 +36,7 @@ jobs:
       - name: Verify Native AOT publish (linux-x64)
         run: >-
           dotnet publish "Prism.SourceGenerators.Docs.csproj"
-          -c Release -r linux-x64 --self-contained false
+          -c Release -r linux-x64 --self-contained true
       - name: Build static site (NuStreamDocs)
         env:
           DOCS_SITE_URL: https://mvvmaio.github.io/Prism.SourceGenerators.Docs/

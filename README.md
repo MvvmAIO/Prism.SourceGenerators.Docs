@@ -34,14 +34,14 @@ Optional environment variable **`DOCS_SITE_URL`** sets the canonical site URL (d
 
 ## Native AOT
 
-The project enables **`<PublishAot>true</PublishAot>`** (plus **`<InvariantGlobalization>true</InvariantGlobalization>`** for invariant culture in the published binary). Markdown under **`docs/`** and **`mkdocs.yml`** are copied next to the executable so a published build can run without the repo layout.
+The project enables **`<PublishAot>true</PublishAot>`** (plus **`<InvariantGlobalization>true</InvariantGlobalization>`** for invariant culture in the published binary). Markdown under **`docs/`** and **`mkdocs.yml`** are copied next to the executable so a published build can run without the repo layout. **Publish with `--self-contained true`:** current .NET SDKs reject framework-dependent AOT publish when IL size optimization runs (**NETSDK1102**).
 
 Publish a native executable (pick a [RID](https://learn.microsoft.com/dotnet/core/rid-catalog) for your OS):
 
 ```bash
-dotnet publish -c Release -r win-x64 --self-contained false
-dotnet publish -c Release -r linux-x64 --self-contained false
-dotnet publish -c Release -r osx-arm64 --self-contained false
+dotnet publish -c Release -r win-x64 --self-contained true
+dotnet publish -c Release -r linux-x64 --self-contained true
+dotnet publish -c Release -r osx-arm64 --self-contained true
 ```
 
 Run the binary from the publish folder (for example `bin/Release/net10.0/win-x64/publish/` on Windows). Pass the output directory as the first argument, same as **`dotnet run`**:
