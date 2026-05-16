@@ -47,10 +47,25 @@ public partial class ProfileViewModel
 {
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
-    private string _displayName = "";
+    [Required(ErrorMessage = "显示名称不能为空。")]
+    [MaxLength(20, ErrorMessage = "最多 20 个字符。")]
+    public partial string DisplayName { get; set; } = "";
+
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
+    [Range(1, 120, ErrorMessage = "年龄必须在 1～120 之间。")]
+    public partial int Age { get; set; }
 }
 ```
+
+当类型没有显式基类时，生成器会自动让该 partial 类型继承 `BindableValidator`：
+
+```csharp
+// 生成代码（简化展示）
+public partial class ProfileViewModel : Prism.SourceGenerators.BindableValidator { }
+```
+
+`ValidateProperty`、`HasErrors` 等所有成员均来自 `BindableValidator`，无需手动编写。
 
 ---
 

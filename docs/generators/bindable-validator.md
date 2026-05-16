@@ -47,10 +47,25 @@ public partial class ProfileViewModel
 {
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
-    private string _displayName = "";
+    [Required(ErrorMessage = "Display name is required.")]
+    [MaxLength(20, ErrorMessage = "20 characters max.")]
+    public partial string DisplayName { get; set; } = "";
+
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
+    [Range(1, 120, ErrorMessage = "Age must be between 1 and 120.")]
+    public partial int Age { get; set; }
 }
 ```
+
+When the class has **no explicit base type**, the generator makes the partial inherit `BindableValidator`:
+
+```csharp
+// Generated (simplified)
+public partial class ProfileViewModel : Prism.SourceGenerators.BindableValidator { }
+```
+
+All `ValidateProperty` calls, `HasErrors`, and other members come from `BindableValidator` automatically.
 
 ---
 

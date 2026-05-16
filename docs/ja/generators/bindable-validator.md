@@ -47,10 +47,25 @@ public partial class ProfileViewModel
 {
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
-    private string _displayName = "";
+    [Required(ErrorMessage = "表示名は必須です。")]
+    [MaxLength(20, ErrorMessage = "20 文字以内で入力してください。")]
+    public partial string DisplayName { get; set; } = "";
+
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
+    [Range(1, 120, ErrorMessage = "年齢は 1～120 の範囲で入力してください。")]
+    public partial int Age { get; set; }
 }
 ```
+
+型に明示的な基底型がない場合、ジェネレータはその partial が `BindableValidator` を継承するように生成します：
+
+```csharp
+// 生成コード（簡略）
+public partial class ProfileViewModel : Prism.SourceGenerators.BindableValidator { }
+```
+
+`ValidateProperty`、`HasErrors` などのメンバはすべて `BindableValidator` から自動的に提供されるため、手書きが不要です。
 
 ---
 
