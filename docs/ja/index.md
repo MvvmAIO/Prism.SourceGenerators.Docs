@@ -38,6 +38,13 @@ description: Prism 向けコンパイル時 MVVM — MvvmAIO.Prism.SourceGenerat
 - [**MvvmAIO.Prism.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.Prism.SourceGenerators)
 - [**MvvmAIO.Prism.Bcl.Commands**](https://www.nuget.org/packages/MvvmAIO.Prism.Bcl.Commands)
 
+## ドキュメント更新
+
+**最終更新：** 2026-05-16 13:24:06 +0800  
+**コミット：** `12e9516` - 内部リンク修正 - 診断リファレンスページから .md 拡張子を削除
+
+---
+
 ## その他（非正典）
 
 - [GitHub](https://github.com/MvvmAIO/Prism.SourceGenerators)

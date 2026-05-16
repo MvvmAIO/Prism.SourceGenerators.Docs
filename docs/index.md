@@ -61,6 +61,13 @@ description: Compile-time MVVM for Prism — MvvmAIO.Prism.SourceGenerators docu
 
 ---
 
+## Documentation updates
+
+**Last updated:** 2026-05-16 13:24:06 +0800  
+**Commit:** `12e9516` - Fix internal links - remove .md extensions from diagnostics reference pages
+
+---
+
 ## Also useful (non-canonical)
 
 - **[GitHub repository](https://github.com/MvvmAIO/Prism.SourceGenerators)** — issues, PRs, CI.
