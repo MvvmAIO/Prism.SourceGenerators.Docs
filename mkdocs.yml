@@ -21,6 +21,7 @@ nav:
           - AsyncDelegateCommand: generators/async-delegate-command.md
           - ObservesProperty: generators/observes-property.md
           - BindableBase: generators/bindable-base.md
+          - BindableValidator: generators/bindable-validator.md
           - Container registration: generators/container-registration.md
       - Diagnostics:
           - Reference: diagnostics/reference.md
@@ -43,6 +44,7 @@ nav:
           - AsyncDelegateCommand: zh-cn/generators/async-delegate-command.md
           - ObservesProperty: zh-cn/generators/observes-property.md
           - BindableBase: zh-cn/generators/bindable-base.md
+          - BindableValidator: zh-cn/generators/bindable-validator.md
           - 容器注册: zh-cn/generators/container-registration.md
       - 诊断:
           - 参考: zh-cn/diagnostics/reference.md
@@ -65,6 +67,7 @@ nav:
           - AsyncDelegateCommand: ja/generators/async-delegate-command.md
           - ObservesProperty: ja/generators/observes-property.md
           - BindableBase: ja/generators/bindable-base.md
+          - BindableValidator: ja/generators/bindable-validator.md
           - コンテナ登録: ja/generators/container-registration.md
       - 診断:
           - リファレンス: ja/diagnostics/reference.md

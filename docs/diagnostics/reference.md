@@ -18,8 +18,10 @@ Compiler diagnostics are defined in **`Prism.SourceGenerators/Diagnostics/Diagno
 | **PSG0002** | Error | Class with command generation attribute must be partial |
 | **PSG0003** | Error | Property with `[ObservableProperty]` must be partial |
 | **PSG0004** | Error | Class with `[BindableBase]` must be partial |
+| **PSG0005** | Error | Class with `[BindableValidator]` must be partial |
+| **PSG0006** | Error | `[BindableValidator]` is only supported on classes |
 
-**Code fix:** **MakePartial** is available for all four in the IDE (**Ctrl+.** / **Alt+Enter**).
+**Code fix:** **MakePartial** is available for **PSG0001–PSG0005** in the IDE (**Ctrl+.** / **Alt+Enter**).
 
 ## PSG1001–PSG1002 — command signatures
 
@@ -57,6 +59,14 @@ Install **`MvvmAIO.Prism.SourceGenerators`** and, on **Prism.Core 8.1.97**, **`M
 | **PSG4002** | Warning | ViewModelType could not be resolved |
 
 See [Container registration](../generators/container-registration.md).
+
+## PSG5001 — validation
+
+| ID | Severity | Title |
+|----|----------|-------|
+| **PSG5001** | Warning | `[NotifyDataErrorInfo]` requires `BindableValidator` base type |
+
+`[NotifyDataErrorInfo]` is only effective when the containing type inherits from `BindableValidator` or is annotated with `[BindableValidator]`. Without it the generated setter will not call `ValidateProperty`. See [BindableValidator](../generators/bindable-validator.md).
 
 ## Next
 
