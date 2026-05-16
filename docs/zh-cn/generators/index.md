@@ -8,7 +8,7 @@ description: Prism MVVM 源生成器功能索引。
 **MvvmAIO.Prism.SourceGenerators** 在编译期扩展 **partial** 类型。特性定义在 **`MvvmAIO.Prism.Core`** 中（命名空间 **`Prism.SourceGenerators`**）。
 
 !!! tip "partial 类型"
-    凡生成成员要合并进你的声明处，类型须为 **`partial`**。**PSG0001–PSG0004** 覆盖常见错误；四项均提供 IDE **MakePartial** 代码修复。
+    凡生成成员要合并进你的声明处，类型须为 **`partial`**。**PSG0001–PSG0005** 覆盖常见错误；五项均提供 IDE **MakePartial** 代码修复。
 
 ## 主题
 
@@ -20,6 +20,7 @@ description: Prism MVVM 源生成器功能索引。
 | [AsyncDelegateCommand](async-delegate-command.md) | 并行执行、**`Catch`**、**`CancelAfter`**、**`ObservesCanExecute`**、Prism 8 与 9 包差异。 |
 | [ObservesProperty](observes-property.md) | 属性变化时重新求值 **`CanExecute`**。 |
 | [BindableBase](bindable-base.md) | 未继承 Prism **`BindableBase`** 时生成 **INPC**。 |
+| [BindableValidator](bindable-validator.md) | 通过 **`[BindableValidator]`** 和 **`[NotifyDataErrorInfo]`** 生成 **`INotifyDataErrorInfo`** 验证支持。 |
 | [容器注册](container-registration.md) | **`Register*`**、**`RegisterForNavigation`**、**`RegisterDialog`**，生成 **`IContainerRegistry`** 调用。 |
 
 ## 诊断

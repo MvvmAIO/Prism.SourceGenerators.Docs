@@ -8,7 +8,7 @@ description: Index of source generator features for Prism MVVM.
 MvvmAIO.Prism.SourceGenerators extends **partial** types at compile time. Attributes live in **`MvvmAIO.Prism.Core`** (namespace **`Prism.SourceGenerators`**).
 
 !!! tip "Partial types"
-    **`partial`** is required wherever generated members merge into your declaration. **PSG0001–PSG0004** cover the common mistakes; all four have a **MakePartial** code fix in the IDE.
+    **`partial`** is required wherever generated members merge into your declaration. **PSG0001–PSG0005** cover the common mistakes; all five have a **MakePartial** code fix in the IDE.
 
 ## Topics
 
@@ -20,6 +20,7 @@ MvvmAIO.Prism.SourceGenerators extends **partial** types at compile time. Attrib
 | [AsyncDelegateCommand](async-delegate-command.md) | Parallel runs, **`Catch`**, **`CancelAfter`**, **`ObservesCanExecute`**, Prism 8 vs 9 packages. |
 | [ObservesProperty](observes-property.md) | Re-evaluate **`CanExecute`** when properties change. |
 | [BindableBase](bindable-base.md) | Generated **INPC** for types not inheriting Prism **`BindableBase`**. |
+| [BindableValidator](bindable-validator.md) | **`INotifyDataErrorInfo`** validation via **`[BindableValidator]`** and **`[NotifyDataErrorInfo]`**. |
 | [Container registration](container-registration.md) | **`Register*`**, **`RegisterForNavigation`**, **`RegisterDialog`**, emitted **`IContainerRegistry`** calls. |
 
 ## Diagnostics
