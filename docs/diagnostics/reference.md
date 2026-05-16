@@ -30,7 +30,7 @@ Compiler diagnostics are defined in **`Prism.SourceGenerators/Diagnostics/Diagno
 | **PSG1001** | Error | Invalid `[DelegateCommand]` method signature |
 | **PSG1002** | Error | Invalid `[AsyncDelegateCommand]` method signature |
 
-See [DelegateCommand](../generators/delegate-command.md) and [AsyncDelegateCommand](../generators/async-delegate-command.md).
+See [DelegateCommand](../generators/delegate-command/) and [AsyncDelegateCommand](../generators/async-delegate-command/).
 
 ## PSG2001–PSG2006 — names, handlers, signatures
 
@@ -58,7 +58,7 @@ Install **`MvvmAIO.Prism.SourceGenerators`** and, on **Prism.Core 8.1.97**, **`M
 | **PSG4001** | Warning | ServiceType is not assignable from implementation type |
 | **PSG4002** | Warning | ViewModelType could not be resolved |
 
-See [Container registration](../generators/container-registration.md).
+See [Container registration](../generators/container-registration/).
 
 ## PSG5001 — validation
 
@@ -66,9 +66,9 @@ See [Container registration](../generators/container-registration.md).
 |----|----------|-------|
 | **PSG5001** | Warning | `[NotifyDataErrorInfo]` requires `BindableValidator` base type |
 
-`[NotifyDataErrorInfo]` is only effective when the containing type inherits from `BindableValidator` or is annotated with `[BindableValidator]`. Without it the generated setter will not call `ValidateProperty`. See [BindableValidator](../generators/bindable-validator.md).
+`[NotifyDataErrorInfo]` is only effective when the containing type inherits from `BindableValidator` or is annotated with `[BindableValidator]`. Without it the generated setter will not call `ValidateProperty`. See [BindableValidator](../generators/bindable-validator/).
 
 ## Next
 
-- [Generators overview](../generators/index.md)
-- [Contributing](../contributing.md)
+- [Generators overview](../generators/)
+- [Contributing](../contributing/)
