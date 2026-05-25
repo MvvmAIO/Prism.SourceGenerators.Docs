@@ -9,3 +9,5 @@
 site/
 site-langtest/
 _gh_test_out/
+test-build/
+test-build-*/

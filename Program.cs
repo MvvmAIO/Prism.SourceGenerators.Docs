@@ -8,6 +8,13 @@ using NuStreamDocs.Sitemap;
 using NuStreamDocs.Theme.Material3;
 using NuStreamDocs.Toc;
 
+// ASP.NET Core imports for development server
+#if DEBUG
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.StaticFiles;
+#endif
+
 static string ResolveContentPath(string relative)
 {
     var fromBase = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, relative));
@@ -61,3 +68,36 @@ var pages = await configured
     .BuildAsync();
 
 Console.WriteLine($"Built {pages} page(s) into '{outDir}'.");
+
+// Check if we should start a web server for development
+#if DEBUG
+if (args.Length > 1 && args[1] == "--serve")
+{
+    var builder = WebApplication.CreateBuilder(args);
+    
+    var app = builder.Build();
+    
+    // Redirect root to homepage
+    app.Use(async (context, next) =>
+    {
+        if (context.Request.Path == "/")
+        {
+            context.Response.Redirect("/index.html");
+            return;
+        }
+        await next();
+    });
+    
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(outDir),
+        RequestPath = ""
+    });
+    
+    var url = "http://127.0.0.1:8080";
+    Console.WriteLine($"Starting web server at {url}");
+    Console.WriteLine($"Serving files from: {outDir}");
+    Console.WriteLine($"Root / redirects to /index.html");
+    app.Run(url);
+}
+#endif

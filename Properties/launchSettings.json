@@ -2,9 +2,12 @@
   "profiles": {
     "Prism.SourceGenerators.Docs": {
       "commandName": "Project",
+      "commandLineArgs": "site --serve",
       "environmentVariables": {
         "DOCS_SITE_URL": "http://127.0.0.1:8080/"
-      }
+      },
+      "launchBrowser": true,
+      "applicationUrl": "http://127.0.0.1:8080/"
     }
   }
 }
