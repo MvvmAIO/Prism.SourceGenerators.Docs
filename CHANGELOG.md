@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+## [0.4.2] - 2026-05-25
+
+### Added
+
+- **DEBUG `--serve`** — local static preview after build (`site --serve` in launch profile).
+
+### Changed
+
+- NuGet install examples updated to **MvvmAIO.Prism.SourceGenerators** 0.4.2 (Bcl.Commands 0.4.0 for Prism 8).
+- `.gitignore` — exclude local `test-build*` output folders.
+
 ## [0.4.1] - 2026-05-16
 
 ### Fixed
