@@ -66,7 +66,7 @@ Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.Source
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.4.2" />
+  <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.5.0" />
   <!-- Prism 8.1.97 async command support -->
   <PackageReference Include="MvvmAIO.Prism.Bcl.Commands" Version="0.4.1" />
 </ItemGroup>

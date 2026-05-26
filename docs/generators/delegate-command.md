@@ -10,10 +10,10 @@ Generates **`DelegateCommand`** / **`DelegateCommand<T>`** or **`AsyncDelegateCo
 ## Supported execute shapes (summary)
 
 - **`void`** with zero or one parameter → **`DelegateCommand`** / **`DelegateCommand<T>`**
-- **`Task`** (non-generic), **`ValueTask`**, **`ValueTask<TResult>`** → **`AsyncDelegateCommand`** (via **`.AsTask()`** where needed)
+- **`Task`** (non-generic), **`Task<TResult>`**, **`ValueTask`**, **`ValueTask<TResult>`** → **`AsyncDelegateCommand`** (`ValueTask` family via **`.AsTask()`**; **`Task<TResult>`** via `async` lambda that awaits execute)
 - **`CanExecute = nameof(...)`** → bool method or compatible delegate (**PSG2003**, **PSG2006** when invalid)
 
-**`Task<TResult>`** as an execute return is **not** supported (**PSG1001**). **`CancellationToken`** + **`ValueTask`** combination has restrictions (**PSG1001** — see product tests for your version).
+**`CancellationToken`** + **`ValueTask`** / **`ValueTask<TResult>`** / **`Task<TResult>`** is **not** supported (**PSG1001**).
 
 ## Example
 

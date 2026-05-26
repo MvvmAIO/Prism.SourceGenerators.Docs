@@ -10,10 +10,10 @@ description: 由方法生成同步与 Task 异步命令。
 ## 支持的 Execute 形态（摘要）
 
 - **`void`**，零或一个参数 → **`DelegateCommand`** / **`DelegateCommand<T>`**
-- **`Task`**（非泛型）、**`ValueTask`**、**`ValueTask<TResult>`** → **`AsyncDelegateCommand`**（必要时经 **`.AsTask()`**）
+- **`Task`**（非泛型）、**`Task<TResult>`**、**`ValueTask`**、**`ValueTask<TResult>`** → **`AsyncDelegateCommand`**（`ValueTask` 族经 **`.AsTask()`**；**`Task<TResult>`** 经 `async` lambda 等待 execute）
 - **`CanExecute = nameof(...)`** → bool 方法或兼容委托（无效时 **PSG2003**、**PSG2006**）
 
-**`Task<TResult>`** 作为 execute 返回值**不受支持**（**PSG1001**）。**`CancellationToken`** 与 **`ValueTask`** 的组合存在限制（**PSG1001** — 以你所用版本的产品测试为准）。
+**`CancellationToken`** 与 **`ValueTask`** / **`ValueTask<TResult>`** / **`Task<TResult>`** 的组合**不受支持**（**PSG1001**）。
 
 ## 示例
 
