@@ -4,6 +4,22 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 
+### Added
+
+- **Per-locale Lunr search** — separate indexes for EN / zh-cn / ja with CJK bigram tokenization and `lunr-bind-multilingual.js`.
+- **SEO post-render plugin** — locale-aware `<html lang>`, `canonical`, and `hreflang` (including `x-default`).
+- **Unit tests** — `Prism.SourceGenerators.Docs.Tests` for locale paths, CJK bigram, and base-path rewriting.
+
+### Fixed
+
+- **GitHub Pages base path** — `SiteBasePathPlugin` rewrites root-absolute URLs in HTML and search JSON at build time (replaces CI `sed` pass).
+- **DEBUG `--serve`** — directory URLs (e.g. `/getting-started/`) resolve via `UseDefaultFiles`.
+- **Language switcher** — fallback insert on pages without palette toggle (404); links skip missing translations.
+
+### Changed
+
+- **CI** — NuGet cache, `--no-launch-profile` for release builds, AOT verify only on non-PR pushes.
+
 ## [0.4.2] - 2026-05-25
 
 ### Added

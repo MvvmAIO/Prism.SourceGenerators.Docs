@@ -8,10 +8,18 @@ using NuStreamDocs.Plugins;
 /// </summary>
 internal sealed class HeaderLanguageSwitcherPlugin : IPlugin, IPagePostRenderPlugin
 {
+    private readonly LocalePageRegistry _registry;
+
     private static ReadOnlySpan<byte> PaletteToggleNeedle => "data-md-component=\"palette-toggle\""u8;
+    private static ReadOnlySpan<byte> HeaderInnerNeedle => "class=\"md-header__inner"u8;
     private static ReadOnlySpan<byte> ButtonClose => "</button>"u8;
     private static ReadOnlySpan<byte> LangMarker => "md-header__lang"u8;
     private static ReadOnlySpan<byte> HtmlOpen => "<html"u8;
+
+    public HeaderLanguageSwitcherPlugin(LocalePageRegistry registry)
+    {
+        _registry = registry;
+    }
 
     public ReadOnlySpan<byte> Name => "header-language-switcher"u8;
 
@@ -29,7 +37,7 @@ internal sealed class HeaderLanguageSwitcherPlugin : IPlugin, IPagePostRenderPlu
             return false;
         }
 
-        return html.IndexOf(PaletteToggleNeedle) >= 0;
+        return html.IndexOf(PaletteToggleNeedle) >= 0 || html.IndexOf(HeaderInnerNeedle) >= 0;
     }
 
     public void PostRender(in PagePostRenderContext context)
@@ -56,98 +64,84 @@ internal sealed class HeaderLanguageSwitcherPlugin : IPlugin, IPagePostRenderPlu
     {
         insertAt = 0;
         var i = html.IndexOf(PaletteToggleNeedle);
-        if (i < 0)
+        if (i >= 0)
+        {
+            var slice = html[i..];
+            var close = slice.IndexOf(ButtonClose);
+            if (close >= 0)
+            {
+                insertAt = i + close + ButtonClose.Length;
+                return true;
+            }
+        }
+
+        var inner = html.IndexOf(HeaderInnerNeedle);
+        if (inner < 0)
         {
             return false;
         }
 
-        var slice = html[i..];
-        var close = slice.IndexOf(ButtonClose);
-        if (close < 0)
+        var headerClose = html.IndexOf("</nav>"u8);
+        if (headerClose < 0 || headerClose <= inner)
         {
             return false;
         }
 
-        insertAt = i + close + ButtonClose.Length;
+        insertAt = headerClose + "</nav>".Length;
         return true;
     }
 
-    private static byte[] BuildFragmentBytes(string relativeMarkdown)
+    private byte[] BuildFragmentBytes(string relativeMarkdown)
     {
-        var contentKey = StripLocalePrefix(relativeMarkdown);
-        var en = ToServedDirectoryPath(contentKey);
-        var zh = ToServedDirectoryPath("zh-cn/" + contentKey);
-        var ja = ToServedDirectoryPath("ja/" + contentKey);
+        var contentKey = DocsLocale.StripPrefix(relativeMarkdown);
+        var current = DocsLocale.FromRelativeMarkdown(relativeMarkdown);
 
-        var enActive = IsLocale(relativeMarkdown, LocaleKind.English);
-        var zhActive = IsLocale(relativeMarkdown, LocaleKind.ZhCn);
-        var jaActive = IsLocale(relativeMarkdown, LocaleKind.Ja);
+        var sb = new StringBuilder();
+        sb.Append("<div class=\"md-header__lang\" role=\"group\" aria-label=\"Language\">");
 
-        var enAttr = enActive
-            ? " aria-current=\"page\" class=\"md-header__lang-link md-header__lang-link--active\""
-            : " class=\"md-header__lang-link\"";
-        var zhAttr = zhActive
-            ? " aria-current=\"page\" class=\"md-header__lang-link md-header__lang-link--active\""
-            : " class=\"md-header__lang-link\"";
-        var jaAttr = jaActive
-            ? " aria-current=\"page\" class=\"md-header__lang-link md-header__lang-link--active\""
-            : " class=\"md-header__lang-link\"";
+        AppendLink(sb, DocsLocale.Kind.English, contentKey, current, "EN", "en");
+        AppendLink(sb, DocsLocale.Kind.ZhCn, contentKey, current, "简体", "zh-Hans");
+        AppendLink(sb, DocsLocale.Kind.Ja, contentKey, current, "日本語", "ja");
 
-        var s =
-            $"<div class=\"md-header__lang\" role=\"group\" aria-label=\"Language\"><a{enAttr} href=\"{en}\" lang=\"en\">EN</a><a{zhAttr} href=\"{zh}\" lang=\"zh-Hans\">简体</a><a{jaAttr} href=\"{ja}\" lang=\"ja\">日本語</a></div>";
-        return Encoding.UTF8.GetBytes(s);
+        sb.Append("</div>");
+        return Encoding.UTF8.GetBytes(sb.ToString());
     }
 
-    private static string StripLocalePrefix(string relativeMarkdown)
+    private void AppendLink(
+        StringBuilder sb,
+        DocsLocale.Kind locale,
+        string contentKey,
+        DocsLocale.Kind current,
+        string label,
+        string lang)
     {
-        if (relativeMarkdown.StartsWith("zh-cn/", StringComparison.OrdinalIgnoreCase))
+        if (!_registry.Exists(locale, contentKey))
         {
-            return relativeMarkdown[6..];
+            return;
         }
 
-        if (relativeMarkdown.StartsWith("ja/", StringComparison.OrdinalIgnoreCase))
+        var href = DocsLocale.ToServedDirectoryPath(locale, contentKey);
+        var active = locale == current;
+        if (active)
         {
-            return relativeMarkdown[3..];
+            sb.Append("<a aria-current=\"page\" class=\"md-header__lang-link md-header__lang-link--active\" href=\"")
+                .Append(href)
+                .Append("\" lang=\"")
+                .Append(lang)
+                .Append("\">")
+                .Append(label)
+                .Append("</a>");
         }
-
-        return relativeMarkdown;
-    }
-
-    private enum LocaleKind
-    {
-        English,
-        ZhCn,
-        Ja,
-    }
-
-    private static bool IsLocale(string relativeMarkdown, LocaleKind kind) =>
-        kind switch
+        else
         {
-            LocaleKind.English => !relativeMarkdown.StartsWith("zh-cn/", StringComparison.OrdinalIgnoreCase)
-                                 && !relativeMarkdown.StartsWith("ja/", StringComparison.OrdinalIgnoreCase),
-            LocaleKind.ZhCn => relativeMarkdown.StartsWith("zh-cn/", StringComparison.OrdinalIgnoreCase),
-            LocaleKind.Ja => relativeMarkdown.StartsWith("ja/", StringComparison.OrdinalIgnoreCase),
-            _ => false,
-        };
-
-    private static string ToServedDirectoryPath(string markdownRelative)
-    {
-        var p = markdownRelative.Replace('\\', '/');
-        if (!p.EndsWith(".md", StringComparison.OrdinalIgnoreCase))
-        {
-            p += ".md";
+            sb.Append("<a class=\"md-header__lang-link\" href=\"")
+                .Append(href)
+                .Append("\" lang=\"")
+                .Append(lang)
+                .Append("\">")
+                .Append(label)
+                .Append("</a>");
         }
-
-        var stem = p[..^3];
-        var lastSlash = stem.LastIndexOf('/');
-        var fileName = lastSlash >= 0 ? stem[(lastSlash + 1)..] : stem;
-        if (fileName.Equals("index", StringComparison.OrdinalIgnoreCase))
-        {
-            var dir = lastSlash >= 0 ? stem[..lastSlash] : string.Empty;
-            return string.IsNullOrEmpty(dir) ? "/" : "/" + dir + "/";
-        }
-
-        return "/" + stem + "/";
     }
 
     private static void WriteAll(IBufferWriter<byte> writer, ReadOnlySpan<byte> span)

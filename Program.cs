@@ -8,11 +8,10 @@ using NuStreamDocs.Sitemap;
 using NuStreamDocs.Theme.Material3;
 using NuStreamDocs.Toc;
 
-// ASP.NET Core imports for development server
 #if DEBUG
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.FileProviders;
 #endif
 
 static string ResolveContentPath(string relative)
@@ -29,24 +28,26 @@ static string ResolveContentPath(string relative)
 }
 
 var outDir = Path.GetFullPath(args.Length > 0 ? args[0] : "site");
-var siteUrl = Environment.GetEnvironmentVariable("DOCS_SITE_URL")?.Trim();
-if (string.IsNullOrEmpty(siteUrl))
-{
-    siteUrl = "https://mvvmaio.github.io/Prism.SourceGenerators.Docs/";
-}
+var buildSettings = DocsBuildSettings.Resolve();
 
 var docsDir = ResolveContentPath("docs");
 var mkdocsFile = ResolveContentPath("mkdocs.yml");
 var responsiveCss = ResolveContentPath(Path.Combine("styles", "responsive.css"));
 
+var localeRegistry = new LocalePageRegistry();
+
 var configured = new DocBuilder()
     .WithInput(docsDir)
     .WithOutput(outDir)
-    .WithSiteUrl(siteUrl)
+    .WithSiteUrl(buildSettings.SiteUrl)
     .UseDirectoryUrls()
     .UseMkDocsConfig(mkdocsFile)
     .UseMaterial3Theme()
-    .UsePlugin(new HeaderLanguageSwitcherPlugin());
+    .UsePlugin(localeRegistry)
+    .UsePlugin(new SeoMetaPlugin(buildSettings, localeRegistry))
+    .UsePlugin(new HeaderLanguageSwitcherPlugin(localeRegistry))
+    .UsePlugin(new SiteBasePathPlugin(buildSettings))
+    .UsePlugin(new MultilingualSearchPlugin(buildSettings));
 
 if (File.Exists(responsiveCss))
 {
@@ -69,35 +70,28 @@ var pages = await configured
 
 Console.WriteLine($"Built {pages} page(s) into '{outDir}'.");
 
-// Check if we should start a web server for development
 #if DEBUG
 if (args.Length > 1 && args[1] == "--serve")
 {
     var builder = WebApplication.CreateBuilder(args);
-    
     var app = builder.Build();
-    
-    // Redirect root to homepage
-    app.Use(async (context, next) =>
+    var fileProvider = new PhysicalFileProvider(outDir);
+
+    app.UseDefaultFiles(new DefaultFilesOptions
     {
-        if (context.Request.Path == "/")
-        {
-            context.Response.Redirect("/index.html");
-            return;
-        }
-        await next();
+        FileProvider = fileProvider,
+        RequestPath = "",
     });
-    
+
     app.UseStaticFiles(new StaticFileOptions
     {
-        FileProvider = new PhysicalFileProvider(outDir),
-        RequestPath = ""
+        FileProvider = fileProvider,
+        RequestPath = "",
     });
-    
+
     var url = "http://127.0.0.1:8080";
     Console.WriteLine($"Starting web server at {url}");
     Console.WriteLine($"Serving files from: {outDir}");
-    Console.WriteLine($"Root / redirects to /index.html");
     app.Run(url);
 }
 #endif

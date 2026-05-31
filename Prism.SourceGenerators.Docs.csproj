@@ -13,6 +13,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="Prism.SourceGenerators.Docs.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Prism.SourceGenerators.Docs.Tests\**" />
+    <None Remove="Prism.SourceGenerators.Docs.Tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NuStreamDocs" Version="1.5.1" />
     <PackageReference Include="NuStreamDocs.Config.MkDocs" Version="1.5.1" />
     <PackageReference Include="NuStreamDocs.Highlight" Version="1.5.1" />
@@ -32,6 +41,7 @@
     <None Include="docs\**\*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <None Include="mkdocs.yml" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <None Include="styles\**\*.css" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="assets\**\*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
