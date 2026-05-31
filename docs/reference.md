@@ -11,12 +11,6 @@ This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
 
 Use these resources together with the **[main navigation](/)**. For semantics, diagnostics, and architecture, **prefer the pages on this site** over third-party mirrors.
 
-::: info Languages
-[简体中文](/zh-cn/reference) · [日本語](/ja/reference)
-
-:::
----
-
 ## Quick links
 
 | Resource | Description |
@@ -27,7 +21,6 @@ Use these resources together with the **[main navigation](/)**. For semantics, d
 | **[GitHub — Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | Runnable Avalonia samples (Prism 8 and 9). |
 | **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | AI-indexed mirror of the generator repo—handy for exploration, **not** a contract for behaviour or diagnostic text. |
 
----
 
 ## On this site
 
@@ -39,7 +32,6 @@ Use these resources together with the **[main navigation](/)**. For semantics, d
 | Product vs docs contributions | [Contributing](/contributing) |
 | Runnable Avalonia samples | [Samples](/samples) |
 
----
 
 ## Repository structure (generator repo)
 
@@ -55,7 +47,6 @@ Prism.SourceGenerators.Core/
 Prism.Bcl.Commands/
 ```
 
----
 
 ## Build and Nuke commands
 
@@ -68,7 +59,6 @@ dotnet run --project build/_build.csproj -- --target Pack --configuration Releas
 dotnet run --project build/_build.csproj -- --target Publish --configuration Release --version 0.2.0 --nuget-api-key <NUGET_API_KEY>
 ```
 
----
 
 ## CI and quality signals
 
@@ -76,7 +66,6 @@ dotnet run --project build/_build.csproj -- --target Publish --configuration Rel
 - **`Tests`** badge reports pass/fail/skip counts from the latest run.
 - Workflows upload **`test-results`** (`.trx`) artifacts for detailed diagnostics.
 
----
 
 ## README, Wiki, and this site
 

@@ -3,6 +3,10 @@ title: 源生成器
 description: Prism MVVM 源生成器功能索引。
 ---
 
+::: tip 语言 / Languages
+本页另有 [English](/generators/) 和 [日本語](/ja/generators/) 版本。
+:::
+
 # 源生成器
 
 **MvvmAIO.Prism.SourceGenerators** 在编译期扩展 **partial** 类型。特性定义在 **`MvvmAIO.Prism.Core`** 中（命名空间 **`Prism.SourceGenerators`**）。
@@ -11,6 +15,7 @@ description: Prism MVVM 源生成器功能索引。
 凡生成成员要合并进你的声明处，类型须为 **`partial`**。**PSG0001–PSG0005** 覆盖常见错误；五项均提供 IDE **MakePartial** 代码修复。
 
 :::
+
 ## 主题
 
 | 主题 | 摘要 |

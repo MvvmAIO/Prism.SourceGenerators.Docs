@@ -11,12 +11,6 @@ This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
 
 Add the NuGet package to a Prism app that uses **BindableBase** (or a compatible base). Use **partial** types where the generator requires them.
 
-::: info Languages
-[简体中文](/zh-cn/getting-started) · [日本語](/ja/getting-started)
-
-:::
----
-
 ## 1. Add the package
 
 Install **MvvmAIO.Prism.SourceGenerators** from NuGet. It bundles the Core attributes assembly.
@@ -25,7 +19,6 @@ Install **MvvmAIO.Prism.SourceGenerators** from NuGet. It bundles the Core attri
 dotnet add package MvvmAIO.Prism.SourceGenerators
 ```
 
----
 
 ## 2. Use partial types
 
@@ -39,7 +32,6 @@ public partial class MainViewModel : BindableBase
 }
 ```
 
----
 
 ## 3. Prism 8 vs 9
 
@@ -49,13 +41,11 @@ On **Prism.Core 8.1.97** you may also need **MvvmAIO.Prism.Bcl.Commands** for `A
 dotnet add package MvvmAIO.Prism.Bcl.Commands
 ```
 
----
 
 ## 4. Run the samples
 
 Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** for Avalonia demos targeting Prism 8 and Prism 9, then build **`Prism.SourceGenerators.Samples.slnx`**. Layout, validation demo, and **local vs NuGet** generator wiring are covered on **[Samples](/samples)**.
 
----
 
 ## Requirements
 
@@ -63,7 +53,6 @@ Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.Source
 - **Visual Studio 2022 17.13+** / Rider / VS Code with C# Dev Kit (`.slnx` support)
 - Prism app with **`BindableBase`** (or compatible base type)
 
----
 
 ## Recommended package setup
 
@@ -79,7 +68,6 @@ Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.Source
 
 Replace versions with the latest from NuGet.
 
----
 
 ## Build and validate
 
@@ -95,7 +83,6 @@ dotnet build Prism.SourceGenerators.slnx
 dotnet run --project build/_build.csproj -- --target Ci --configuration Release
 ```
 
----
 
 ## Common upgrade notes
 

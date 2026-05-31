@@ -3,6 +3,7 @@
 */
 
 :root {
+  --vp-site-footer-offset: 0px;
   --docs-prose-max: min(72ch, 100%);
 }
 
@@ -98,4 +99,79 @@
 
 .VPHome .VPFeature .title {
   font-weight: 600;
+}
+
+.Layout {
+  padding-bottom: var(--vp-site-footer-offset);
+}
+
+/* Built-in VPFooter is replaced by SiteFooter in layout-bottom slot */
+.Layout > .VPFooter:not(.site-footer) {
+  display: none !important;
+}
+
+.VPFooter.site-footer--fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 25;
+  margin: 0;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--vp-c-divider);
+  background: color-mix(in srgb, var(--vp-c-bg) 94%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -6px 24px color-mix(in srgb, var(--vp-c-bg-alt) 40%, transparent);
+}
+
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .site-footer .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1rem;
+    row-gap: 4px;
+  }
+
+  .site-footer .message,
+  .site-footer .copyright,
+  .site-footer-meta {
+    margin: 0;
+  }
+}
+
+.site-footer-meta {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+}
+
+.site-footer-meta time {
+  color: var(--vp-c-text-1);
+}
+
+.site-footer-meta .sep {
+  margin: 0 0.35em;
+  opacity: 0.55;
+}
+
+.site-footer-link {
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer-link:hover {
+  color: var(--vp-c-brand-2);
+  text-decoration: underline;
 }

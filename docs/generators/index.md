@@ -3,6 +3,10 @@ title: Generators
 description: Index of source generator features for Prism MVVM.
 ---
 
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/generators/) and [日本語](/ja/generators/).
+:::
+
 # Generators
 
 MvvmAIO.Prism.SourceGenerators extends **partial** types at compile time. Attributes live in **`MvvmAIO.Prism.Core`** (namespace **`Prism.SourceGenerators`**).
@@ -11,6 +15,7 @@ MvvmAIO.Prism.SourceGenerators extends **partial** types at compile time. Attrib
 **`partial`** is required wherever generated members merge into your declaration. **PSG0001–PSG0005** cover the common mistakes; all five have a **MakePartial** code fix in the IDE.
 
 :::
+
 ## Topics
 
 | Topic | Summary |

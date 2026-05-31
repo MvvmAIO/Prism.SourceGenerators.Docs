@@ -11,7 +11,6 @@ description: 通过 [BindableValidator] 和 [NotifyDataErrorInfo] 生成 INotify
 
 `BindableValidator` 是一个抽象基类，同时实现 **`INotifyPropertyChanged`** 和 **`INotifyDataErrorInfo`**，由 `System.ComponentModel.DataAnnotations` 提供支持。生成器提供两种接入方式。
 
----
 
 ## 方式 A — 直接继承 `BindableValidator`
 
@@ -34,7 +33,6 @@ public partial class LoginViewModel : BindableValidator
 }
 ```
 
----
 
 ## 方式 B — 使用 `[BindableValidator]` 特性
 
@@ -71,7 +69,6 @@ public partial class ProfileViewModel : Prism.SourceGenerators.BindableValidator
 
 `ValidateProperty`、`HasErrors` 等所有成员均来自 `BindableValidator`，无需手动编写。
 
----
 
 ## 类级别 `[NotifyDataErrorInfo]`
 
@@ -91,7 +88,6 @@ public partial class RegisterViewModel : BindableValidator
 }
 ```
 
----
 
 ## 可用方法
 
@@ -106,7 +102,6 @@ public partial class RegisterViewModel : BindableValidator
 | `GetErrors(name)` | 返回当前错误（`IEnumerable`）。 |
 | `HasErrors` | 存在任何属性错误时为 `true`。 |
 
----
 
 ## DataAnnotations 转发
 
@@ -114,7 +109,6 @@ public partial class RegisterViewModel : BindableValidator
 
 对于**字段**目标，未指定目标的 DataAnnotations 特性会被转发到生成属性，使验证器能够读取它们。
 
----
 
 ## 诊断
 
@@ -122,7 +116,6 @@ public partial class RegisterViewModel : BindableValidator
 |----|----------|----------|
 | **PSG5001** | Warning | 使用了 `[NotifyDataErrorInfo]` 但类型未继承 `BindableValidator` 也未使用 `[BindableValidator]`——验证调用不会被生成。 |
 
----
 
 ## 相关
 

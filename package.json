@@ -11,8 +11,7 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview",
-    "migrate:content": "node scripts/migrate-content.mjs"
+    "docs:preview": "vitepress preview"
   },
   "keywords": [
     "prism",

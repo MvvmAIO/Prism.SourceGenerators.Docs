@@ -19,6 +19,7 @@ You still invoke the generated extension from your composition root (for example
 **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** shows working registration for Avalonia + Prism 8/9.
 
 :::
+
 ## Attributes (summary)
 
 | Attribute | Purpose |

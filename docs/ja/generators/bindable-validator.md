@@ -11,7 +11,6 @@ description: "[BindableValidator] と [NotifyDataErrorInfo] で INotifyDataError
 
 `BindableValidator` は **`INotifyPropertyChanged`** と **`INotifyDataErrorInfo`** を同時に実装する抽象基底クラスで、`System.ComponentModel.DataAnnotations` によって支えられています。ジェネレータは 2 通りの方法で組み込みます。
 
----
 
 ## 方法 A — `BindableValidator` を直接継承
 
@@ -34,7 +33,6 @@ public partial class LoginViewModel : BindableValidator
 }
 ```
 
----
 
 ## 方法 B — `[BindableValidator]` 属性を使用
 
@@ -71,7 +69,6 @@ public partial class ProfileViewModel : Prism.SourceGenerators.BindableValidator
 
 `ValidateProperty`、`HasErrors` などのメンバはすべて `BindableValidator` から自動的に提供されるため、手書きが不要です。
 
----
 
 ## クラスレベルの `[NotifyDataErrorInfo]`
 
@@ -91,7 +88,6 @@ public partial class RegisterViewModel : BindableValidator
 }
 ```
 
----
 
 ## 利用可能なメソッド
 
@@ -106,7 +102,6 @@ public partial class RegisterViewModel : BindableValidator
 | `GetErrors(name)` | 現在のエラーを返す（`IEnumerable`）。 |
 | `HasErrors` | いずれかのプロパティにエラーがある場合 `true`。 |
 
----
 
 ## DataAnnotations の転送
 
@@ -114,7 +109,6 @@ public partial class RegisterViewModel : BindableValidator
 
 **フィールド**ターゲットの場合、ターゲット指定なしの DataAnnotations 属性は生成プロパティに転送されるため、バリデータが読み取れます。
 
----
 
 ## 診断
 
@@ -122,7 +116,6 @@ public partial class RegisterViewModel : BindableValidator
 |----|--------|------|
 | **PSG5001** | Warning | `[NotifyDataErrorInfo]` を使用しているが、型が `BindableValidator` を継承せず `[BindableValidator]` も付与していない — 検証呼び出しは生成されません。 |
 
----
 
 ## 関連
 

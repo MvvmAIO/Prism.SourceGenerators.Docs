@@ -11,7 +11,6 @@ This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
 
 `BindableValidator` is an abstract base class that implements both **`INotifyPropertyChanged`** and **`INotifyDataErrorInfo`**, backed by `System.ComponentModel.DataAnnotations`. The generator can wire it up automatically in two ways.
 
----
 
 ## Option A — inherit `BindableValidator` directly
 
@@ -34,7 +33,6 @@ public partial class LoginViewModel : BindableValidator
 }
 ```
 
----
 
 ## Option B — use `[BindableValidator]` attribute
 
@@ -71,7 +69,6 @@ public partial class ProfileViewModel : Prism.SourceGenerators.BindableValidator
 
 All `ValidateProperty` calls, `HasErrors`, and other members come from `BindableValidator` automatically.
 
----
 
 ## Class-level `[NotifyDataErrorInfo]`
 
@@ -91,7 +88,6 @@ public partial class RegisterViewModel : BindableValidator
 }
 ```
 
----
 
 ## Available methods
 
@@ -106,7 +102,6 @@ public partial class RegisterViewModel : BindableValidator
 | `GetErrors(name)` | Return current errors (`IEnumerable`). |
 | `HasErrors` | `true` when any property has errors. |
 
----
 
 ## DataAnnotations forwarding
 
@@ -114,7 +109,6 @@ public partial class RegisterViewModel : BindableValidator
 
 For **field** targets, untargeted DataAnnotations attributes are forwarded to the generated property so the validator can see them.
 
----
 
 ## Diagnostic
 
@@ -122,7 +116,6 @@ For **field** targets, untargeted DataAnnotations attributes are forwarded to th
 |----|----------|-----------|
 | **PSG5001** | Warning | `[NotifyDataErrorInfo]` used but the type does not inherit `BindableValidator` or use `[BindableValidator]` — validation calls will not be emitted. |
 
----
 
 ## Related
 

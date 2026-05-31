@@ -19,6 +19,7 @@ description: 发出 IContainerRegistry 注册调用的特性。
 **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** 包含 Avalonia + Prism 8/9 的可用注册示例。
 
 :::
+
 ## 特性（摘要）
 
 | 特性 | 用途 |

@@ -19,6 +19,7 @@ description: IContainerRegistry 呼び出しを生成する属性。
 **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** に Avalonia + Prism 8/9 の動作例があります。
 
 :::
+
 ## 属性（要約）
 
 | 属性 | 目的 |

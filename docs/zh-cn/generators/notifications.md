@@ -47,6 +47,7 @@ private string _password = "";
 实参表达式会**原样**发出。实参请优先使用 **`nameof`**、**`typeof`**、字面量或完全限定类型。
 
 :::
+
 ## 相关
 
 - [ObservableProperty](/zh-cn/generators/observable-property)

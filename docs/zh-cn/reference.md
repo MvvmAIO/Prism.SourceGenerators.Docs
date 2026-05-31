@@ -11,12 +11,6 @@ description: 外部资源、本站内导航与生成器仓库常用命令。
 
 将下列资源与侧栏正文配合使用。**语义、诊断与架构**请以本站页面为准，第三方镜像仅作辅助。
 
-::: info 语言
-[English](/zh-cn/reference) · [日本語](/ja/reference)
-
-:::
----
-
 ## 快速链接
 
 | 资源 | 说明 |
@@ -27,7 +21,6 @@ description: 外部资源、本站内导航与生成器仓库常用命令。
 | **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | Avalonia 可运行示例（Prism 8 / 9）。 |
 | **[DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators)** | 仓库的 AI 索引，便于浏览；**不作为行为或诊断文案的合同**。 |
 
----
 
 ## 本站内导航
 
@@ -39,7 +32,6 @@ description: 外部资源、本站内导航与生成器仓库常用命令。
 | 产品与文档贡献 | [贡献指南](/zh-cn/contributing) |
 | Avalonia 可运行示例 | [示例](/zh-cn/samples) |
 
----
 
 ## 生成器仓库目录结构
 
@@ -53,7 +45,6 @@ Prism.SourceGenerators.Core/
 Prism.Bcl.Commands/
 ```
 
----
 
 ## Build 与 Nuke
 
@@ -64,7 +55,6 @@ dotnet build Prism.SourceGenerators.slnx
 dotnet run --project build/_build.csproj -- --target Ci --configuration Release
 ```
 
----
 
 ## CI 与质量信号
 
@@ -72,7 +62,6 @@ dotnet run --project build/_build.csproj -- --target Ci --configuration Release
 - **`Tests`** 徽章展示通过 / 失败 / 跳过数量。
 - 工作流上传 **`.trx`** 测试产物。
 
----
 
 ## README、Wiki 与本站
 

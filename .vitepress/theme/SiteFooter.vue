@@ -1,100 +1,148 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useData, useRoute } from 'vitepress'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { useData } from 'vitepress'
 import { commitUrl, siteMeta } from '../site-meta.shared'
-import { formatLocalDateTime } from './format-local-datetime'
+import { formatLocalDateTime, siteFallbackLocale } from './format-local-datetime'
 
-const { lang, theme } = useData()
-const route = useRoute()
+const { theme, frontmatter, lang } = useData()
 
-const isHome = computed(() => route.path === '/' || route.path.endsWith('/index.html'))
+const footerRef = ref<HTMLElement | null>(null)
+let resizeObserver: ResizeObserver | undefined
 
-const copy = computed(() => {
-  if (lang.value === 'zh-Hans' || lang.value === 'zh-cn') {
-    return {
-      updated: '文档更新',
-      commit: '提交',
-      repo: '文档仓库',
-      builtWith: '本站由 VitePress 构建。',
-    }
-  }
-  if (lang.value === 'ja') {
-    return {
-      updated: 'ドキュメント更新',
-      commit: 'コミット',
-      repo: 'ドキュメントリポジトリ',
-      builtWith: 'このサイトは VitePress で構築されています。',
-    }
-  }
-  return {
-    updated: 'Documentation updated',
-    commit: 'Commit',
-    repo: 'Docs repository',
-    builtWith: 'This site is built with VitePress.',
-  }
+function syncFooterOffset() {
+  const height = footerRef.value?.offsetHeight ?? 0
+  document.documentElement.style.setProperty(
+    '--vp-site-footer-offset',
+    `${height}px`,
+  )
+}
+
+function clearFooterOffset() {
+  document.documentElement.style.removeProperty('--vp-site-footer-offset')
+}
+
+function refreshFormattedDate() {
+  formattedSiteUpdated.value = formatLocalDateTime(
+    siteMeta.lastUpdated,
+    siteFallbackLocale(lang.value),
+  )
+}
+
+onMounted(() => {
+  refreshFormattedDate()
+  syncFooterOffset()
+  resizeObserver = new ResizeObserver(syncFooterOffset)
+  if (footerRef.value) resizeObserver.observe(footerRef.value)
 })
 
-const formattedUpdated = computed(() =>
-  formatLocalDateTime(siteMeta.lastUpdated, lang.value),
+onUnmounted(() => {
+  resizeObserver?.disconnect()
+  clearFooterOffset()
+})
+
+watch(
+  () => frontmatter.value.footer,
+  (show) => {
+    if (show === false) clearFooterOffset()
+    else syncFooterOffset()
+  },
 )
+
+const isZh = computed(
+  () => lang.value === 'zh-Hans' || lang.value === 'zh-cn',
+)
+const isJa = computed(() => lang.value === 'ja')
+
+const formattedSiteUpdated = ref(
+  formatLocalDateTime(siteMeta.lastUpdated, siteFallbackLocale(lang.value)),
+)
+
+const buildLink = computed(() => commitUrl(siteMeta.commitSha))
 </script>
 
 <template>
-  <footer v-if="isHome" class="site-footer">
-    <p class="site-footer__line">
-      <strong>{{ copy.updated }}:</strong>
-      {{ formattedUpdated }}
-    </p>
-    <p class="site-footer__line">
-      <strong>{{ copy.commit }}:</strong>
-      <a
-        v-if="siteMeta.commitSha"
-        :href="commitUrl(siteMeta.commitSha)"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ siteMeta.shortSha }}
-      </a>
-      <span v-else>{{ siteMeta.shortSha }}</span>
-    </p>
-    <p class="site-footer__line">
-      <a
-        href="https://github.com/MvvmAIO/Prism.SourceGenerators.Docs"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ copy.repo }}
-      </a>
-      ·
-      <span>{{ copy.builtWith }}</span>
-    </p>
-    <p v-if="theme.footer?.message" class="site-footer__license">
-      {{ theme.footer.message }}
-    </p>
+  <footer
+    v-if="frontmatter.footer !== false"
+    ref="footerRef"
+    class="VPFooter site-footer site-footer--fixed"
+  >
+    <div class="container">
+      <p v-if="theme.footer?.message" class="message">
+        {{ theme.footer.message }}
+      </p>
+      <p v-if="theme.footer?.copyright" class="copyright">
+        {{ theme.footer.copyright }}
+      </p>
+      <p class="site-footer-meta">
+        <template v-if="isZh">
+          站点最后更新：<time :datetime="siteMeta.lastUpdated">{{ formattedSiteUpdated }}</time>
+          <span class="sep" aria-hidden="true">·</span>
+          构建
+          <a
+            v-if="siteMeta.commitSha"
+            class="site-footer-link"
+            :href="buildLink"
+            target="_blank"
+            rel="noreferrer"
+            >{{ siteMeta.shortSha }}</a
+          >
+          <span v-else>{{ siteMeta.shortSha }}</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <a
+            class="site-footer-link"
+            href="https://github.com/MvvmAIO/Prism.SourceGenerators.Docs"
+            target="_blank"
+            rel="noreferrer"
+            >文档仓库</a
+          >
+        </template>
+        <template v-else-if="isJa">
+          サイト最終更新：
+          <time :datetime="siteMeta.lastUpdated">{{ formattedSiteUpdated }}</time>
+          <span class="sep" aria-hidden="true">·</span>
+          ビルド
+          <a
+            v-if="siteMeta.commitSha"
+            class="site-footer-link"
+            :href="buildLink"
+            target="_blank"
+            rel="noreferrer"
+            >{{ siteMeta.shortSha }}</a
+          >
+          <span v-else>{{ siteMeta.shortSha }}</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <a
+            class="site-footer-link"
+            href="https://github.com/MvvmAIO/Prism.SourceGenerators.Docs"
+            target="_blank"
+            rel="noreferrer"
+            >ドキュメントリポジトリ</a
+          >
+        </template>
+        <template v-else>
+          Site last updated:
+          <time :datetime="siteMeta.lastUpdated">{{ formattedSiteUpdated }}</time>
+          <span class="sep" aria-hidden="true">·</span>
+          Build
+          <a
+            v-if="siteMeta.commitSha"
+            class="site-footer-link"
+            :href="buildLink"
+            target="_blank"
+            rel="noreferrer"
+            >{{ siteMeta.shortSha }}</a
+          >
+          <span v-else>{{ siteMeta.shortSha }}</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <a
+            class="site-footer-link"
+            href="https://github.com/MvvmAIO/Prism.SourceGenerators.Docs"
+            target="_blank"
+            rel="noreferrer"
+            >Docs repo</a
+          >
+        </template>
+      </p>
+    </div>
   </footer>
 </template>
-
-<style scoped>
-.site-footer {
-  max-width: var(--vp-layout-max-width);
-  margin: 2rem auto 0;
-  padding: 1.5rem var(--vp-layout-home-padding) 2.5rem;
-  border-top: 1px solid var(--vp-c-divider);
-  font-size: 0.875rem;
-  color: var(--vp-c-text-2);
-  line-height: 1.6;
-}
-
-.site-footer__line {
-  margin: 0.35rem 0;
-}
-
-.site-footer__line a {
-  color: var(--vp-c-brand-1);
-}
-
-.site-footer__license {
-  margin: 1rem 0 0;
-  font-size: 0.8125rem;
-}
-</style>

@@ -10,10 +10,6 @@ title: はじめに
 
 **BindableBase**（または互換ベース）を使う Prism アプリにパッケージを追加します。
 
-::: info 言語
-[English](/getting-started) · [简体中文](/zh-cn/getting-started)
-
-:::
 ## 1. パッケージ
 
 ```bash

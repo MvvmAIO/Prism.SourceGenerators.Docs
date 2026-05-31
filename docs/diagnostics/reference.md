@@ -15,6 +15,7 @@ Compiler diagnostics are defined in **`Prism.SourceGenerators/Diagnostics/Diagno
 Descriptors point at the product README diagnostics section; **this page** is the preferred human index.
 
 :::
+
 ## PSG0001–PSG0004 — `partial` requirements
 
 | ID | Severity | Title |

@@ -47,6 +47,7 @@ Attributes on the **`partial`** declaration (except generator-owned attributes) 
 Argument expressions are emitted **verbatim**. Prefer **`nameof`**, **`typeof`**, literals, or fully-qualified types in attribute arguments.
 
 :::
+
 ## Related
 
 - [ObservableProperty](/generators/observable-property)

@@ -3,6 +3,10 @@ title: ソースジェネレータ
 description: Prism MVVM 向けソースジェネレータ機能の索引。
 ---
 
+::: tip 言語 / Languages
+このページは [English](/generators/) と [简体中文](/zh-cn/generators/) でもご覧いただけます。
+:::
+
 # ソースジェネレータ
 
 **MvvmAIO.Prism.SourceGenerators** はコンパイル時に **partial** 型を拡張します。属性は **`MvvmAIO.Prism.Core`**（名前空間 **`Prism.SourceGenerators`**）にあります。
@@ -11,6 +15,7 @@ description: Prism MVVM 向けソースジェネレータ機能の索引。
 生成メンバをマージする宣言は **`partial`** が必要です。**PSG0001–PSG0005** が典型ミスをカバーし、5 つとも **MakePartial** コードフィックスがあります。
 
 :::
+
 ## トピック
 
 | トピック | 要約 |

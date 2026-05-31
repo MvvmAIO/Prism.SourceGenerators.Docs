@@ -34,7 +34,7 @@ features:
 :::
 
 ::: info Languages / 语言 / 言語
-This site is available in **[English](/)**, **[简体中文](/zh-cn/)**, and **[日本語](/ja/)**.
+This site is available in **[English](/)** · **[简体中文](/zh-cn/)** · **[日本語](/ja/)**.
 :::
 
 ## Where to read next

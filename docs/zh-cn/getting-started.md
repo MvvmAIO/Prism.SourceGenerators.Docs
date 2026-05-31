@@ -1,5 +1,6 @@
 ---
 title: 快速开始
+description: 安装 MvvmAIO.Prism.SourceGenerators、使用 partial 类型并验证构建。
 ---
 ::: tip 语言 / Languages
 本页另有 [English](/) 和 [日本語](/ja/) 版本。
@@ -10,10 +11,6 @@ title: 快速开始
 
 在基于 **BindableBase**（或兼容基类）的 Prism 应用中添加 NuGet 包。生成器要求处请使用 **partial** 类型。
 
-::: info 语言
-[English](/getting-started) · [日本語](/ja/getting-started)
-
-:::
 ## 1. 添加包
 
 ```bash
