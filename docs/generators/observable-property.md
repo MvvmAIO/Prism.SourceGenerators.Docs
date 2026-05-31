@@ -2,6 +2,10 @@
 title: ObservableProperty
 description: Field and partial-property targets, PropertyAccess, and change hooks.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # `[ObservableProperty]`
 
@@ -44,5 +48,5 @@ The generator declares **`partial`** methods you can implement—for example **`
 
 ## Related
 
-- [Notifications & forwarding](notifications.md)
-- [Diagnostics: PSG0001, PSG0003](../diagnostics/reference.md)
+- [Notifications & forwarding](/generators/notifications)
+- [Diagnostics: PSG0001, PSG0003](/diagnostics/reference)

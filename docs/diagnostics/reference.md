@@ -2,14 +2,19 @@
 title: Diagnostics reference
 description: PSG diagnostic IDs, severities, and fixes for MvvmAIO.Prism.SourceGenerators.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # Diagnostics reference
 
 Compiler diagnostics are defined in **`Prism.SourceGenerators/Diagnostics/DiagnosticDescriptors.cs`** on **`master`**. Titles below match the **descriptor title**; see the compiler **message** for parameterised text.
 
-!!! info "Help link"
-    Descriptors point at the product README diagnostics section; **this page** is the preferred human index.
+::: info Help link
+Descriptors point at the product README diagnostics section; **this page** is the preferred human index.
 
+:::
 ## PSG0001–PSG0004 — `partial` requirements
 
 | ID | Severity | Title |
@@ -30,7 +35,7 @@ Compiler diagnostics are defined in **`Prism.SourceGenerators/Diagnostics/Diagno
 | **PSG1001** | Error | Invalid `[DelegateCommand]` method signature |
 | **PSG1002** | Error | Invalid `[AsyncDelegateCommand]` method signature |
 
-See [DelegateCommand](../generators/delegate-command/) and [AsyncDelegateCommand](../generators/async-delegate-command/).
+See [DelegateCommand](/generators/delegate-command) and [AsyncDelegateCommand](/generators/async-delegate-command).
 
 ## PSG2001–PSG2006 — names, handlers, signatures
 
@@ -58,7 +63,7 @@ Install **`MvvmAIO.Prism.SourceGenerators`** and, on **Prism.Core 8.1.97**, **`M
 | **PSG4001** | Warning | ServiceType is not assignable from implementation type |
 | **PSG4002** | Warning | ViewModelType could not be resolved |
 
-See [Container registration](../generators/container-registration/).
+See [Container registration](/generators/container-registration).
 
 ## PSG5001 — validation
 
@@ -66,9 +71,9 @@ See [Container registration](../generators/container-registration/).
 |----|----------|-------|
 | **PSG5001** | Warning | `[NotifyDataErrorInfo]` requires `BindableValidator` base type |
 
-`[NotifyDataErrorInfo]` is only effective when the containing type inherits from `BindableValidator` or is annotated with `[BindableValidator]`. Without it the generated setter will not call `ValidateProperty`. See [BindableValidator](../generators/bindable-validator/).
+`[NotifyDataErrorInfo]` is only effective when the containing type inherits from `BindableValidator` or is annotated with `[BindableValidator]`. Without it the generated setter will not call `ValidateProperty`. See [BindableValidator](/generators/bindable-validator).
 
 ## Next
 
-- [Generators overview](../generators/)
-- [Contributing](../contributing/)
+- [Generators overview](/generators/)
+- [Contributing](/contributing)

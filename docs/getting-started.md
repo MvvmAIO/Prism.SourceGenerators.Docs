@@ -2,14 +2,19 @@
 title: Getting started
 description: Install MvvmAIO.Prism.SourceGenerators, use partial types, and validate your build.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # Install and reference
 
 Add the NuGet package to a Prism app that uses **BindableBase** (or a compatible base). Use **partial** types where the generator requires them.
 
-!!! note "Languages"
-    [简体中文](../zh-cn/getting-started/) · [日本語](../ja/getting-started/)
+::: info Languages
+[简体中文](/zh-cn/getting-started) · [日本語](/ja/getting-started)
 
+:::
 ---
 
 ## 1. Add the package
@@ -48,7 +53,7 @@ dotnet add package MvvmAIO.Prism.Bcl.Commands
 
 ## 4. Run the samples
 
-Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** for Avalonia demos targeting Prism 8 and Prism 9, then build **`Prism.SourceGenerators.Samples.slnx`**. Layout, validation demo, and **local vs NuGet** generator wiring are covered on **[Samples](samples.md)**.
+Clone **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** for Avalonia demos targeting Prism 8 and Prism 9, then build **`Prism.SourceGenerators.Samples.slnx`**. Layout, validation demo, and **local vs NuGet** generator wiring are covered on **[Samples](/samples)**.
 
 ---
 

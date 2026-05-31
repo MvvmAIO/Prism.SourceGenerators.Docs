@@ -2,6 +2,10 @@
 title: Roslyn 目标与 NuGet 包
 description: 为何存在多个 Roslyn* 工程，以及应用应引用哪些包。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # Roslyn 目标与包
 
@@ -23,9 +27,9 @@ Roslyn 的 **公共 API** 与 **语言特性** 随编译器主版本演进。产
 ## 应用中应引用的包
 
 - **`MvvmAIO.Prism.SourceGenerators`** — 分析器 + 生成器 + **MvvmAIO.Prism.Core**（特性）。
-- **`MvvmAIO.Prism.Bcl.Commands`** — 在 **Prism.Core 8.1.97** 上若需要 **`AsyncDelegateCommand`** 则可选；见 [诊断参考](../diagnostics/reference.md) 中的 **PSG3002** 与 [AsyncDelegateCommand](../generators/async-delegate-command.md)。
+- **`MvvmAIO.Prism.Bcl.Commands`** — 在 **Prism.Core 8.1.97** 上若需要 **`AsyncDelegateCommand`** 则可选；见 [诊断参考](/zh-cn/diagnostics/reference) 中的 **PSG3002** 与 [AsyncDelegateCommand](/zh-cn/generators/async-delegate-command)。
 
 ## 下一步
 
-- [架构总览](overview.md)
-- [快速开始](../getting-started.md)
+- [架构总览](/zh-cn/architecture/overview)
+- [快速开始](/zh-cn/getting-started)

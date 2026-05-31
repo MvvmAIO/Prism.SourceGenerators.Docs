@@ -1,14 +1,19 @@
 ---
 title: はじめに
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # インストールと参照
 
 **BindableBase**（または互換ベース）を使う Prism アプリにパッケージを追加します。
 
-!!! note "言語"
-    [English](../getting-started/) · [简体中文](../zh-cn/getting-started/)
+::: info 言語
+[English](/getting-started) · [简体中文](/zh-cn/getting-started)
 
+:::
 ## 1. パッケージ
 
 ```bash
@@ -35,7 +40,7 @@ dotnet add package MvvmAIO.Prism.Bcl.Commands
 
 ## 4. サンプル
 
-**[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** をクローンし、**`Prism.SourceGenerators.Samples.slnx`** をビルドします。構成、Validation、ジェネレータの **ローカル参照と NuGet** の切り替えは **[サンプル](samples.md)** を参照してください。
+**[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** をクローンし、**`Prism.SourceGenerators.Samples.slnx`** をビルドします。構成、Validation、ジェネレータの **ローカル参照と NuGet** の切り替えは **[サンプル](/ja/samples)** を参照してください。
 
 ## 要件
 

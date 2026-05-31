@@ -2,6 +2,10 @@
 title: BindableBase 特性
 description: 为未继承 Prism BindableBase 的类型生成 INotifyPropertyChanged。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # `[BindableBase]`
 
@@ -25,5 +29,5 @@ public partial class SimpleViewModel
 
 ## 相关
 
-- [ObservableProperty](observable-property.md)
-- [诊断参考](../diagnostics/reference.md)
+- [ObservableProperty](/zh-cn/generators/observable-property)
+- [诊断参考](/zh-cn/diagnostics/reference)

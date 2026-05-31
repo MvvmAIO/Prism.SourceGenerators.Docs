@@ -2,6 +2,10 @@
 title: ObservableProperty
 description: フィールドと partial プロパティターゲット、PropertyAccess、変更フック。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # `[ObservableProperty]`
 
@@ -44,5 +48,5 @@ public partial class MainViewModel : BindableBase
 
 ## 関連
 
-- [通知と転送](notifications.md)
-- [診断：PSG0001、PSG0003](../diagnostics/reference.md)
+- [通知と転送](/ja/generators/notifications)
+- [診断：PSG0001、PSG0003](/ja/diagnostics/reference)

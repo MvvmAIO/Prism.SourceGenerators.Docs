@@ -2,6 +2,10 @@
 title: AsyncDelegateCommand
 description: 高级异步命令 — 并行执行、Catch、取消、Observes。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # `[AsyncDelegateCommand]`
 
@@ -28,5 +32,5 @@ private async Task SaveAsync() { }
 
 ## 相关
 
-- [DelegateCommand](delegate-command.md)
-- [PSG2001–PSG2006、PSG3002](../diagnostics/reference.md)
+- [DelegateCommand](/zh-cn/generators/delegate-command)
+- [PSG2001–PSG2006、PSG3002](/zh-cn/diagnostics/reference)

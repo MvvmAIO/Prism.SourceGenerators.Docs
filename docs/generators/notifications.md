@@ -2,6 +2,10 @@
 title: Notifications and attribute forwarding
 description: NotifyPropertyChangedFor, NotifyCanExecuteChangedFor, and property-target forwarding.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # Notifications and forwarding
 
@@ -39,10 +43,11 @@ private string _password = "";
 
 Attributes on the **`partial`** declaration (except generator-owned attributes) forward to the implementing declaration.
 
-!!! warning "Attribute arguments"
-    Argument expressions are emitted **verbatim**. Prefer **`nameof`**, **`typeof`**, literals, or fully-qualified types in attribute arguments.
+::: warning Attribute arguments
+Argument expressions are emitted **verbatim**. Prefer **`nameof`**, **`typeof`**, literals, or fully-qualified types in attribute arguments.
 
+:::
 ## Related
 
-- [ObservableProperty](observable-property.md)
-- [DelegateCommand](delegate-command.md)
+- [ObservableProperty](/generators/observable-property)
+- [DelegateCommand](/generators/delegate-command)

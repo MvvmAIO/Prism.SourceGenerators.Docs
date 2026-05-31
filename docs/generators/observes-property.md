@@ -2,6 +2,10 @@
 title: ObservesProperty
 description: Re-evaluate command CanExecute when properties change.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # `[ObservesProperty]`
 
@@ -20,5 +24,5 @@ Multiple properties: **`[ObservesProperty(nameof(A), nameof(B))]`** or repeat th
 
 ## Related
 
-- [DelegateCommand](delegate-command.md)
-- [AsyncDelegateCommand](async-delegate-command.md)
+- [DelegateCommand](/generators/delegate-command)
+- [AsyncDelegateCommand](/generators/async-delegate-command)

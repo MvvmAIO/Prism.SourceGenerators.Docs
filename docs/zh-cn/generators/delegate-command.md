@@ -2,6 +2,10 @@
 title: DelegateCommand
 description: 由方法生成同步与 Task 异步命令。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # `[DelegateCommand]`
 
@@ -40,6 +44,6 @@ public partial class MainViewModel : BindableBase
 
 ## 相关
 
-- [AsyncDelegateCommand](async-delegate-command.md)
-- [ObservesProperty](observes-property.md)
-- [PSG1001、PSG3002](../diagnostics/reference.md)
+- [AsyncDelegateCommand](/zh-cn/generators/async-delegate-command)
+- [ObservesProperty](/zh-cn/generators/observes-property)
+- [PSG1001、PSG3002](/zh-cn/diagnostics/reference)

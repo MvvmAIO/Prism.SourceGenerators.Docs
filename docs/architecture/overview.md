@@ -2,6 +2,10 @@
 title: Architecture overview
 description: Repositories, shared generator project, and main generator entry points.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # Architecture overview
 
@@ -10,7 +14,7 @@ description: Repositories, shared generator project, and main generator entry po
 | Repository | Purpose |
 |------------|---------|
 | **[Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)** | Source generators, **MvvmAIO.Prism.Core** attributes, packaging, tests, CI. |
-| **[Prism.SourceGenerators.Docs](https://github.com/MvvmAIO/Prism.SourceGenerators.Docs)** | This static documentation site (NuStreamDocs). |
+| **[Prism.SourceGenerators.Docs](https://github.com/MvvmAIO/Prism.SourceGenerators.Docs)** | This static documentation site (VitePress). |
 | **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** | Avalonia sample apps (Prism 8 / 9). |
 
 ## Layout in Prism.SourceGenerators
@@ -36,5 +40,5 @@ Each pipeline uses **Roslyn incremental generation** (`IIncrementalGenerator`) w
 
 ## Next
 
-- [Roslyn targeting & packages](roslyn-targeting.md)
-- [Build & CI](../build-and-ci.md)
+- [Roslyn targeting & packages](/architecture/roslyn-targeting)
+- [Build & CI](/build-and-ci)

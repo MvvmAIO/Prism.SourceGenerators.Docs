@@ -2,6 +2,10 @@
 title: 通知与特性转发
 description: NotifyPropertyChangedFor、NotifyCanExecuteChangedFor 与 property 目标转发。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # 通知与转发
 
@@ -39,10 +43,11 @@ private string _password = "";
 
 声明在 **`partial`** 上的特性（生成器自有特性除外）会转发到实现声明。
 
-!!! warning "特性实参"
-    实参表达式会**原样**发出。实参请优先使用 **`nameof`**、**`typeof`**、字面量或完全限定类型。
+::: warning 特性实参
+实参表达式会**原样**发出。实参请优先使用 **`nameof`**、**`typeof`**、字面量或完全限定类型。
 
+:::
 ## 相关
 
-- [ObservableProperty](observable-property.md)
-- [DelegateCommand](delegate-command.md)
+- [ObservableProperty](/zh-cn/generators/observable-property)
+- [DelegateCommand](/zh-cn/generators/delegate-command)

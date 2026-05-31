@@ -2,6 +2,10 @@
 title: Container registration
 description: Attributes that emit IContainerRegistry registration calls.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # Container registration
 
@@ -11,9 +15,10 @@ description: Attributes that emit IContainerRegistry registration calls.
 
 You still invoke the generated extension from your composition root (for example **`RegisterTypes`**), passing **`IContainerRegistry`**. The exact method name is defined in generated code—open **`PrismRegistrationExtensions.g.cs`** in your **obj** output after a successful build if your template differs from the samples.
 
-!!! note "Samples"
-    **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** shows working registration for Avalonia + Prism 8/9.
+::: info Samples
+**[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** shows working registration for Avalonia + Prism 8/9.
 
+:::
 ## Attributes (summary)
 
 | Attribute | Purpose |
@@ -54,5 +59,5 @@ Emits a **`RegisterForNavigation<MyView, MyVm>("mine")`** style call (see produc
 
 ## Related
 
-- [Architecture overview](../architecture/overview.md)
-- [Diagnostics reference](../diagnostics/reference.md)
+- [Architecture overview](/architecture/overview)
+- [Diagnostics reference](/diagnostics/reference)

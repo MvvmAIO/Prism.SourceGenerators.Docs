@@ -2,6 +2,10 @@
 title: Roslyn targeting and packages
 description: Why multiple Roslyn* projects exist and how they map to NuGet.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # Roslyn targeting and packages
 
@@ -23,9 +27,9 @@ Typical mapping (names illustrative — check the repo for the exact set on `mas
 ## What you reference in an application
 
 - **`MvvmAIO.Prism.SourceGenerators`** — analyzer + generator + **MvvmAIO.Prism.Core** (attributes).
-- **`MvvmAIO.Prism.Bcl.Commands`** — optional when you need **`AsyncDelegateCommand`** on **Prism.Core 8.1.97**; see [PSG3002](../diagnostics/reference.md#psg3002) and [AsyncDelegateCommand](../generators/async-delegate-command.md).
+- **`MvvmAIO.Prism.Bcl.Commands`** — optional when you need **`AsyncDelegateCommand`** on **Prism.Core 8.1.97**; see [PSG3002](/diagnostics/reference#psg3002) and [AsyncDelegateCommand](/generators/async-delegate-command).
 
 ## Next
 
-- [Architecture overview](overview.md)
-- [Getting started](../getting-started.md)
+- [Architecture overview](/architecture/overview)
+- [Getting started](/getting-started)

@@ -2,6 +2,10 @@
 title: サンプル
 description: MvvmAIO.Prism.SourceGenerators を使う Avalonia サンプル。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # サンプル
 
@@ -37,5 +41,5 @@ dotnet build Prism.SourceGenerators.Samples.slnx
 
 ## 次へ
 
-- [はじめに](getting-started.md)
-- [コンテナ登録](generators/container-registration.md)
+- [はじめに](/ja/getting-started)
+- [コンテナ登録](/ja/generators/container-registration)

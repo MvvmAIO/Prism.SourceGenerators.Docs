@@ -6,19 +6,15 @@ All notable changes to this project are documented in this file.
 
 ### Added
 
-- **Per-locale Lunr search** — separate indexes for EN / zh-cn / ja with CJK bigram tokenization and `lunr-bind-multilingual.js`.
-- **SEO post-render plugin** — locale-aware `<html lang>`, `canonical`, and `hreflang` (including `x-default`).
-- **Unit tests** — `Prism.SourceGenerators.Docs.Tests` for locale paths, CJK bigram, and base-path rewriting.
+- **VitePress site** — Node 22 + VitePress 1.6 replaces NuStreamDocs; English, 简体中文 (`/zh-cn/`), and 日本語 (`/ja/`) locales with local search, home layout, and build-time hreflang/canonical meta.
 
-### Fixed
+### Removed
 
-- **GitHub Pages base path** — `SiteBasePathPlugin` rewrites root-absolute URLs in HTML and search JSON at build time (replaces CI `sed` pass).
-- **DEBUG `--serve`** — directory URLs (e.g. `/getting-started/`) resolve via `UseDefaultFiles`.
-- **Language switcher** — fallback insert on pages without palette toggle (404); links skip missing translations.
+- **NuStreamDocs / .NET build stack** — `Program.cs`, C# post-render plugins, Native AOT publish, `mkdocs.yml`, and xUnit docs tests.
 
 ### Changed
 
-- **CI** — NuGet cache, `--no-launch-profile` for release builds, AOT verify only on non-PR pushes.
+- **CI** — GitHub Pages workflow uses `npm ci` and `npm run docs:build`; artifact path `.vitepress/dist`.
 
 ## [0.4.2] - 2026-05-25
 

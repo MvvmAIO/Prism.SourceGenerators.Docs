@@ -2,6 +2,10 @@
 title: AsyncDelegateCommand
 description: 高度な非同期コマンド — 並列、Catch、キャンセル、Observes。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # `[AsyncDelegateCommand]`
 
@@ -28,5 +32,5 @@ private async Task SaveAsync() { }
 
 ## 関連
 
-- [DelegateCommand](delegate-command.md)
-- [PSG2001–PSG2006、PSG3002](../diagnostics/reference.md)
+- [DelegateCommand](/ja/generators/delegate-command)
+- [PSG2001–PSG2006、PSG3002](/ja/diagnostics/reference)

@@ -2,6 +2,10 @@
 title: Roslyn ターゲットと NuGet
 description: Roslyn* プロジェクトが複数ある理由と、アプリが参照すべきパッケージ。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # Roslyn ターゲットとパッケージ
 
@@ -23,9 +27,9 @@ Roslyn の **公開 API** と **言語機能** はコンパイラのメジャー
 ## アプリで参照するパッケージ
 
 - **`MvvmAIO.Prism.SourceGenerators`** — アナライザ + ジェネレータ + **MvvmAIO.Prism.Core**（属性）。
-- **`MvvmAIO.Prism.Bcl.Commands`** — **Prism.Core 8.1.97** で **`AsyncDelegateCommand`** が必要な場合に任意。[診断リファレンス](../diagnostics/reference.md) の **PSG3002** と [AsyncDelegateCommand](../generators/async-delegate-command.md) を参照。
+- **`MvvmAIO.Prism.Bcl.Commands`** — **Prism.Core 8.1.97** で **`AsyncDelegateCommand`** が必要な場合に任意。[診断リファレンス](/ja/diagnostics/reference) の **PSG3002** と [AsyncDelegateCommand](/ja/generators/async-delegate-command) を参照。
 
 ## 次へ
 
-- [アーキテクチャ概要](overview.md)
-- [はじめに](../getting-started.md)
+- [アーキテクチャ概要](/ja/architecture/overview)
+- [はじめに](/ja/getting-started)

@@ -2,6 +2,10 @@
 title: 容器注册
 description: 发出 IContainerRegistry 注册调用的特性。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # 容器注册
 
@@ -11,9 +15,10 @@ description: 发出 IContainerRegistry 注册调用的特性。
 
 你仍须在组合根（例如 **`RegisterTypes`**）中调用生成的扩展，并传入 **`IContainerRegistry`**。生成代码中的**确切方法名**以生成为准——成功构建后在 **obj** 输出中打开 **`PrismRegistrationExtensions.g.cs`** 核对；或与示例对比。
 
-!!! note "示例"
-    **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** 包含 Avalonia + Prism 8/9 的可用注册示例。
+::: info 示例
+**[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** 包含 Avalonia + Prism 8/9 的可用注册示例。
 
+:::
 ## 特性（摘要）
 
 | 特性 | 用途 |
@@ -54,5 +59,5 @@ public sealed partial class MyView { }
 
 ## 相关
 
-- [架构总览](../architecture/overview.md)
-- [诊断参考](../diagnostics/reference.md)
+- [架构总览](/zh-cn/architecture/overview)
+- [诊断参考](/zh-cn/diagnostics/reference)

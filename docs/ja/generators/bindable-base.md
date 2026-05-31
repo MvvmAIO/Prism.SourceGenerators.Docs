@@ -2,6 +2,10 @@
 title: BindableBase 属性
 description: Prism BindableBase を継承しない型へ INotifyPropertyChanged を生成。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # `[BindableBase]`
 
@@ -25,5 +29,5 @@ public partial class SimpleViewModel
 
 ## 関連
 
-- [ObservableProperty](observable-property.md)
-- [診断リファレンス](../diagnostics/reference.md)
+- [ObservableProperty](/ja/generators/observable-property)
+- [診断リファレンス](/ja/diagnostics/reference)

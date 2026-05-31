@@ -1,14 +1,19 @@
 ---
 title: 快速开始
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # 安装与引用
 
 在基于 **BindableBase**（或兼容基类）的 Prism 应用中添加 NuGet 包。生成器要求处请使用 **partial** 类型。
 
-!!! note "语言"
-    [English](../getting-started/) · [日本語](../ja/getting-started/)
+::: info 语言
+[English](/getting-started) · [日本語](/ja/getting-started)
 
+:::
 ## 1. 添加包
 
 ```bash
@@ -37,7 +42,7 @@ dotnet add package MvvmAIO.Prism.Bcl.Commands
 
 ## 4. 运行示例
 
-克隆 **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)**，然后构建 **`Prism.SourceGenerators.Samples.slnx`**。仓库布局、Validation 示例以及生成器 **本地引用与 NuGet** 的切换说明见 **[示例](samples.md)**。
+克隆 **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)**，然后构建 **`Prism.SourceGenerators.Samples.slnx`**。仓库布局、Validation 示例以及生成器 **本地引用与 NuGet** 的切换说明见 **[示例](/zh-cn/samples)**。
 
 ## 环境要求
 

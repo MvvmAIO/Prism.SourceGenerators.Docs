@@ -2,6 +2,10 @@
 title: DelegateCommand
 description: Sync and async Task commands from methods.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # `[DelegateCommand]`
 
@@ -40,6 +44,6 @@ public partial class MainViewModel : BindableBase
 
 ## Related
 
-- [AsyncDelegateCommand](async-delegate-command.md)
-- [ObservesProperty](observes-property.md)
-- [PSG1001, PSG3002](../diagnostics/reference.md)
+- [AsyncDelegateCommand](/generators/async-delegate-command)
+- [ObservesProperty](/generators/observes-property)
+- [PSG1001, PSG3002](/diagnostics/reference)

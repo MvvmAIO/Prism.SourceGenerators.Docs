@@ -3,6 +3,10 @@ title: 构建与 CI
 description: 解决方案、Nuke 目标、徽章与测试产物。
 ---
 
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 # 构建与 CI
 
 ## 解决方案
@@ -28,6 +32,18 @@ dotnet run --project build/_build.csproj -- --target Pack --configuration Releas
 dotnet run --project build/_build.csproj -- --target Publish --configuration Release --version 0.2.0 --nuget-api-key <NUGET_API_KEY>
 ```
 
+## 文档站（本站仓库）
+
+| 任务 | 命令 |
+|------|------|
+| 开发服务器 | `npm install` 后 `npm run docs:dev` |
+| 生产构建 | `npm run docs:build` |
+| 预览构建 | `npm run docs:preview` |
+
+本地开发地址：`http://localhost:5173/Prism.SourceGenerators.Docs/`
+
+**GitHub Actions**（`.github/workflows/github-pages.yml`）在 PR 上运行 `npm ci` 与 `npm run docs:build`；推送到 **`main`** 后部署 GitHub Pages。
+
 ## CI 信号
 
 - README 上的 **`.NET` 工作流徽章** 反映 **`master`** 流水线健康度。
@@ -36,5 +52,5 @@ dotnet run --project build/_build.csproj -- --target Publish --configuration Rel
 
 ## 下一步
 
-- [贡献指南](../contributing.md)
-- [诊断参考](../diagnostics/reference.md)
+- [贡献指南](/zh-cn/contributing)
+- [诊断参考](/zh-cn/diagnostics/reference)

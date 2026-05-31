@@ -2,6 +2,10 @@
 title: ObservesProperty
 description: 属性变化时重新求值命令 CanExecute。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # `[ObservesProperty]`
 
@@ -20,5 +24,5 @@ private void Submit() { }
 
 ## 相关
 
-- [DelegateCommand](delegate-command.md)
-- [AsyncDelegateCommand](async-delegate-command.md)
+- [DelegateCommand](/zh-cn/generators/delegate-command)
+- [AsyncDelegateCommand](/zh-cn/generators/async-delegate-command)

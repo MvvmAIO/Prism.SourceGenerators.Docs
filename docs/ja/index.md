@@ -1,53 +1,59 @@
 ---
+layout: home
 title: 概要
 description: Prism 向けコンパイル時 MVVM — MvvmAIO.Prism.SourceGenerators。
+
+hero:
+  name: Prism.SourceGenerators
+  text: Prism のコンパイル時 MVVM
+  tagline: MvvmAIO.Prism.SourceGenerators は、BindableBase の意味論を保ちながら Observable・コマンド・コンテナ登録のボイラープレートを削減します。
+  actions:
+    - theme: brand
+      text: はじめに
+      link: /ja/getting-started
+    - theme: alt
+      text: ジェネレータ
+      link: /ja/generators/
+    - theme: alt
+      text: 診断
+      link: /ja/diagnostics/reference
+
+features:
+  - title: Observable
+    details: フィールド／C# 13+ partial property の [ObservableProperty] など。
+  - title: Commands
+    details: "[DelegateCommand] / [AsyncDelegateCommand]、ValueTask 対応。"
+  - title: Registration
+    details: IContainerRegistry 向け登録コードの生成。
+  - title: Diagnostics
+    details: PSG とコードフィックス（MakePartial など）。
 ---
 
-# Prism のコンパイル時 MVVM
+::: tip 正典ドキュメント
+**このサイト**がプロジェクトの**権威あるマニュアル**です。GitHub **README**、**GitHub Wiki**、DeepWiki より深い説明と構成はここを優先してください。**[サイトについて](/ja/about-this-site)** で各チャネルの役割を説明しています。
+:::
 
-**MvvmAIO.Prism.SourceGenerators** は、**BindableBase** の意味論を保ちながら Observable・コマンド・コンテナ登録のボイラープレートを削減します。
-
-!!! success "正典ドキュメント"
-    **このサイト**がプロジェクトの**権威あるマニュアル**です。GitHub **README**、**GitHub Wiki**、DeepWiki より深い説明と構成はここを優先してください。**[サイトについて](about-this-site.md)** で各チャネルの役割を説明しています。
-
-!!! note "言語 / Languages"
-    **[English](../)** · **[简体中文](../zh-cn/)** · **[日本語](.)**
-
-## 主な機能
-
-| 領域 | 内容 |
-|------|------|
-| **Observable** | フィールド／C# 13+ partial property の `[ObservableProperty]` など。 |
-| **Commands** | `[DelegateCommand]` / `[AsyncDelegateCommand]`、`ValueTask` 対応。 |
-| **Registration** | `IContainerRegistry` 向け登録コードの生成。 |
-| **Diagnostics** | **PSG** とコードフィックス（**MakePartial** など）。 |
+::: info 言語 / Languages
+**[English](/)** · **[简体中文](/zh-cn/)** · **[日本語](/ja/)**
+:::
 
 ## 次に読む
 
 | ページ | 内容 |
 |--------|------|
-| [はじめに](getting-started.md) | インストール、partial、Prism 8/9。 |
-| [ジェネレータ概要](generators/index.md) | トピック別リファレンス（日本語本文）。 |
-| [診断リファレンス](diagnostics/reference.md) | **PSG** 一覧。 |
-| [アーキテクチャ概要](architecture/overview.md) | レイアウトと Roslyn マルチターゲット。 |
-| [ビルドと CI](build-and-ci.md) | `slnx`、Nuke。 |
-| [サンプル](samples.md) | **Prism.SourceGenerators.Samples**。 |
+| [はじめに](/ja/getting-started) | インストール、partial、Prism 8/9。 |
+| [ジェネレータ概要](/ja/generators/) | トピック別リファレンス（日本語本文）。 |
+| [診断リファレンス](/ja/diagnostics/reference) | **PSG** 一覧。 |
+| [アーキテクチャ概要](/ja/architecture/overview) | レイアウトと Roslyn マルチターゲット。 |
+| [ビルドと CI](/ja/build-and-ci) | slnx、Nuke。 |
+| [サンプル](/ja/samples) | **Prism.SourceGenerators.Samples**。 |
 
 ## NuGet
 
 - [**MvvmAIO.Prism.SourceGenerators**](https://www.nuget.org/packages/MvvmAIO.Prism.SourceGenerators)
 - [**MvvmAIO.Prism.Bcl.Commands**](https://www.nuget.org/packages/MvvmAIO.Prism.Bcl.Commands)
 
-## ドキュメント更新
-
-**最終更新：** 2026-05-16 13:24:06 +0800  
-**コミット：** `12e9516` - 内部リンク修正 - 診断リファレンスページから .md 拡張子を削除
-
----
-
 ## その他（非正典）
 
 - [GitHub](https://github.com/MvvmAIO/Prism.SourceGenerators)
 - [DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators) — 探索用。**詳細は本サイトを優先**。
-
-_このサイトは [.NET 10](https://dotnet.microsoft.com/) と **NuStreamDocs** でビルドしています。_

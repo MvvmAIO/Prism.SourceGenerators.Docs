@@ -1,10 +1,7 @@
-# Publishes NuStreamDocs static output to GitHub Pages.
+# Publishes VitePress static output to GitHub Pages.
 # Settings -> Pages: Source = GitHub Actions
 
 name: GitHub Pages
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   push:
@@ -12,11 +9,6 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      base_path:
-        description: "Path prefix for GitHub project Pages (default: /<repository>/)."
-        required: false
-        default: ""
 
 permissions:
   contents: read
@@ -29,35 +21,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-dotnet@v5
+      - uses: actions/checkout@v4
         with:
-          dotnet-version: 10.0.x
-          cache: true
-          cache-dependency-path: "**/*.csproj"
-      - name: Restore
-        run: dotnet restore "Prism.SourceGenerators.Docs.csproj"
-      - name: Verify Native AOT publish (linux-x64)
-        if: github.event_name != 'pull_request'
-        run: >-
-          dotnet publish "Prism.SourceGenerators.Docs.csproj"
-          -c Release -r linux-x64 --self-contained true
-      - name: Build static site (NuStreamDocs)
-        env:
-          DOCS_SITE_URL: https://mvvmaio.github.io/Prism.SourceGenerators.Docs/
-          DOCS_BASE_PATH: /${{ github.event.repository.name }}/
-        run: >-
-          dotnet run --project "Prism.SourceGenerators.Docs.csproj" -c Release --no-restore --no-launch-profile
-          --
-          "${{ github.workspace }}/gh-pages-publish"
-      - name: Write .nojekyll
-        if: github.event_name != 'pull_request'
-        run: ": > \"${{ github.workspace }}/gh-pages-publish/.nojekyll\""
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run docs:build
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: gh-pages-publish
+          path: .vitepress/dist
 
   deploy:
     needs: build

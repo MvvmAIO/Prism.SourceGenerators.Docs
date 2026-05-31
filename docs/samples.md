@@ -2,6 +2,10 @@
 title: Samples
 description: Avalonia sample applications that consume MvvmAIO.Prism.SourceGenerators.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # Samples
 
@@ -37,5 +41,5 @@ If you clone **[Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceG
 
 ## Next
 
-- [Getting started](getting-started.md)
-- [Container registration](generators/container-registration.md)
+- [Getting started](/getting-started)
+- [Container registration](/generators/container-registration)

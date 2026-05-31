@@ -2,6 +2,10 @@
 title: DelegateCommand
 description: メソッドから同期および Task 非同期コマンドを生成。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # `[DelegateCommand]`
 
@@ -40,6 +44,6 @@ public partial class MainViewModel : BindableBase
 
 ## 関連
 
-- [AsyncDelegateCommand](async-delegate-command.md)
-- [ObservesProperty](observes-property.md)
-- [PSG1001、PSG3002](../diagnostics/reference.md)
+- [AsyncDelegateCommand](/ja/generators/async-delegate-command)
+- [ObservesProperty](/ja/generators/observes-property)
+- [PSG1001、PSG3002](/ja/diagnostics/reference)

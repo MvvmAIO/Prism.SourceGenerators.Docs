@@ -2,6 +2,10 @@
 title: BindableBase attribute
 description: Generate INotifyPropertyChanged for types that do not inherit Prism BindableBase.
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # `[BindableBase]`
 
@@ -25,5 +29,5 @@ The containing type must be **`partial`** (**PSG0004**). If the type already inh
 
 ## Related
 
-- [ObservableProperty](observable-property.md)
-- [Diagnostics reference](../diagnostics/reference.md)
+- [ObservableProperty](/generators/observable-property)
+- [Diagnostics reference](/diagnostics/reference)

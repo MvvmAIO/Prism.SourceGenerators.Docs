@@ -2,6 +2,10 @@
 title: コンテナ登録
 description: IContainerRegistry 呼び出しを生成する属性。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # コンテナ登録
 
@@ -11,9 +15,10 @@ description: IContainerRegistry 呼び出しを生成する属性。
 
 合成ルート（例：**`RegisterTypes`**）から生成された拡張を呼び、**`IContainerRegistry`** を渡します。正確なメソッド名は生成結果に従います。成功ビルド後、**obj** 出力の **`PrismRegistrationExtensions.g.cs`** を開いて確認するか、サンプルと比較してください。
 
-!!! note "サンプル"
-    **[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** に Avalonia + Prism 8/9 の動作例があります。
+::: info サンプル
+**[Prism.SourceGenerators.Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples)** に Avalonia + Prism 8/9 の動作例があります。
 
+:::
 ## 属性（要約）
 
 | 属性 | 目的 |
@@ -54,5 +59,5 @@ public sealed partial class MyView { }
 
 ## 関連
 
-- [アーキテクチャ概要](../architecture/overview.md)
-- [診断リファレンス](../diagnostics/reference.md)
+- [アーキテクチャ概要](/ja/architecture/overview)
+- [診断リファレンス](/ja/diagnostics/reference)

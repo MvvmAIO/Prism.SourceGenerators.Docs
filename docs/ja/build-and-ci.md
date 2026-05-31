@@ -3,6 +3,10 @@ title: ビルドと CI
 description: ソリューション、Nuke ターゲット、バッジ、テスト成果物。
 ---
 
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 # ビルドと CI
 
 ## ソリューション
@@ -28,6 +32,18 @@ dotnet run --project build/_build.csproj -- --target Pack --configuration Releas
 dotnet run --project build/_build.csproj -- --target Publish --configuration Release --version 0.2.0 --nuget-api-key <NUGET_API_KEY>
 ```
 
+## ドキュメントサイト（本リポジトリ）
+
+| タスク | コマンド |
+|--------|----------|
+| 開発サーバー | `npm install` の後 `npm run docs:dev` |
+| 本番ビルド | `npm run docs:build` |
+| プレビュー | `npm run docs:preview` |
+
+ローカル URL：`http://localhost:5173/Prism.SourceGenerators.Docs/`
+
+**GitHub Actions**（`.github/workflows/github-pages.yml`）は PR で `npm ci` と `npm run docs:build` を実行し、**`main`** への push で GitHub Pages にデプロイします。
+
 ## CI のシグナル
 
 - README の **`.NET` ワークフローバッジ** は **`master`** の健全性。
@@ -36,5 +52,5 @@ dotnet run --project build/_build.csproj -- --target Publish --configuration Rel
 
 ## 次へ
 
-- [コントリビュート](../contributing.md)
-- [診断リファレンス](../diagnostics/reference.md)
+- [コントリビュート](/ja/contributing)
+- [診断リファレンス](/ja/diagnostics/reference)

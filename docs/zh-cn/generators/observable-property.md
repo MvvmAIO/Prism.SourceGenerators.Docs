@@ -2,6 +2,10 @@
 title: ObservableProperty
 description: 字段与 partial 属性目标、PropertyAccess 与变更钩子。
 ---
+::: tip 语言 / Languages
+本页另有 [English](/) 和 [日本語](/ja/) 版本。
+:::
+
 
 # `[ObservableProperty]`
 
@@ -44,5 +48,5 @@ public partial class MainViewModel : BindableBase
 
 ## 相关
 
-- [通知与转发](notifications.md)
-- [诊断：PSG0001、PSG0003](../diagnostics/reference.md)
+- [通知与转发](/zh-cn/generators/notifications)
+- [诊断：PSG0001、PSG0003](/zh-cn/diagnostics/reference)

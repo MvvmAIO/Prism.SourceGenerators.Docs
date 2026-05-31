@@ -2,6 +2,10 @@
 title: ObservesProperty
 description: プロパティ変更時にコマンドの CanExecute を再評価。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # `[ObservesProperty]`
 
@@ -20,5 +24,5 @@ private void Submit() { }
 
 ## 関連
 
-- [DelegateCommand](delegate-command.md)
-- [AsyncDelegateCommand](async-delegate-command.md)
+- [DelegateCommand](/ja/generators/delegate-command)
+- [AsyncDelegateCommand](/ja/generators/async-delegate-command)

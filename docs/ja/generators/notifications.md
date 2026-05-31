@@ -2,6 +2,10 @@
 title: 通知と属性の転送
 description: NotifyPropertyChangedFor、NotifyCanExecuteChangedFor、property ターゲット転送。
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # 通知と転送
 
@@ -39,10 +43,11 @@ private string _password = "";
 
 **`partial`** 宣言の属性（ジェネレータ専用を除く）は実装宣言へ転送されます。
 
-!!! warning "属性引数"
-    引数式は**そのまま**出力されます。**`nameof`**、**`typeof`**、リテラル、完全修飾型を推奨します。
+::: warning 属性引数
+引数式は**そのまま**出力されます。**`nameof`**、**`typeof`**、リテラル、完全修飾型を推奨します。
 
+:::
 ## 関連
 
-- [ObservableProperty](observable-property.md)
-- [DelegateCommand](delegate-command.md)
+- [ObservableProperty](/ja/generators/observable-property)
+- [DelegateCommand](/ja/generators/delegate-command)

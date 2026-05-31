@@ -2,6 +2,10 @@
 title: BindableValidator
 description: "[BindableValidator] と [NotifyDataErrorInfo] で INotifyDataErrorInfo 検証サポートを生成。"
 ---
+::: tip 言語 / Languages
+このページは [English](/) と [简体中文](/zh-cn/) でもご覧いただけます。
+:::
+
 
 # `[BindableValidator]` と検証
 
@@ -122,6 +126,6 @@ public partial class RegisterViewModel : BindableValidator
 
 ## 関連
 
-- [ObservableProperty](observable-property.md)
-- [通知と転送](notifications.md)
-- [診断リファレンス](../diagnostics/reference.md)
+- [ObservableProperty](/ja/generators/observable-property)
+- [通知と転送](/ja/generators/notifications)
+- [診断リファレンス](/ja/diagnostics/reference)

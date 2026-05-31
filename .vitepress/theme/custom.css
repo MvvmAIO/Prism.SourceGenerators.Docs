@@ -1,0 +1,101 @@
+/**
+  Responsive layout — Prism.SourceGenerators.Docs (VitePress)
+*/
+
+:root {
+  --docs-prose-max: min(72ch, 100%);
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+  }
+}
+
+.vp-doc {
+  max-width: var(--docs-prose-max);
+}
+
+.vp-doc .container {
+  padding-inline: clamp(0.75rem, 2.8vw, 1.5rem);
+}
+
+.vp-doc table {
+  max-width: 100%;
+}
+
+@media (max-width: 44rem) {
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vp-doc a {
+    overflow-wrap: anywhere;
+  }
+}
+
+.vp-doc div[class*='language-'],
+.vp-doc pre {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 59.9375em) {
+  .DocSearch-Input,
+  .VPNavBarSearch input {
+    font-size: 1rem;
+  }
+}
+
+.VPNavBar .VPNavBarMenuLink,
+.VPNavBar .VPNavBarHamburger,
+.VPNavBar .VPLocalSearchBox button {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 22.5rem) {
+  html {
+    font-size: 94%;
+  }
+}
+
+@media (min-width: 100em) {
+  .VPContent.has-sidebar {
+    max-width: 92rem;
+    margin-inline: auto;
+  }
+}
+
+@media (max-height: 28rem) and (orientation: landscape) {
+  .VPNav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Home hero tweaks */
+.VPHome .VPHero .name {
+  font-weight: 700;
+}
+
+.VPHome .VPFeature .title {
+  font-weight: 600;
+}

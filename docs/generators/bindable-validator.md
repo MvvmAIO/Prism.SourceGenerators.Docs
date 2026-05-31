@@ -2,6 +2,10 @@
 title: BindableValidator
 description: Generate INotifyDataErrorInfo validation support via [BindableValidator] and [NotifyDataErrorInfo].
 ---
+::: tip Languages
+This page is also available in [简体中文](/zh-cn/) and [日本語](/ja/).
+:::
+
 
 # `[BindableValidator]` and validation
 
@@ -122,6 +126,6 @@ For **field** targets, untargeted DataAnnotations attributes are forwarded to th
 
 ## Related
 
-- [ObservableProperty](observable-property.md)
-- [Notifications & forwarding](notifications.md)
-- [Diagnostics reference](../diagnostics/reference.md)
+- [ObservableProperty](/generators/observable-property)
+- [Notifications & forwarding](/generators/notifications)
+- [Diagnostics reference](/diagnostics/reference)

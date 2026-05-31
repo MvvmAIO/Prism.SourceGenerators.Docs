@@ -7,27 +7,28 @@ description: Index of source generator features for Prism MVVM.
 
 MvvmAIO.Prism.SourceGenerators extends **partial** types at compile time. Attributes live in **`MvvmAIO.Prism.Core`** (namespace **`Prism.SourceGenerators`**).
 
-!!! tip "Partial types"
-    **`partial`** is required wherever generated members merge into your declaration. **PSG0001–PSG0005** cover the common mistakes; all five have a **MakePartial** code fix in the IDE.
+::: tip Partial types
+**`partial`** is required wherever generated members merge into your declaration. **PSG0001–PSG0005** cover the common mistakes; all five have a **MakePartial** code fix in the IDE.
 
+:::
 ## Topics
 
 | Topic | Summary |
 |-------|---------|
-| [ObservableProperty](observable-property.md) | Field and **C# 13+** partial-property targets, **`PropertyAccess`**, **`OnChanging` / `OnChanged`**. |
-| [Notifications & forwarding](notifications.md) | **`[NotifyPropertyChangedFor]`**, **`[NotifyCanExecuteChangedFor]`**, **`[property: …]`** forwarding. |
-| [DelegateCommand](delegate-command.md) | Sync commands, **`CanExecute`**, **`Task`** execute, **`ValueTask`**. |
-| [AsyncDelegateCommand](async-delegate-command.md) | Parallel runs, **`Catch`**, **`CancelAfter`**, **`ObservesCanExecute`**, Prism 8 vs 9 packages. |
-| [ObservesProperty](observes-property.md) | Re-evaluate **`CanExecute`** when properties change. |
-| [BindableBase](bindable-base.md) | Generated **INPC** for types not inheriting Prism **`BindableBase`**. |
-| [BindableValidator](bindable-validator.md) | **`INotifyDataErrorInfo`** validation via **`[BindableValidator]`** and **`[NotifyDataErrorInfo]`**. |
-| [Container registration](container-registration.md) | **`Register*`**, **`RegisterForNavigation`**, **`RegisterDialog`**, emitted **`IContainerRegistry`** calls. |
+| [ObservableProperty](/generators/observable-property) | Field and **C# 13+** partial-property targets, **`PropertyAccess`**, **`OnChanging` / `OnChanged`**. |
+| [Notifications & forwarding](/generators/notifications) | **`[NotifyPropertyChangedFor]`**, **`[NotifyCanExecuteChangedFor]`**, **`[property: …]`** forwarding. |
+| [DelegateCommand](/generators/delegate-command) | Sync commands, **`CanExecute`**, **`Task`** execute, **`ValueTask`**. |
+| [AsyncDelegateCommand](/generators/async-delegate-command) | Parallel runs, **`Catch`**, **`CancelAfter`**, **`ObservesCanExecute`**, Prism 8 vs 9 packages. |
+| [ObservesProperty](/generators/observes-property) | Re-evaluate **`CanExecute`** when properties change. |
+| [BindableBase](/generators/bindable-base) | Generated **INPC** for types not inheriting Prism **`BindableBase`**. |
+| [BindableValidator](/generators/bindable-validator) | **`INotifyDataErrorInfo`** validation via **`[BindableValidator]`** and **`[NotifyDataErrorInfo]`**. |
+| [Container registration](/generators/container-registration) | **`Register*`**, **`RegisterForNavigation`**, **`RegisterDialog`**, emitted **`IContainerRegistry`** calls. |
 
 ## Diagnostics
 
-All compiler IDs are documented in **[Diagnostics reference](../diagnostics/reference.md)**.
+All compiler IDs are documented in **[Diagnostics reference](/diagnostics/reference)**.
 
 ## Next
 
-- [Architecture overview](../architecture/overview.md)
-- [Getting started](../getting-started.md)
+- [Architecture overview](/architecture/overview)
+- [Getting started](/getting-started)
