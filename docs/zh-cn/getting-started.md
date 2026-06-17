@@ -51,8 +51,8 @@ dotnet add package MvvmAIO.Prism.Bcl.Commands
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.5.1" />
-  <PackageReference Include="MvvmAIO.Prism.Bcl.Commands" Version="0.5.1" />
+  <PackageReference Include="MvvmAIO.Prism.SourceGenerators" Version="0.6.0" />
+  <PackageReference Include="MvvmAIO.Prism.Bcl.Commands" Version="0.6.0" />
 </ItemGroup>
 ```
 

@@ -16,6 +16,7 @@ const enSidebar = [
   { text: 'Overview', link: '/' },
   { text: 'About this site', link: '/about-this-site' },
   { text: 'Getting started', link: '/getting-started' },
+  { text: 'Ecosystem positioning', link: '/positioning' },
   {
     text: 'Architecture',
     items: [
@@ -41,6 +42,8 @@ const enSidebar = [
         text: 'Container registration',
         link: '/generators/container-registration',
       },
+      { text: 'NavigationAware', link: '/generators/navigation-aware' },
+      { text: 'DialogAware', link: '/generators/dialog-aware' },
     ],
   },
   { text: 'Diagnostics', link: '/diagnostics/reference' },
@@ -54,6 +57,7 @@ const zhCnSidebar = [
   { text: '概览', link: '/zh-cn/' },
   { text: '关于本站', link: '/zh-cn/about-this-site' },
   { text: '快速开始', link: '/zh-cn/getting-started' },
+  { text: '生态定位', link: '/zh-cn/positioning' },
   {
     text: '架构',
     items: [
@@ -88,6 +92,8 @@ const zhCnSidebar = [
         link: '/zh-cn/generators/bindable-validator',
       },
       { text: '容器注册', link: '/zh-cn/generators/container-registration' },
+      { text: 'NavigationAware', link: '/zh-cn/generators/navigation-aware' },
+      { text: 'DialogAware', link: '/zh-cn/generators/dialog-aware' },
     ],
   },
   { text: '诊断', link: '/zh-cn/diagnostics/reference' },
@@ -101,6 +107,7 @@ const jaSidebar = [
   { text: '概要', link: '/ja/' },
   { text: 'サイトについて', link: '/ja/about-this-site' },
   { text: 'はじめに', link: '/ja/getting-started' },
+  { text: 'エコシステム', link: '/ja/positioning' },
   {
     text: 'アーキテクチャ',
     items: [
@@ -126,6 +133,8 @@ const jaSidebar = [
       { text: 'BindableBase', link: '/ja/generators/bindable-base' },
       { text: 'BindableValidator', link: '/ja/generators/bindable-validator' },
       { text: 'コンテナ登録', link: '/ja/generators/container-registration' },
+      { text: 'NavigationAware', link: '/ja/generators/navigation-aware' },
+      { text: 'DialogAware', link: '/ja/generators/dialog-aware' },
     ],
   },
   { text: '診断', link: '/ja/diagnostics/reference' },

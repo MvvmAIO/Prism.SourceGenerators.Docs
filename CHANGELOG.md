@@ -6,15 +6,9 @@ All notable changes to this project are documented in this file.
 
 ### Added
 
-- **VitePress site** — Node 22 + VitePress 1.6 replaces NuStreamDocs; English, 简体中文 (`/zh-cn/`), and 日本語 (`/ja/`) locales with local search, home layout, and build-time hreflang/canonical meta.
-
-### Removed
-
-- **NuStreamDocs / .NET build stack** — `Program.cs`, C# post-render plugins, Native AOT publish, `mkdocs.yml`, and xUnit docs tests.
-
-### Changed
-
-- **CI** — GitHub Pages workflow uses `npm ci` and `npm run docs:build`; artifact path `.vitepress/dist`.
+- **Ecosystem positioning** page (EN / 中文 / 日本語).
+- **NavigationAware** and **DialogAware** generator docs.
+- Samples documentation for WPF, MAUI, and Uno/WinUI libraries.
 
 ## [0.4.2] - 2026-05-25
 
