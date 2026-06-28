@@ -28,6 +28,10 @@ description: Prism MVVM 源生成器功能索引。
 | [BindableBase](/zh-cn/generators/bindable-base) | 未继承 Prism **`BindableBase`** 时生成 **INPC**。 |
 | [BindableValidator](/zh-cn/generators/bindable-validator) | 通过 **`[BindableValidator]`** 和 **`[NotifyDataErrorInfo]`** 生成 **`INotifyDataErrorInfo`** 验证支持。 |
 | [容器注册](/zh-cn/generators/container-registration) | **`Register*`**、**`RegisterForNavigation`**、**`RegisterDialog`**，生成 **`IContainerRegistry`** 调用。 |
+| [NavigationAware](/zh-cn/generators/navigation-aware) | **`INavigationAware`** 生命周期；Prism 8 **`Prism.Regions`** / Prism 9 **`Prism.Navigation.Regions`**。 |
+| [DialogAware](/zh-cn/generators/dialog-aware) | **`IDialogAware`**；Prism 8 **`Prism.Services.Dialogs`** / Prism 9 **`Prism.Dialogs`**。 |
+| [NavigateCommand](/generators/navigate-command) | **`IRegionManager.RequestNavigate`** 命令生成（英文文档）。 |
+| [ShowDialogCommand](/generators/show-dialog-command) | **`IDialogService.ShowDialog`** 命令生成（英文文档）。 |
 
 ## 诊断
 

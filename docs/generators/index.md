@@ -28,6 +28,10 @@ MvvmAIO.Prism.SourceGenerators extends **partial** types at compile time. Attrib
 | [BindableBase](/generators/bindable-base) | Generated **INPC** for types not inheriting Prism **`BindableBase`**. |
 | [BindableValidator](/generators/bindable-validator) | **`INotifyDataErrorInfo`** validation via **`[BindableValidator]`** and **`[NotifyDataErrorInfo]`**. |
 | [Container registration](/generators/container-registration) | **`Register*`**, **`RegisterForNavigation`**, **`RegisterDialog`**, emitted **`IContainerRegistry`** calls. |
+| [NavigationAware](/generators/navigation-aware) | **`INavigationAware`** lifecycle members; Prism 8 **`Prism.Regions`** and Prism 9 **`Prism.Navigation.Regions`**. |
+| [DialogAware](/generators/dialog-aware) | **`IDialogAware`** members; Prism 8 **`Prism.Services.Dialogs`** and Prism 9 **`Prism.Dialogs`**. |
+| [NavigateCommand](/generators/navigate-command) | **`IRegionManager.RequestNavigate`** via **`DelegateCommand`** or property-changed navigation. |
+| [ShowDialogCommand](/generators/show-dialog-command) | **`IDialogService.ShowDialog`** via **`DelegateCommand`**. |
 
 ## Diagnostics
 

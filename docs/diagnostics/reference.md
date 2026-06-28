@@ -74,6 +74,38 @@ See [Container registration](/generators/container-registration).
 
 `[NotifyDataErrorInfo]` is only effective when the containing type inherits from `BindableValidator` or is annotated with `[BindableValidator]`. Without it the generated setter will not call `ValidateProperty`. See [BindableValidator](/generators/bindable-validator).
 
+## PSG0007–PSG0008 — Navigation & dialog awareness
+
+| ID | Severity | Title |
+|----|----------|-------|
+| **PSG0007** | Error | Class with `[NavigationAware]` must be partial |
+| **PSG0008** | Error | Class with `[DialogAware]` must be partial |
+
+**Code fix:** **MakePartial** is available in the IDE.
+
+See [NavigationAware](/generators/navigation-aware) and [DialogAware](/generators/dialog-aware).
+
+## PSG7001–PSG7005 — region navigation commands
+
+| ID | Severity | Title |
+|----|----------|-------|
+| **PSG7001** | Error | IRegionManager member not found |
+| **PSG7002** | Error | Region is required for `[NavigateCommand]` |
+| **PSG7003** | Error | Target is required for `[NavigateCommand]` |
+| **PSG7004** | Error | `[NavigateOnChanged]` requires `[ObservableProperty]` |
+| **PSG7005** | Error | TargetMember is required for `[NavigateOnChanged]` |
+
+See [NavigateCommand](/generators/navigate-command).
+
+## PSG7101–PSG7102 — dialog service commands
+
+| ID | Severity | Title |
+|----|----------|-------|
+| **PSG7101** | Error | IDialogService member not found |
+| **PSG7102** | Error | Name is required for `[ShowDialogCommand]` |
+
+See [ShowDialogCommand](/generators/show-dialog-command).
+
 ## Next
 
 - [Generators overview](/generators/)

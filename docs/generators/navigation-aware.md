@@ -5,13 +5,20 @@ description: Generate Prism INavigationAware members with partial hooks.
 
 # NavigationAware
 
-Apply **`[NavigationAware]`** to a **partial** class that references **`Prism.Navigation.Regions.INavigationAware`** (via Prism.Core) to emit navigation lifecycle members.
+Apply **`[NavigationAware]`** to a **partial** class to emit **`INavigationAware`** members and optional **`OnNavigatedToCore`** / **`IsNavigationTargetCore`** / **`OnNavigatedFromCore`** hooks.
+
+The generator runs when the compilation references a regions API:
+
+| Prism | Namespace |
+|-------|-----------|
+| **9+** | `Prism.Navigation.Regions` |
+| **8** | `Prism.Regions` (from **Prism.Wpf**, **Prism.Avalonia**, etc.) |
 
 ## Usage
 
 ```csharp
 using Prism.Mvvm;
-using Prism.Navigation.Regions;
+using Prism.Navigation.Regions; // or Prism.Regions on Prism 8
 using Prism.SourceGenerators;
 
 [NavigationAware]
@@ -23,6 +30,8 @@ public partial class DashboardViewModel : BindableBase
     }
 }
 ```
+
+Override navigation reuse with **`private partial bool IsNavigationTargetCore(...)`** when the default `true` is not enough.
 
 ## Generated members
 
@@ -38,5 +47,6 @@ public partial class DashboardViewModel : BindableBase
 
 ## Related
 
+- [NavigateCommand](/generators/navigate-command)
 - [Container registration](/generators/container-registration) — `[RegisterForNavigation]`
 - [Samples](/samples)
