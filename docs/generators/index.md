@@ -41,3 +41,4 @@ All compiler IDs are documented in **[Diagnostics reference](/diagnostics/refere
 
 - [Architecture overview](/architecture/overview)
 - [Getting started](/getting-started)
+- [RFC: Navigation & Dialog — advanced contracts](/rfc/navigation-dialog-advanced)
