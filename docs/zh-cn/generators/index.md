@@ -41,3 +41,4 @@ description: Prism MVVM 源生成器功能索引。
 
 - [架构总览](/zh-cn/architecture/overview)
 - [快速开始](/zh-cn/getting-started)
+- [RFC：导航与对话框 — 高级契约（英文）](/rfc/navigation-dialog-advanced)
