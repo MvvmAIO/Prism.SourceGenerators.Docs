@@ -39,11 +39,34 @@ Override navigation reuse with **`private partial bool IsNavigationTargetCore(..
 - `IsNavigationTarget` → calls `IsNavigationTargetCore` (default `true` in generated partial)
 - `OnNavigatedFrom` → calls `OnNavigatedFromCore`
 
+## `[FromNavigationParameter]`
+
+Apply **`[FromNavigationParameter]`** to an `[ObservableProperty]` field or partial property to read a typed value from `NavigationContext.Parameters` via `TryGetValue<T>` and assign it through the property setter before `OnNavigatedToCore` is invoked.
+
+```csharp
+[NavigationAware]
+public partial class DashboardViewModel : BindableBase
+{
+    [FromNavigationParameter("userId")]
+    [ObservableProperty]
+    public partial int UserId { get; set; }
+
+    [FromNavigationParameter]  // key defaults to "UserName"
+    [ObservableProperty]
+    public partial string UserName { get; set; }
+}
+```
+
+If the parameter is absent, the property retains its initial value. The key defaults to the property name when not specified.
+
 ## Diagnostics
 
 | ID | When |
 |----|------|
 | **PSG0007** | Class is not `partial` — use the **Add partial** code fix |
+| **PSG7006** | Attribute applied to a non-field/property member |
+| **PSG7007** | Member lacks `[ObservableProperty]` |
+| **PSG7008** | Key is empty |
 
 ## Related
 

@@ -74,6 +74,14 @@ See [Container registration](/generators/container-registration).
 
 `[NotifyDataErrorInfo]` is only effective when the containing type inherits from `BindableValidator` or is annotated with `[BindableValidator]`. Without it the generated setter will not call `ValidateProperty`. See [BindableValidator](/generators/bindable-validator).
 
+## PSG6001 — partial property suggestion
+
+| ID | Severity | Title |
+|----|----------|-------|
+| **PSG6001** | Info | Use partial property for `[ObservableProperty]` (C# 13+) |
+
+**Code fix:** Convert field-backed `[ObservableProperty]` to a partial property when C# 13+ is enabled.
+
 ## PSG0007–PSG0008 — Navigation & dialog awareness
 
 | ID | Severity | Title |
@@ -105,6 +113,26 @@ See [NavigateCommand](/generators/navigate-command).
 | **PSG7102** | Error | Name is required for `[ShowDialogCommand]` |
 
 See [ShowDialogCommand](/generators/show-dialog-command).
+
+## PSG7006–PSG7008 — `[FromNavigationParameter]`
+
+| ID | Severity | Title |
+|----|----------|-------|
+| **PSG7006** | Error | `[FromNavigationParameter]` can only be applied to fields or properties |
+| **PSG7007** | Warning | `[FromNavigationParameter]` requires `[ObservableProperty]` |
+| **PSG7008** | Error | `[FromNavigationParameter]` key cannot be empty |
+
+See [NavigationAware](/generators/navigation-aware).
+
+## PSG7103–PSG7105 — `[FromDialogParameter]`
+
+| ID | Severity | Title |
+|----|----------|-------|
+| **PSG7103** | Error | `[FromDialogParameter]` can only be applied to fields or properties |
+| **PSG7104** | Warning | `[FromDialogParameter]` requires `[ObservableProperty]` |
+| **PSG7105** | Error | `[FromDialogParameter]` key cannot be empty |
+
+See [DialogAware](/generators/dialog-aware).
 
 ## Next
 
