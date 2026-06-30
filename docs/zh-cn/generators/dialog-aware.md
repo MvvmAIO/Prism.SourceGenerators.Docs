@@ -14,4 +14,20 @@ description: 生成 Prism IDialogAware 成员与分部钩子。
 
 用法与英文文档相同，见 [DialogAware（English）](/generators/dialog-aware)。
 
-诊断：**PSG0008**（类须为 `partial`）。
+## `[FromDialogParameter]`
+
+在 `[ObservableProperty]` 字段或 partial property 上应用 **`[FromDialogParameter]`**，可在 `OnDialogOpenedCore` 调用之前，通过 `TryGetValue<T>` 从 `IDialogParameters` 读取类型化值并通过属性 setter 赋值。
+
+```csharp
+[DialogAware(Title = "Confirm")]
+public partial class ConfirmViewModel : BindableBase
+{
+    [FromDialogParameter("message")]
+    [ObservableProperty]
+    public partial string Message { get; set; } = "Default";
+}
+```
+
+如果参数不存在，属性保留其初始值。未指定时 key 默认为属性名。
+
+诊断：**PSG0008**（类须为 `partial`）、**PSG7103**（属性应用于非字段/属性成员）、**PSG7104**（成员缺少 `[ObservableProperty]`）、**PSG7105**（key 为空）。
