@@ -14,7 +14,7 @@ description: 使用 MvvmAIO.Prism.SourceGenerators 的 Avalonia 示例应用。
 | 方面 | 说明 |
 |------|------|
 | **Prism 8** | 演示在需要 **`AsyncDelegateCommand`** 时使用 **`MvvmAIO.Prism.Bcl.Commands`**。 |
-| **Prism 9** | 在适用场景使用 Prism 内置异步命令类型。 |
+| **Prism 9** | 使用 Prism 内置异步命令；含区域导航、对话框与 **`[FromNavigationParameter]` / `[FromDialogParameter]`** 演示。 |
 | **Avalonia** | 演示所用 UI 栈；生成器用法与 UI 框架无关。 |
 
 克隆该仓库并在其中打开解决方案，即可端到端调试 **ObservableProperty**、**命令** 与 **注册**。
@@ -23,7 +23,7 @@ description: 使用 MvvmAIO.Prism.SourceGenerators 的 Avalonia 示例应用。
 
 - **`Prism.SourceGenerators.Samples.slnx`** — 在 Visual Studio **17.13+** 或 Rider 中打开（需支持 `.slnx`）。
 - **`Prism.SourceGenerators.Samples.Prism8`** — 目标 **`net8.0`**，Prism 8；需要 **`AsyncDelegateCommand`** 时使用 **`MvvmAIO.Prism.Bcl.Commands`**。
-- **`Prism.SourceGenerators.Samples.Prism9`** — 目标 **`net10.0`**，Prism 9 与内置异步命令；含 **Validation** 示例（`BindableValidator`、`[NotifyDataErrorInfo]`、DataAnnotations）。
+- **`Prism.SourceGenerators.Samples.Prism9`** — 目标 **`net10.0`**，Prism 9；含 **Validation**、区域导航、确认对话框，以及 **`DashboardViewModel` / `ConfirmDialogViewModel` 参数绑定**演示。
 
 ## 构建
 
