@@ -14,7 +14,7 @@ description: MvvmAIO.Prism.SourceGenerators を使う Avalonia サンプル。
 | 観点 | メモ |
 |------|------|
 | **Prism 8** | **`AsyncDelegateCommand`** に **`MvvmAIO.Prism.Bcl.Commands`** が必要な例。 |
-| **Prism 9** | 組み込みの非同期コマンド型を利用。 |
+| **Prism 9** | 組み込み非同期コマンド。**リージョン・ナビゲーション / ダイアログ**と **`[FromNavigationParameter]` / `[FromDialogParameter]`** のデモあり。 |
 | **Avalonia** | デモの UI スタック。ジェネレータの使い方は UI 非依存。 |
 
 リポジトリをクローンし、その中のソリューションを開くと、**ObservableProperty**、**コマンド**、**登録**を端到端で追えます。
@@ -23,7 +23,7 @@ description: MvvmAIO.Prism.SourceGenerators を使う Avalonia サンプル。
 
 - **`Prism.SourceGenerators.Samples.slnx`** — Visual Studio **17.13+** または Rider で開く（`.slnx` 対応が必要）。
 - **`Prism.SourceGenerators.Samples.Prism8`** — ターゲット **`net8.0`**、Prism 8。**`AsyncDelegateCommand`** には **`MvvmAIO.Prism.Bcl.Commands`**。
-- **`Prism.SourceGenerators.Samples.Prism9`** — ターゲット **`net10.0`**、Prism 9 と組み込み非同期コマンド。**Validation**（`BindableValidator`、`[NotifyDataErrorInfo]`、DataAnnotations）あり。
+- **`Prism.SourceGenerators.Samples.Prism9`** — ターゲット **`net10.0`**、Prism 9。**Validation**、リージョン・ナビゲーション、確認ダイアログ、**`DashboardViewModel` / `ConfirmDialogViewModel` のパラメータ・バインディング**デモあり。
 
 ## ビルド
 
