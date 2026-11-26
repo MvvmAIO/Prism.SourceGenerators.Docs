@@ -1,5 +1,7 @@
 # Prism.SourceGenerators.Docs
 
+**English** | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
+
 Static documentation for **[MvvmAIO.Prism.SourceGenerators](https://github.com/MvvmAIO/Prism.SourceGenerators)**, built with **[VitePress](https://vitepress.dev/)** (Markdown, local search, syntax highlighting).
 
 ## Live site
