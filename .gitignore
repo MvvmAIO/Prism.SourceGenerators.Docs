@@ -15,3 +15,6 @@ test-build-*/
 node_modules/
 .vitepress/dist/
 .vitepress/cache/
+
+# Local scratch directories
+.scratch/
