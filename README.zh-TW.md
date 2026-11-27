@@ -41,7 +41,7 @@ npm run docs:preview
 | 連結 | 說明 |
 |------|------|
 | [Generator repo](https://github.com/MvvmAIO/Prism.SourceGenerators) | 套件與 README |
-| [Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples) | Avalonia 範例 |
+| [Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples) | Avalonia、WPF、MAUI 與 Uno 範例 |
 | [DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators) | 索引文件 |
 
 ## 授權條款
