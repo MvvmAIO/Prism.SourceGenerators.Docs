@@ -41,7 +41,7 @@ Output is written to **`.vitepress/dist`**.
 | Link | Description |
 |------|-------------|
 | [Generator repo](https://github.com/MvvmAIO/Prism.SourceGenerators) | Packages and README |
-| [Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples) | Avalonia demos |
+| [Samples](https://github.com/MvvmAIO/Prism.SourceGenerators.Samples) | Avalonia, WPF, MAUI, and Uno samples |
 | [DeepWiki](https://deepwiki.com/MvvmAIO/Prism.SourceGenerators) | AI-indexed docs |
 
 ## License
