@@ -18,6 +18,17 @@
   max-width: var(--docs-prose-max);
 }
 
+@media (min-width: 1440px) {
+  .Layout:has(.VPDoc.has-sidebar) {
+    --vp-layout-max-width: min(100vw, 108rem);
+    --docs-prose-max: clamp(43rem, 46vw, 56rem);
+  }
+
+  .VPDoc.has-sidebar.has-aside .content-container {
+    max-width: var(--docs-prose-max);
+  }
+}
+
 .vp-doc .container {
   padding-inline: clamp(0.75rem, 2.8vw, 1.5rem);
 }
@@ -63,13 +74,6 @@
 @media (max-width: 22.5rem) {
   html {
     font-size: 94%;
-  }
-}
-
-@media (min-width: 100em) {
-  .VPContent.has-sidebar {
-    max-width: 92rem;
-    margin-inline: auto;
   }
 }
 
