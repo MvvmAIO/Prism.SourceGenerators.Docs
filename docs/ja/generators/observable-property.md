@@ -15,7 +15,9 @@ description: フィールドと partial プロパティターゲット、Propert
 
 **private フィールド**に付与。生成プロパティは既定で **`public`**。**`PropertyAccess`** で可視性を変更できます。
 
-バージョン 0.8.1 では、C# 7.3 で .NET Framework 4.8 を対象とするプロジェクトで、生成コードに CS8370 が発生することがあります。`LangVersion` を `8.0` に設定すると、ターゲットフレームワークを変更せずにこの問題を回避できます。[#117](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) の修正により、同じフィールドとコマンドの例が C# 7.3 でコンパイルできるようになります。
+バージョン 0.8.1 では、.NET Framework 4.8 を対象とする C# 7.3 プロジェクトでもフィールドからプロパティが生成されます。生成コードのコンパイル時に `CS8370` が発生する場合は、そのプロジェクトの `.csproj` に `<LangVersion>8.0</LangVersion>` を設定すると回避できます。
+
+[#117 のプロパティとコマンドを含む再現例](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) を C# 7.3 でコンパイルするには、修正を含むパッケージが必要です。この修正は未リリースです。
 
 ```csharp
 public partial class MainViewModel : BindableBase

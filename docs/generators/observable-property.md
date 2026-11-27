@@ -15,7 +15,9 @@ Generates observable properties on types inheriting **`Prism.Mvvm.BindableBase`*
 
 Annotate a **private field**. The generated property is **`public`** by default; use **`PropertyAccess`** to change visibility.
 
-With version 0.8.1, projects targeting .NET Framework 4.8 with C# 7.3 can get CS8370 in generated code. Setting `LangVersion` to `8.0` works around this without changing the target framework. The fix for [#117](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) lets the same field and command example compile with C# 7.3.
+With version 0.8.1 on .NET Framework 4.8 and C# 7.3, the generator emits the field-backed property. Compilation can fail with `CS8370` in the generated code. Set `<LangVersion>8.0</LangVersion>` in the .NET Framework 4.8 project's `.csproj` to work around the error.
+
+Compiling the [full property and command example in #117](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) with C# 7.3 requires a package version that includes the fix. The fix is pending release.
 
 ```csharp
 public partial class MainViewModel : BindableBase

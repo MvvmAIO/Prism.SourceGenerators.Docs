@@ -40,7 +40,8 @@ public partial class MainViewModel : BindableBase
 ## C# 14+ とそれ以前
 
 - **C# 14+**：コマンドプロパティに **`field`** キーワード（別フィールド不要）。
-- **それ以前**：従来の **`_command`??=** 遅延フィールド。
+- **C# 8–13** では、コマンドプロパティはバッキングフィールドと `_command ??= ...` を使います。
+- **C# 7.3** でバージョン 0.8.1 を使うと、C# 8 が必要な `_command ??= ...` が生成されます。[#117](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) の未リリースの修正では、`_command ?? (_command = ...)` でコマンドインスタンスをキャッシュします。
 
 ## 関連
 
