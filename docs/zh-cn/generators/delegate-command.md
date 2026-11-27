@@ -40,7 +40,8 @@ public partial class MainViewModel : BindableBase
 ## C# 14+ 与更早版本
 
 - **C# 14+**：命令属性可使用 **`field`** 关键字（无需单独后备字段）。
-- **更早**：传统 **`_command`??=** 惰性字段模式。
+- 在 **C# 8–13** 下，命令属性使用后备字段和 `_command ??= ...`。
+- 在 **C# 7.3** 下使用 0.8.1 时，生成的 `_command ??= ...` 语法要求 C# 8。待发布的 [#117 修复](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) 使用 `_command ?? (_command = ...)` 缓存命令实例。
 
 ## 相关
 

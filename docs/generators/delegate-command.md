@@ -40,7 +40,8 @@ public partial class MainViewModel : BindableBase
 ## C# 14+ vs earlier
 
 - **C# 14+**: command properties can use the **`field`** keyword (no separate backing field).
-- **Earlier**: traditional **`_command`??=** lazy field pattern.
+- For **C# 8–13**, command properties use a backing field with `_command ??= ...`.
+- On **C# 7.3**, version 0.8.1 emits `_command ??= ...`, which requires C# 8. The pending fix for [#117](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) uses `_command ?? (_command = ...)` to cache the command instance.
 
 ## Related
 

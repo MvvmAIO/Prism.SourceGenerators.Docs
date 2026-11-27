@@ -11,9 +11,13 @@ description: 字段与 partial 属性目标、PropertyAccess 与变更钩子。
 
 为继承 **`Prism.Mvvm.BindableBase`**（或兼容基类）的类型生成可观察属性。类型（以及属性目标下的属性）必须为 **`partial`**。
 
-## 字段目标（各 C# 版本）
+## 字段目标
 
 标注 **private 字段**。生成属性默认 **`public`**；用 **`PropertyAccess`** 可调整可见性。
+
+在面向 .NET Framework 4.8 的 C# 7.3 项目中，0.8.1 会从字段生成属性，生成的代码在编译时可能触发 `CS8370`。可在该项目的 `.csproj` 中设置 `<LangVersion>8.0</LangVersion>` 来规避。
+
+要用 C# 7.3 编译 [#117 中完整的属性和命令示例](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117)，需要使用包含修复的包版本。该修复待发布。
 
 ```csharp
 public partial class MainViewModel : BindableBase

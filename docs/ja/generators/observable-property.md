@@ -11,9 +11,13 @@ description: フィールドと partial プロパティターゲット、Propert
 
 **`Prism.Mvvm.BindableBase`**（または互換基底）を継承する型に observable プロパティを生成します。型（プロパティターゲットの場合はそのプロパティも）**`partial`** が必要です。
 
-## フィールドターゲット（全 C# 版）
+## フィールドターゲット
 
 **private フィールド**に付与。生成プロパティは既定で **`public`**。**`PropertyAccess`** で可視性を変更できます。
+
+バージョン 0.8.1 では、.NET Framework 4.8 を対象とする C# 7.3 プロジェクトでもフィールドからプロパティが生成されます。生成コードのコンパイル時に `CS8370` が発生する場合は、そのプロジェクトの `.csproj` に `<LangVersion>8.0</LangVersion>` を設定すると回避できます。
+
+[#117 のプロパティとコマンドを含む再現例](https://github.com/MvvmAIO/Prism.SourceGenerators/issues/117) を C# 7.3 でコンパイルするには、修正を含むパッケージが必要です。この修正は未リリースです。
 
 ```csharp
 public partial class MainViewModel : BindableBase
