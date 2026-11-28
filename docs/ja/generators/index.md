@@ -31,7 +31,7 @@ description: Prism MVVM 向けソースジェネレータ機能の索引。
 | [NavigationAware](/ja/generators/navigation-aware) | **`INavigationAware`** ライフサイクル；Prism 8 **`Prism.Regions`** / Prism 9 **`Prism.Navigation.Regions`**。 |
 | [DialogAware](/ja/generators/dialog-aware) | **`IDialogAware`**；Prism 8 **`Prism.Services.Dialogs`** / Prism 9 **`Prism.Dialogs`**。 |
 | [NavigateCommand (EN)](/generators/navigate-command) | **`IRegionManager.RequestNavigate`** コマンド生成（英語ドキュメント）。 |
-| [ShowDialogCommand (EN)](/generators/show-dialog-command) | **`IDialogService.ShowDialog`** コマンド生成（英語ドキュメント）。 |
+| [ShowDialogCommand](/ja/generators/show-dialog-command) | **`IDialogService.ShowDialog`** を呼び出すコマンドを生成します。 |
 
 ## 診断
 

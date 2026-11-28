@@ -31,7 +31,7 @@ description: Prism MVVM 源生成器功能索引。
 | [NavigationAware](/zh-cn/generators/navigation-aware) | **`INavigationAware`** 生命周期；Prism 8 **`Prism.Regions`** / Prism 9 **`Prism.Navigation.Regions`**。 |
 | [DialogAware](/zh-cn/generators/dialog-aware) | **`IDialogAware`**；Prism 8 **`Prism.Services.Dialogs`** / Prism 9 **`Prism.Dialogs`**。 |
 | [NavigateCommand](/generators/navigate-command) | **`IRegionManager.RequestNavigate`** 命令生成（英文文档）。 |
-| [ShowDialogCommand](/generators/show-dialog-command) | **`IDialogService.ShowDialog`** 命令生成（英文文档）。 |
+| [ShowDialogCommand](/zh-cn/generators/show-dialog-command) | 生成调用 **`IDialogService.ShowDialog`** 的命令。 |
 
 ## 诊断
 
